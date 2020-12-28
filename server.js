@@ -31,6 +31,16 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/models", mongoOptions);
 
+mongoose.connection.on('connected', ()=>{
+  console.log('Mongoose is connected !')
+})
+
+
+
+if (process.env.NODE_ENV === 'production' ){
+
+  app.use(express.static('client/build'));
+}
 // Start the API server
 app.listen(PORT, function () {
 	console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
