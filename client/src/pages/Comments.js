@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
+import {useSpring, animated} from 'react-spring'
+import PushPin from "../components/PushPin";
 
 function Comments({ username }) {
   // Setting our component's initial state
+
   const [comments, setComments] = useState([]);
   const [formObject, setFormObject] = useState({
     body: "",
@@ -32,6 +35,8 @@ function Comments({ username }) {
     titleInputElRef.current.focus();
   }, [username]);
 
+
+  
   // Loads all comments and sets them to comments
   function loadComments() {
     API.getComments()
@@ -71,7 +76,7 @@ function Comments({ username }) {
         .catch((err) => console.log(err));
     }
   }
-
+  console.log(comments);
   return (
     <>
       <Row>
@@ -107,11 +112,15 @@ function Comments({ username }) {
                       <strong>{comment.username}:</strong> {comment.body}
                     </Link>
                   </Td>
-                  <Td>{comment.date}</Td>
+                  <Td>D.I.Y QUICK VIEW</Td>
                   <Td>
+				  
                     <DeleteBtn onClick={() => deleteComment(comment._id)} />
+					<PushPin projects ={comment}/>
                   </Td>
+				 
                 </Tr>
+				
               ))}
             </Table>
           ) : (
@@ -119,48 +128,14 @@ function Comments({ username }) {
           )}
         </Col>
       </Row>
-      <Row>
-        <Col size="">
-          <div className="avatar-med m-4">
-            <img
-              className="avatar-img rounded-circle "
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrbx1lkjm3dPCtewBZITNkKDwzq5C0e61IQ&usqp=CAU"
-            />
-			<div class="p-title">In Progress</div>
-          </div>
-		  
-        </Col>
-	
-        <Col size="">
-          <div className="avatar-med m-4">
-            <img
-              className="avatar-img rounded-circle"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrbx1lkjm3dPCtewBZITNkKDwzq5C0e61IQ&usqp=CAU"
-            />
-			<div class="p-title">Project 2</div>
-          </div>
-        </Col>
-        <Col size="">
-          <div className="avatar-med m-4">
-            <img
-              className="avatar-img rounded-circle"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrbx1lkjm3dPCtewBZITNkKDwzq5C0e61IQ&usqp=CAU"
-            />
-			<div class="p-title">Project 3</div>
-          </div>
-        </Col>
-        <Col size="">
-          <div className="avatar-med m-4">
-            <img
-              className="avatar-img rounded-circle"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTrbx1lkjm3dPCtewBZITNkKDwzq5C0e61IQ&usqp=CAU"
-            />
-			<div class="p-title">Project 4</div>
-          </div>
-        </Col>
-      </Row>
+
+	    
+	  
     </>
+	
   );
 }
+
+
 
 export default Comments;
