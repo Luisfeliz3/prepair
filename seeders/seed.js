@@ -18,6 +18,7 @@ let projectSeed = [
             }
         ],
         tools: ["level", "hammer", "sandpaper", "drill", "1in screws"],
+        optional: ["paint", "shelf pins (removeable shelves)", "5mm shelf pin drill bit"]
         inputWidth: "",
         inputDepth: "",
         inputHeight: "",
