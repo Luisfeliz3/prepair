@@ -22,6 +22,8 @@ export default {
 // Note: This API costs money! Test sparingly:
   // Requests: $0.005 / use
   // Results: $1e-8 / use
+// Endpoint information can be found here:
+  // https://rapidapi.com/a.rachitskiy/api/sku-io/endpoints
 
 // Test API function
 const options = {
