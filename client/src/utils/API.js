@@ -25,7 +25,7 @@ export default {
 // Endpoint information can be found here:
   // https://rapidapi.com/a.rachitskiy/api/sku-io/endpoints
 
-// Test API function
+// Test API function - may need to be moved to controllers
 const options = {
   method: 'GET',
   url: 'https://sku-io.p.rapidapi.com/request',
