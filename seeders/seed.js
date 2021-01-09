@@ -156,7 +156,7 @@ let baseProjectsSeed = [
 		materials: [
             {
                 type: "wood",
-                name: "plywood sheets",
+                name: "thick plywood sheets",
                 size: "4ft x 8ft x 1in"
             }
         ],
@@ -517,6 +517,82 @@ let completion = [
         "completionStatus": 4,
         "description": "Completed build.",
         "completionPercentage": 100
+    }
+]
+
+// Pricing SKU to materials
+let pricing = [
+    {
+        "name": "2x4 nominal studs",
+        "size": "8ft lengths of 2x4 (1.5in x 3.5in)",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "1-inch rod",
+        "size": "4ft length",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "plywood sheets",
+        "size": "4ft x 8ft x 11/16in",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "1x3 nominal studs",
+        "size": "8ft lengths of 1x3 (0.5 in x 2.5in)",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "thick plywood sheets",
+        "size": "4ft x 8ft x 1in",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "heavy-duty side-mounted drawer slides",
+        "size": "22in depth",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "closet rod with sleeves",
+        "size": "1-1/4 in diameter",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "subway tile",
+        "size": "3x6",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "cement board backer",
+        "size": "3/4 in thick",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "cementitious grout",
+        "size": "1/8 in joint thickness",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "thin-set mortar adhesive",
+        "size": "1/8 in thick layer",
+        "sku": "",
+        "price": ""
+    },
+    {
+        "name": "gypsum board",
+        "size": "4ft x 8ft x 5/8in",
+        "sku": "",
+        "price": ""
     }
 ]
 
