@@ -22,7 +22,7 @@ let proTips = [
     },
     {
         proTipId: 4,
-        proTipText: "Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches.."
+        proTipText: "Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches."
     },
     {
         proTipId: 5,
