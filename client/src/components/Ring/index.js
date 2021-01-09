@@ -8,27 +8,28 @@ import "react-circular-progressbar/dist/styles.css";
 import Popup from "../Popup/index";
 
 function Ring (){
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const percentage = 66;
 
 
 
   return (
     <div id="ring" className="float-left m-0">
-      <a
+      <div
         href=""
         id="clickRing"
         onClick={() => {
           setShowModal(true);
+          console.log("clicked");
         }}
       >
       
         <CircularProgressbar value={percentage} text={`${percentage}%`} />
-      </a>
+      </div>
 
        {/* <Popup show={showModal}/> */}
         
-
+ 
     </div>
   );
 };
