@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
-
+import Ring from '../components/Ring/index'
+ 
 function Comments({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
@@ -28,8 +29,8 @@ function Comments({ username }) {
       loadComments();
 
       // focus on titleInputEl if ref exists
-      titleInputElRef.current.focus()
-   }, [username]);
+    //   titleInputElRef.current.focus()
+   }, []);
    
 
 	// Loads all comments and sets them to comments
@@ -54,24 +55,24 @@ function Comments({ username }) {
 
 	// When the form is submitted, use the API.saveComment method to save the comment data
 	// Then reload comments from the database
-	function handleFormSubmit(event) {
-		event.preventDefault();
-		if (formObject.body) {
-			API.saveComment({
-				body: formObject.body,
-				username: formObject.username,
-			})
-            .then(loadComments)
-            .then(() => setFormObject({
-               body: "",
-               username: ""
-            }))
-				.catch((err) => console.log(err));
-		}
-	}
+	// function handleFormSubmit(event) {
+	// 	event.preventDefault();
+	// 	if (formObject.body) {
+	// 		API.saveComment({
+	// 			body: formObject.body,
+	// 			username: formObject.username,
+	// 		})
+    //         .then(loadComments)
+    //         .then(() => setFormObject({
+    //            body: "",
+    //            username: ""
+    //         }))
+	// 			.catch((err) => console.log(err));
+	// 	}
+	// }
 
 	return <>
-		<Row>
+		{/* <Row>
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
@@ -84,23 +85,28 @@ function Comments({ username }) {
 					</FormBtn>
 				</form>
 			</Col>
-		</Row>,
+		</Row>, */}
 		<Row>
 			<Col size='md-12'>
 				{comments.length ? (
 					<Table>
 						{comments.map(comment => (
-							<Tr key={comment._id}>
-								<Td>
-									<Link
+							<Tr key={comment._id} className="d-flex float-left">
+							
+								<Td >
+								<Ring />
+								<Ring />
+								<Ring/>
+									{/* <Link
 										to={"/comments/" + comment._id}
 										style={{ textAlign: "left", display: "block" }}>
 										<strong>{comment.username}:</strong> {comment.body}
-									</Link>
+									</Link> */}
 								</Td>
-								<Td>{comment.date}</Td>
+								{/* <Td>{comment.date}</Td> */}
+								
 								<Td>
-									<DeleteBtn onClick={() => deleteComment(comment._id)} />
+									{/* <DeleteBtn onClick={() => deleteComment(comment._id)} /> */}
 								</Td>
 							</Tr>
 						))}
