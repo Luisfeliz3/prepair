@@ -597,7 +597,7 @@ let pricing = [
 ]
 
 db.Project.deleteMany({})
-	.then(() => db.Project.collection.insertMany(projectSeed))
+	.then(() => db.Project.collection.insertMany(proTips, baseProjectsSeed, userProjects, completion, pricing))
 	.then((data) => {
 		console.log(data.result.n + " records inserted!");
 		process.exit(0);
