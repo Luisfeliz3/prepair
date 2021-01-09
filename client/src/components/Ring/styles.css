@@ -1,0 +1,16 @@
+CircularProgressbar{
+
+font-size: small;
+
+}
+
+#ring {
+    box-sizing: border-box;
+    position:relative;
+    display:inline-block;
+    min-width: 100%;
+    border:3px solid yellow;
+  }
+  #clickRing {
+  
+  }
