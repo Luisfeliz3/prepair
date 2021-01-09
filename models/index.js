@@ -1,4 +1,7 @@
 module.exports = {
-  Comment: require("./Comment"),
-  User: require("./User")
+  User: require("./User"),
+  Pricing: require("./Pricing"),
+  Completion: require("./Completion"),
+  Protips: require("./Protips"),
+  BaseProjects: require("./BaseProjects")
 };

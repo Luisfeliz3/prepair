@@ -121,8 +121,8 @@ let baseProjectsSeed = [
                "calculatedWasteFactor": "calculatedWastePercentage"
          }
       ],
-   imgMain: "/public/construction-icons/chair-main.png",
-   imgEx: "/public/construction-icons/chair-ex.png"
+      imgMain: "/public/construction-icons/chair-main.png",
+      imgEx: "/public/construction-icons/chair-ex.png"
    },
    {
       projectName: "bookcase",
@@ -629,42 +629,56 @@ let pricing = [
 
 // Should be five collections based on seeds - users with currentProjects, base projects, proTips, completion phases, and pricing.
 // Database name "Prepair" - please change if different
-db.Prepair.deleteMany({})
 
-
-// Remove all comments
-db.Comment.deleteMany({})
-	// remove all users
-	.then(() => db.User.deleteMany({}))
-	// add user
-	.then(() => db.User.create(userSeed))
-	// add comments seeds
-	.then((user) =>
-		db.Comment.create(commentsSeeds[0])
-			// add comment ref to user
-			.then(({ _id }) =>
-				db.User.findOneAndUpdate(
-					{ _id: user._id },
-					{ $push: { comments: _id } },
-					{ new: true }
-				)
-			)
-	)
-	.then((user) =>
-		db.Comment.create(commentsSeeds[1])
-			// add comment ref to user
-			.then(({ _id }) =>
-				db.User.findOneAndUpdate(
-					{ _id: user._id },
-					{ $push: { comments: _id } },
-					{ new: true }
-				)
-			)
-	)
-	.then(() => {
+// Removing all users with their currentProjects
+db.User.deleteMany({})
+   .then(() => db.User.create(userSeed))
+   .then(() => db.Pricing.create(pricing))
+   .then(() => db.Completion.create(completion))
+   .then(() => db.Protips.create(proTips))
+   .then(() => db.BaseProjects.create(baseProjectsSeed))
+	.then((data) => {
+		console.log(data.result.n + " records inserted!");
 		process.exit(0);
 	})
 	.catch((err) => {
 		console.error(err);
 		process.exit(1);
 	});
+
+   
+// Below is for reference /-------/
+
+// Remove all comments
+// db.Comment.deleteMany({})
+	// remove all users
+	// .then(() => db.User.deleteMany({}))
+	// add user
+	// .then(() => db.User.create(userSeed))
+	// add comments seeds
+	// .then((user) =>
+	// 	db.Comment.create(commentsSeeds[0])
+			// add comment ref to user
+			// .then(({ _id }) =>
+			// 	db.User.findOneAndUpdate(
+			// 		{ _id: user._id },
+			// 		{ $push: { comments: _id } },
+			// 		{ new: true }
+			// 	)
+			// )
+	// )
+	// .then((user) =>
+	// 	db.Comment.create(commentsSeeds[1])
+			// add comment ref to user
+			// .then(({ _id }) =>
+			// 	db.User.findOneAndUpdate(
+			// 		{ _id: user._id },
+			// 		{ $push: { comments: _id } },
+			// 		{ new: true }
+			// 	)
+			// )
+   // )
+   
+   // /-------/
+
+
