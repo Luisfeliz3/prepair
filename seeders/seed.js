@@ -18,7 +18,7 @@ let projectSeed = [
             }
         ],
         tools: ["level", "hammer", "sandpaper", "drill", "1in screws"],
-        optional: ["paint or wood stain", "shelf pins (removeable shelves)", "5mm shelf pin drill bit"],
+        optional: ["paint", "wood stain", "shelf pins (removeable shelves)", "5mm shelf pin drill bit"],
         inputWidth: "",
         inputDepth: "",
         inputHeight: "",
@@ -46,13 +46,35 @@ let projectSeed = [
             }
         ],
         tools: ["level", "hammer", "sandpaper", "drill", "2in screws", "1-inch diameter drill bit"],
-        optional: ["paint or wood stain"],
+        optional: ["paint", "wood stain"],
         inputWidth: "",
         inputDepth: "",
         inputHeight: "",
 		imgMain: "/public/construction-icons/chair-main.png",
 		imgEx: "/public/construction-icons/chair-ex.png"
     },
+    {
+        project: "ladder",
+        description: "A simple ladder with pressure-fit rods spaced 12 inches apart.",
+        materials: [
+            {
+                type: "wood",
+                name: "2x4 nominal studs",
+                size: "8ft lengths of 2x4 (1.5in x 3.5in)"
+            },
+            {
+                type: "wood",
+                name: "1.5-inch rod",
+                size: "8ft length"
+            }
+        ],
+        tools: ["level", "hammer", "sandpaper", "1.5-inch diameter drill bit"],
+        optional: ["paint", "wood stain"],
+        inputWidth: "",
+        inputHeight: "",
+		imgMain: "/public/construction-icons/ladder-main.png",
+		imgEx: "/public/construction-icons/ladder-ex.png"
+    }
 ];
 
 db.Project.deleteMany({})
