@@ -4,6 +4,8 @@ import { Col, Row, Container } from "../components/Grid";
 import Card from "../components/Card";
 import API from "../utils/API";
 
+
+
 function Comment() {
   const [comment, setComment] = useState({})
   // When this component mounts, grab the comment with the _id of props.match.params.id
@@ -15,7 +17,7 @@ function Comment() {
       .then(res => setComment(res.data))
       .catch(err => console.log(err));
   }, [match.params.id])
-
+ 
   return (
       <Container fluid>
         <Row>
@@ -24,6 +26,7 @@ function Comment() {
                <Card heading={comment.username}>
                   {comment.body}
                </Card>
+             
             </article>
           </Col>
         </Row>
@@ -32,6 +35,7 @@ function Comment() {
             <Link className="text-dark" to="/comments">← Back to all comments</Link>
           </Col>
         </Row>
+      
       </Container>
     );
   }

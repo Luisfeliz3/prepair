@@ -1,0 +1,36 @@
+import React, { useState } from "react";
+import {Button} from 'react-bootstrap'
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+
+// import { CustomDialog, useDialog } from "react-st-modal";
+// import CustomDialogContent from "../CustomDialogContent/index";
+import Popup from "../Popup/index";
+
+function Ring (){
+  const [showModal, setShowModal] = useState(true);
+  const percentage = 66;
+
+
+
+  return (
+    <div id="ring" className="float-left m-0">
+      <a
+        href=""
+        id="clickRing"
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
+      
+        <CircularProgressbar value={percentage} text={`${percentage}%`} />
+      </a>
+
+       {/* <Popup show={showModal}/> */}
+        
+
+    </div>
+  );
+};
+
+export default Ring;
