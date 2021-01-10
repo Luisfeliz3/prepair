@@ -15,7 +15,7 @@ let userSeed = [
       username: "testUser",
       email: "email@email.com",
       password: "testPassword",
-      currentProjects:[
+      currentProjects: [
          {
                projectId: 1,
                userParams: [
