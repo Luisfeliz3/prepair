@@ -2,6 +2,7 @@ import { Grid, Segment } from "semantic-ui-react";
 import React from "react";
 
 function NewProject() {
+
 	return (
 		<Grid columns="equal">
 			<Grid.Row>
