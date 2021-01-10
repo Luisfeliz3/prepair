@@ -20,27 +20,27 @@ function NewProject() {
 			<Row className="iconRow">
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={chair} className="icon" />
+						<img src={chair} className="icon" alt="furniture-icon"/>
 						<p>Chair</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={bookcase} className="icon" />
+						<img src={bookcase} className="icon" alt="furniture-icon"/>
 						<p>Bookcase</p>
 
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={table} className="icon" />
+						<img src={table} className="icon" alt="furniture-icon"/>
 						<p className="special">Table</p>
 
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={desk} className="icon" />
+						<img src={desk} className="icon" alt="furniture-icon"/>
 						<p>Desk</p>
 
 					</Button>
@@ -53,27 +53,27 @@ function NewProject() {
 
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={dresser} className="icon" />
+						<img src={dresser} className="icon" alt="furniture-icon"/>
 						<p>Dresser</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={tile} className="icon" />
+						<img src={tile} className="icon" alt="furniture-icon"/>
 						<p>Tile</p>
 
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={wall} className="icon" />
+						<img src={wall} className="icon" alt="furniture-icon"/>
 						<p>Wall</p>
 
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn">
-						<img src={ladder} className="icon" />
+						<img src={ladder} className="icon" alt="furniture-icon"/>
 						<p>Ladder</p>
 
 					</Button>
