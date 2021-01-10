@@ -16,9 +16,9 @@ function App() {
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
 			<div className="App">
 				<Nav />
-				<Container>
 					<Switch>
 						<Route exact path="/" className="App-link" component={App}>
+							<Container />
 						</Route>
 						<Route exact path="/login" className="App-link" component={Login}>
 							<Login />
@@ -33,7 +33,6 @@ function App() {
 							<SavedProjects />
 						</Route>
 					</Switch>
-				</Container>
 			</div>
 		</BrowserRouter>
 	);
