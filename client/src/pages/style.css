@@ -1,0 +1,50 @@
+.iconBtn {
+	text-align: center;
+	align-items: center;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin: 10%;
+}
+
+.wrap {
+	background-color: grey;
+	background-image: url("../static/wood.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 140vw 100vh;
+}
+
+.subtitle {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	color: white;
+	text-align: center;
+	font-size: small;
+}
+
+.icon {
+	max-width: 90%;
+	max-height: 90%;
+}
+
+p {
+	font-size: small;
+	text-align: center;
+    padding: 2%;
+    position: relative;
+}
+
+.special {
+    position: relative;
+    margin-top: 33%;
+}
+
+.iconRow {
+	padding: 75px;
+}
+
+.subtitleRow {
+height: 4%
+}

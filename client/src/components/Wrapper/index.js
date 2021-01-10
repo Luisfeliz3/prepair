@@ -10,7 +10,7 @@ export function Wrapper() {
 				className="background-closeup"
 				alt="woodplanks"
 			/>
-			<h1 className="subtitle">Create a New Project</h1>
+			<h1 className="subtitle">My Saved Projects</h1>
 		</div>
 	);
 }
