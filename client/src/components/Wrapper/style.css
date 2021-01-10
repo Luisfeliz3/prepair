@@ -1,3 +1,21 @@
 .wrap {
     background-color: grey;
+    height: 90vh;
+}
+
+.background-closeup {
+    height: 100vh;
+    left: -25%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    position: fixed;
+}
+
+.subtitle {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    color: white;
+    text-align: center;
+    font-size: small;
 }
