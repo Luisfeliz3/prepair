@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
 	currentProjects: [
 		{
       // Check if correct below
-      type: mongoose.Types.ObjectId,
+    		type: mongoose.Types.ObjectId,
 			ref: "Projects",
 		},
 	],
