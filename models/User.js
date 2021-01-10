@@ -19,10 +19,15 @@ const UserSchema = new mongoose.Schema({
 	},
 	currentProjects: [
 		{
-      // Check if correct below
-    		type: mongoose.Types.ObjectId,
-			ref: "Projects",
-		},
+			projectId: {
+				required: true,
+				type: Number,
+			},
+			userParams: [
+				Object
+			]
+		}
+		// Object
 	],
 });
 

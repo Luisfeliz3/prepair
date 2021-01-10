@@ -6,26 +6,18 @@ const BaseProjectsSchema = new mongoose.Schema({
 	description: { type: String, required: true },
 	materials: [
 		{
-			// Check if correct below
-			type: mongoose.Types.ObjectId,
-			ref: "Materials",
+			matType: { type: String, required: true },
+			name: { type: String, required: true },
+			size: { type: String, required: true },
 		},
-    ],
-    tools: [
-        { type: String, required: true }
-    ],
-    optional: [
-        { type: String, required: true }
-    ],
-    userParams: [
-        {
-			// Check if correct below
-			type: mongoose.Types.ObjectId,
-			ref: "UserParams",
-		},
-    ],
+	],
+	tools: [{ type: String, required: true }],
+	optional: [{ type: String, required: true }],
+	userParams: [
+		Object
+	],
 	imgMain: { type: String, required: true },
-	imgEx: { type: String, required: true }
+	imgEx: { type: String, required: true },
 });
 
 const BaseProjects = mongoose.model("BaseProjects", BaseProjectsSchema);
