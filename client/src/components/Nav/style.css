@@ -1,0 +1,11 @@
+.navbar {
+    background-color: black;
+    position: fixed;
+}
+
+.App-link {
+    color: black;
+}
+.App-dropdown {
+    width: 35px;
+}

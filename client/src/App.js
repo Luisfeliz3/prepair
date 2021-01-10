@@ -1,71 +1,41 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import Comments from "./pages/Comments";
-import { Container } from "./components/Grid";
-import Comment from "./pages/Comment";
+// import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Container from "./components/Container";
+import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import NoMatch from "./pages/NoMatch";
-import Head from "./components/Head";
-import userAPI from "./utils/userAPI";
-import ProtectedRoute from "./components/ProtectedRoute"
+import NewProject from "./pages/NewProject";
+import SavedProjects from "./pages/SavedProjects";
+import "./App.css";
 
 function App() {
-	const [userState, setUserState] = useState({});
-
-   useEffect(() => { 
-	   // auth user on first render
-      authenticate() 
-   }, []);
-
-	//user authentication
-	function authenticate() {
-		return userAPI.authenticateUser()
-			.then(({ data }) => {
-				console.log('user:', data );
-            setUserState(data);
-			})
-			.catch((err) => console.log('registered user:', err.response));
-	}
-
+	// const [userState, setUserState] = useState({});
+	document.title = "Prepair";
 	return (
-		<Router>
-			<Head />
-			<Container>
-				<Switch>
-					<Route
-						exact
-						path='/'
-						render={ props => (
-							<Login
-								{...props}
-								userState={userState}
-								setUserState={setUserState}
-							/>
-						)}
-					/>
-					<Route
-						exact
-						path='/signup'
-						render={ props => (
-							<Signup
-								{...props}
-								authenticate={authenticate}
-								user={userState}
-							/>
-						)}
-					/>
-               <ProtectedRoute exact path={["/", "/comments"]}>
-                  <Comments {...userState} />
-               </ProtectedRoute>
-               <ProtectedRoute exact path='/comments/:id' >
-                  <Comment {...userState} />
-               </ProtectedRoute>
-					<Route component={NoMatch} />
-				</Switch>
-			</Container>
-         { userState.email ? <Redirect to="/comments" /> : <></>}
-		</Router>
+		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
+			<div className="App">
+				<Nav />
+				<Container>
+					<Switch>
+						<Route exact path="/" className="App-link" component={App}>
+						</Route>
+						<Route exact path="/login" className="App-link" component={Login}>
+							<Login />
+						</Route>
+						<Route exact path="/signup" className="App-link" component={Signup}>
+							<Signup />
+						</Route>
+						<Route exact path="/newproject" className="App-link" component={NewProject}>
+							<NewProject />
+						</Route>
+						<Route exact path="/myprojects" className="App-link" component={SavedProjects}>
+							<SavedProjects />
+						</Route>
+					</Switch>
+				</Container>
+			</div>
+		</BrowserRouter>
 	);
 }
 
