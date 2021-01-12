@@ -25,7 +25,15 @@ function calculateChair(props) {
     let plywoodWasteFactorPercentage =
         ((plywoodCount * 32 - plywoodAreaInFeet)/
             (plywoodCount * 32)) * 100;
-    console.log("You are using" + plywoodCount + " lengths of 2x4 at a waste factor of " + plywoodWasteFactorPercentage + "%")
+    console.log("You are using" + plywoodCount + " pieces of plywood at a waste factor of " + plywoodWasteFactorPercentage + "%")
+
+    //Calculating rod material below
+    let rodLengthInFeet = (inputWidth-1.5)/12;
+    let rodCount = roundUpFour(rodLengthInFeet);
+    let rodWasteFactorPercentage =
+        ((rodCount * 12 - rodLengthInFeet)/
+            (rodCount * 12)) * 100;
+    console.log("You are using" + rodCount + " lengths of rod at a waste factor of " + rodWasteFactorPercentage + "%")
 }
 
 function roundUpEight(input) {
