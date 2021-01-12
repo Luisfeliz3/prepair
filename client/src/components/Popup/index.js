@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Radio, Row, Col } from "react-bootstrap";
+import { Button, Modal, Dropdown,InputGroup, FormControl, DropdownButton, Row, Col } from "react-bootstrap";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import wood from "../../static/wood.png";
@@ -45,31 +45,28 @@ const Popup = (props) => {
                 </div>
                 <div>
                   Enter Width :
-                  <input
-                    type="text"
-                    // value={}
-                    name="name"
-                    // onChange={}
-                  />
+                  <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+</DropdownButton>
                 </div>
 
                 <div>
                   Enter Height :
-                  <input
-                    type="text"
-                    // value={}
-                    name="name"
-                    // onChange={}
-                  />
+                  <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+</DropdownButton>
                 </div>
                 <div>
                   Enter Depth :
-                  <input
-                    type="text"
-                    // value={}
-                    name="name"
-                    // onChange={}
-                  />
+                  <DropdownButton id="dropdown-basic-button" title="Dropdown button">
+  <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+  <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+  <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+</DropdownButton>
                 </div>
                 <img
                   id="image"
@@ -82,37 +79,33 @@ const Popup = (props) => {
               </form>
               <div className="form-check">
                 <label>
-                  <input
-                    type="radio"
-                    name="react-tips"
-                    value="option1"
-                    checked={true}
-                    className="form-check-input"
-                  />
+                <InputGroup className="mb-3">
+    <InputGroup.Prepend>
+      <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+    </InputGroup.Prepend>
+  </InputGroup>
                   Option 1
                 </label>
               </div>
 
               <div className="form-check">
                 <label>
-                  <input
-                    type="radio"
-                    name="react-tips"
-                    value="option2"
-                    className="form-check-input"
-                  />
+                <InputGroup className="mb-3">
+    <InputGroup.Prepend>
+      <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+    </InputGroup.Prepend>
+  </InputGroup>
                   Option 2
                 </label>
               </div>
 
               <div className="form-check">
                 <label>
-                  <input
-                    type="radio"
-                    name="react-tips"
-                    value="option3"
-                    className="form-check-input"
-                  />
+                <InputGroup className="mb-3">
+    <InputGroup.Prepend>
+      <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+    </InputGroup.Prepend>
+  </InputGroup>
                   Option 3
                 </label>
               </div>
