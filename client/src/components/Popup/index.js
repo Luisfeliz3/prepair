@@ -3,6 +3,7 @@ import { Button, Modal, Dropdown,InputGroup, FormControl, DropdownButton, Row, C
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import wood from "../../static/wood.png";
+import expl from "../../static/construction-icons/table-ex.svg";
 import "./styles.css";
 const Popup = (props) => {
   console.log(props);
@@ -34,6 +35,7 @@ const Popup = (props) => {
           <Row>
             <Col xs={6} md={10} className="row justify-content-around">
               <CircularProgressbar value={percentage} text={`${percentage}%`} />
+              <img src={expl} className="explodedDiagram" alt="exploded-diagram"/>
               <div id="calculate-button">Click "Calculate" </div>
             </Col>
 
