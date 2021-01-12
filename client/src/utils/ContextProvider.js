@@ -1,15 +1,48 @@
-// use reducer - look into last class
+// use reducer - look into last class?
 
-function calculateChair (props) {
-    // Get values from userState inputs
-    // let inputWidth = {props.userParams...}
-    // let inputHeight = {props.userParams...}
-    // let inputDepth = {props.userParams...}
-    let twoByFourLengthCount = ((inputHeight*2)+(inputWidth-1.5)+(34.5))/96
-    //actually has to be the next integer that's divisible by 8 if lengthcount is above 
-        // switch case if num<8 return 8
-        // switch case if 8<num<16 return 16
-    let twoByFourLengthCountRoundUp = Math.ceil(twoByFourLengthCount)
-    let twoByFourLengths = 16
-    // let twoByFourWasteFactor = boughtmaterial-actual material / boughtmaterial
+// Example functions to CALCULATE CHAIR
+
+function calculateChair(props) {
+	// Get values from userState inputs
+	let inputWidth;
+	let inputHeight;
+	let inputDepth;
+
+	//Calculating 2x4 wood material below
+	let twoByFourLengthInFeet =
+		(inputHeight * 2 + (inputWidth - 1.5) + 34.5) / 12;
+	// below will give actual count of 2x4 material at 8 foot lengths
+	let twoByFourLengthCount = roundUpEight(twoByFourLengthInFeet);
+	let twoByFourWasteFactorPercentage =
+		((twoByFourLengthCount * 8 - twoByFourLengthInFeet) /
+			(twoByFourLengthCount * 8)) *
+		100;
+	console.log("You are using" + twoByFourLengthCount + " lengths of 2x4 at a waste factor of " + twoByFourWasteFactorPercentage + "%");
+
+	//Calculating plywood material below
+    let plywoodAreaInFeet = (inputWidth * inputDepth) / 12;
+    let plywoodCount = plywoodRound(plywoodAreaInFeet);
+    let plywoodWasteFactorPercentage =
+        ((plywoodCount * 32 - plywoodAreaInFeet)/
+            (plywoodCount * 32)) * 100;
+    console.log("You are using" + plywoodCount + " lengths of 2x4 at a waste factor of " + plywoodWasteFactorPercentage + "%")
+}
+
+function roundUpEight(input) {
+	if (input < 8) return 1;
+	if (input > 8 && input < 16) return 2;
+}
+
+function roundUpFour(input) {
+	if (input < 4) return 1;
+	if (input > 4 && input < 8) return 2;
+	if (input > 8 && input < 12) return 3;
+}
+
+function plywoodRound(input) {
+    if (input < 32) return 32;
+    if (input > 32 && input < 64) return 2;
+    if (input > 64 && input < 96) return 3;
+    if (input > 96 && input < 128) return 4;
+	if (input > 128 && input < 160) return 5;
 }
