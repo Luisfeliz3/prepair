@@ -7,7 +7,7 @@ mongoose.connect(
 	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
-
+ 
 // User Projects - with matching project Ids - this is where new users would be stored
 let userSeed = [
 	{
@@ -71,7 +71,7 @@ let userSeed = [
 let baseProjectsSeed = [
 	{
 		projectName: "chair",
-		projectId: 1,
+		projectId: 1, //used as id
 		description: "A simple chair with an open back and a footrail.",
 		materials: [
 			{
@@ -108,7 +108,7 @@ let baseProjectsSeed = [
 				dimensionWidth: "inputWidth",
 				unit: "inches",
 				defaultQuantity: "18",
-				options: [18, 24, 30],
+				options: [18, 24, 30], //populates drop downs 
 			},
 			{
 				dimensionDepth: "inputDepth",
@@ -570,6 +570,7 @@ let proTips = [
 ];
 
 // Completion status of project, matched to userParams in userSeed
+//used for progress ring
 let completion = [
 	{
 		completionStatus: 1,
