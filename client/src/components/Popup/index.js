@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Dropdown,InputGroup, FormControl, DropdownButton, Row, Col } from "react-bootstrap";
-import { CircularProgressbar } from "react-circular-progressbar";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import wood from "../../static/wood.png";
 import "./styles.css";
@@ -13,7 +13,8 @@ const Popup = (props) => {
   useEffect(() => {
     setShow(props.show);
   }, [props.show]);
-  const percentage = 66;
+
+  const percentage = 66;  //Number value for the Progress Ring 
 
   return (
     <div id="modal">
@@ -39,9 +40,7 @@ const Popup = (props) => {
             <section>
               <form className="col-4">
                 <div className="form-group">
-                  <button className="btn btn-primary mt-2" type="submit">
-                    Save
-                  </button>
+               
                 </div>
                 <div>
                   Enter Width :
@@ -110,15 +109,18 @@ const Popup = (props) => {
                 </label>
               </div>
             </section>
+            <button className="btn btn-primary mt-2" type="submit">
+                    Save
+                  </button>
           </Row>
         </Modal.Body>
 
-        <Modal.Footer>
+        {/* <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary">Understood</Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </div>
   );

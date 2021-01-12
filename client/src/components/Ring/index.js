@@ -24,7 +24,11 @@ function Ring (){
         }}
       >
       
-        <CircularProgressbar value={percentage} text={`${percentage}%`} />
+        <CircularProgressbar value={percentage} text={`${percentage}%`} 
+        style={{
+
+          Width : ''
+        }}/>
       </div>
 
        {/* <Popup show={showModal}/> */}
