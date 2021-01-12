@@ -13,6 +13,7 @@ import ladder from "../static/construction-icons/ladder-main.svg";
 import "./style.css";
 import Popup from '../components/Popup/index'
 import wood from "../static/wood.png";
+
 function NewProject() {
     const [show, setShow] = useState(false);
     useEffect(() => {
