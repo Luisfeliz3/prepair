@@ -16,8 +16,14 @@
 
 .title {
     position: fixed;
-    left: 50%;
+    left: 45%;
     top: 50%;
     color: white;
+    text-align: center;
+}
+
+.proTip {
+    color: rgb(170, 170, 170);
+    top: 90%;
     text-align: center;
 }
