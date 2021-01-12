@@ -638,7 +638,7 @@ db.User.deleteMany({})
    .then(() => db.Protips.create(proTips))
    .then(() => db.BaseProjects.create(baseProjectsSeed))
 	.then((data) => {
-		console.log(data.result.n + " records inserted!");
+		console.log(data.result.length + " records inserted!");
 		process.exit(0);
 	})
 	.catch((err) => {
