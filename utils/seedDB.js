@@ -5,7 +5,8 @@ const { mongoOptions } = require("./config");
 // This file empties the Books collection and inserts the books below
 
 mongoose.connect(
-	process.env.MONGODB_URI || "mongodb://localhost/mern",
+   // Name below is name of local (Robo3T)
+	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
 
