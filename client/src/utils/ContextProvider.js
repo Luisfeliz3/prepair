@@ -1,12 +1,12 @@
 // use reducer - look into last class?
 
-// Example functions to CALCULATE CHAIR
-
+// Function to CALCULATE CHAIR
 function calculateChair(props) {
 	// Get values from userState inputs
 	let inputWidth;
 	let inputHeight;
-	let inputDepth;
+    let inputDepth;
+    let averageWF = (twoByFourWasteFactorPercentage+plywoodWasteFactorPercentage+rodWasteFactorPercentage)/3;
 
 	//Calculating 2x4 wood material below
 	let twoByFourLengthInFeet =
@@ -34,8 +34,23 @@ function calculateChair(props) {
         ((rodCount * 12 - rodLengthInFeet)/
             (rodCount * 12)) * 100;
     console.log("You are using" + rodCount + " lengths of rod at a waste factor of " + rodWasteFactorPercentage + "%")
+    console.log("Your overall average waste factor is " + averageWF + " %")
+
 }
 
+// Function to CALCULATE BOOKCASE
+function calculateBookcase(props) {
+	// Get values from userState inputs
+	let inputWidth;
+	let inputHeight;
+    let inputDepth;
+    let averageWF = 0;
+
+
+
+}
+
+// Rounding Functions for use in all calculations
 function roundUpEight(input) {
 	if (input < 8) return 1;
 	if (input > 8 && input < 16) return 2;
