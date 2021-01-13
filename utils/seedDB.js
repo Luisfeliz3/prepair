@@ -35,6 +35,9 @@ let userSeed = [
 						completionStatus: 1,
 					},
 				],
+				resultCalcs: [
+					{}
+				]
 			},
 		],
 	},
@@ -597,38 +600,38 @@ let completion = [
 // Pricing SKU to materials
 let pricing = [
 	{
-		name: "2x4 nominal studs",
-		size: "8ft lengths of 2x4 (1.5in x 3.5in)",
+		name: "2x4 nominal stud(s)",
+		size: "8ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "1-inch rod",
-		size: "4ft length",
+		name: "1-inch rod(s)",
+		size: "4ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "plywood sheets",
-		size: "4ft x 8ft x 11/16in",
+		name: "plywood",
+		size: "4ft x 8ft x 11/16in sheets",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "1x3 nominal studs",
-		size: "8ft lengths of 1x3 (0.5 in x 2.5in)",
+		name: "1x3 nominal stud(s)",
+		size: "8ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "thick plywood sheets",
-		size: "4ft x 8ft x 1in",
+		name: "plywood",
+		size: "4ft x 8ft x 1in sheets",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "heavy-duty side-mounted drawer slides",
-		size: "22in depth",
+		name: "heavy-duty side-mounted drawer slide(s)",
+		size: "22in deep pairs",
 		sku: "",
 		price: "",
 	},
