@@ -25,6 +25,9 @@ const UserSchema = new mongoose.Schema({
 			},
 			userParams: [
 				Object
+			],
+			resultCalcs: [
+				Object
 			]
 		}
 		// Object
