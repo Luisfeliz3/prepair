@@ -29,7 +29,7 @@ app.use(passport.session());
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/models", mongoOptions);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair", mongoOptions);
 
 mongoose.connection.on('connected', ()=>{
   console.log('Mongoose is connected !')
