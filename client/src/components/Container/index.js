@@ -11,6 +11,7 @@ export function Container() {
 				alt="woodplanks"
 			/>
 			<h1 className="title">PREPAIR</h1>
+			<p className="proTip">ProTip: You can fix a cracked foundation with a small amount of epoxy and plastic tubing.</p>
 		</div>
 	);
 }
