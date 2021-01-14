@@ -36,7 +36,97 @@ let userSeed = [
 					},
 				],
 				resultCalcs: [
-					{}
+						{
+							name: "2x4 nominal stud(s)",
+							twoByFourLengthCount: "",
+							twoByFourLengthInFeet: "",
+							twoByFourWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1-inch rod(s)",
+							rodCount: "",
+							rodLengthInFeet: "",
+							rodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "3/4 inch plywood",
+							threeFourPlywoodCount: "",
+							threeFourPlywoodAreaInFeet: "",
+							threeFourPlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1x3 nominal stud(s)",
+							oneByThreeLengthCount: "",
+							oneByThreeLengthInFeet: "",
+							oneByThreeWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1 inch plywood",
+							onePlywoodCount: "",
+							onePlywoodAreaInFeet: "",
+							onePlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "heavy-duty side-mounted drawer slide(s)",
+							slidesCount: "22in deep pairs",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "closet rod with sleeves",
+							closetRodLengthCount: "",
+							closetRodLengthInFeet: "",
+							closetRodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "subway tile",
+							tileInSquareFeet: "",
+							tileWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cement board backer",
+							cementBoardCount: "",
+							cementBoardAreaInFeet: "",
+							cementBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cementitious grout",
+							size: "1/8 inch joint thickness",
+							tileInSquareFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "thin-set mortar adhesive",
+							size: "1/8 inch thick layer",
+							cementBoardAreaInFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "gypsum board",
+							gypBoardCount: "",
+							gypBoardAreaInFeet: "",
+							gypBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						}
 				]
 			},
 		],
@@ -65,6 +155,99 @@ let userSeed = [
 						completionStatus: 3,
 					},
 				],
+				resultCalcs: [
+						{
+							name: "2x4 nominal stud(s)",
+							twoByFourLengthCount: "",
+							twoByFourLengthInFeet: "",
+							twoByFourWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1-inch rod(s)",
+							rodCount: "",
+							rodLengthInFeet: "",
+							rodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "3/4 inch plywood",
+							threeFourPlywoodCount: "",
+							threeFourPlywoodAreaInFeet: "",
+							threeFourPlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1x3 nominal stud(s)",
+							oneByThreeLengthCount: "",
+							oneByThreeLengthInFeet: "",
+							oneByThreeWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1 inch plywood",
+							onePlywoodCount: "",
+							onePlywoodAreaInFeet: "",
+							onePlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "heavy-duty side-mounted drawer slide(s)",
+							slidesCount: "22in deep pairs",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "closet rod with sleeves",
+							closetRodLengthCount: "",
+							closetRodLengthInFeet: "",
+							closetRodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "subway tile",
+							tileInSquareFeet: "",
+							tileWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cement board backer",
+							cementBoardCount: "",
+							cementBoardAreaInFeet: "",
+							cementBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cementitious grout",
+							size: "1/8 inch joint thickness",
+							tileInSquareFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "thin-set mortar adhesive",
+							size: "1/8 inch thick layer",
+							cementBoardAreaInFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "gypsum board",
+							gypBoardCount: "",
+							gypBoardAreaInFeet: "",
+							gypBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						}
+				]
 			},
 		],
 	},
@@ -612,7 +795,7 @@ let pricing = [
 		price: "",
 	},
 	{
-		name: "plywood",
+		name: "3/4 inch plywood",
 		size: "4ft x 8ft x 11/16in sheets",
 		sku: "",
 		price: "",
@@ -624,7 +807,7 @@ let pricing = [
 		price: "",
 	},
 	{
-		name: "plywood",
+		name: "1 inch plywood",
 		size: "4ft x 8ft x 1in sheets",
 		sku: "",
 		price: "",
