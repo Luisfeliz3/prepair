@@ -10,7 +10,11 @@ import SavedProjects from "./pages/SavedProjects";
 import "./App.css";
 
 function App() {
-	// const [userState, setUserState] = useState({});
+	const [userState, setUserState] = useState(
+		{
+			resultCalcs: "",
+			
+		});
 	document.title = "Prepair";
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
