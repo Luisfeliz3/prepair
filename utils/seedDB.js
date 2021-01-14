@@ -7,7 +7,7 @@ mongoose.connect(
 	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
- 
+
 // User Projects - with matching project Ids - this is where new users would be stored
 let userSeed = [
 	{
