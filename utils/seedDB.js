@@ -286,9 +286,6 @@ let baseProjectsSeed = [
 			"1-inch diameter drill bit",
 		],
 		optional: ["paint or wood stain"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",

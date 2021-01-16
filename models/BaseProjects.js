@@ -5,11 +5,7 @@ const BaseProjectsSchema = new mongoose.Schema({
 	projectId: { type: Number, required: true },
 	description: { type: String, required: true },
 	materials: [
-		{
-			matType: { type: String, required: true },
-			name: { type: String, required: true },
-			size: { type: String, required: true },
-		},
+		Object
 	],
 	tools: [{ type: String, required: true }],
 	optional: [{ type: String, required: true }],
