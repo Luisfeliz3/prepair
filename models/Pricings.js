@@ -8,6 +8,6 @@ const pricingSchema = new Schema({
 	price: { type: Number, required: false }
 });
 
-const Pricing = mongoose.model("Pricing", pricingSchema);
+const Pricings = mongoose.model("Pricings", pricingSchema);
 
-module.exports = Pricing;
+module.exports = Pricings;

@@ -864,8 +864,8 @@ let pricing = [
 
 // Removing all users with their currentProjects
 const seed = function () {
-	db.User.deleteMany({})
-		.then(() => db.User.create(userSeed))
+	db.Users.deleteMany({})
+		.then(() => db.Users.create(userSeed))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
 			process.exit(0);
@@ -875,8 +875,8 @@ const seed = function () {
 			process.exit(1);
 		});
 
-	db.Pricing.deleteMany({})
-		.then(() => db.Pricing.create(pricing))
+	db.Pricings.deleteMany({})
+		.then(() => db.Pricings.create(pricing))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
 			process.exit(0);
@@ -886,8 +886,8 @@ const seed = function () {
 			process.exit(1);
 		});
 
-	db.Completion.deleteMany({})
-		.then(() => db.Completion.create(completion))
+	db.Completions.deleteMany({})
+		.then(() => db.Completions.create(completion))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
 			process.exit(0);
