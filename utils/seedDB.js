@@ -860,7 +860,8 @@ let pricing = [
 // Database name "Prepair" - please change if different
 
 // Removing all users with their currentProjects
-db.User.deleteMany({}).then(() => db.User.create(userSeed))
+db.User.deleteMany({})
+	.then(() => db.User.create(userSeed))
 	.then((data) => {
 		console.log(data.length + " records inserted!");
 		process.exit(0);
@@ -870,43 +871,50 @@ db.User.deleteMany({}).then(() => db.User.create(userSeed))
 		process.exit(1);
 	});
 
-db.Pricing.deleteMany({}).then(() => db.Pricing.create(pricing))
-.then((data) => {
-	console.log(data.length + " records inserted!");
-	process.exit(0);
-})
-.catch((err) => {
-	console.error(err);
-	process.exit(1);
-});
+const seed = function() {
+	db.Pricing.deleteMany({})
+		.then(() => db.Pricing.create(pricing))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
 
-db.Completion.deleteMany({}).then(() => db.Completion.create(completion))
-.then((data) => {
-	console.log(data.length + " records inserted!");
-	process.exit(0);
-})
-.catch((err) => {
-	console.error(err);
-	process.exit(1);
-});
+	db.Completion.deleteMany({})
+		.then(() => db.Completion.create(completion))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
 
-db.Protips.deleteMany({}).then(() => db.Protips.create(proTips))
-.then((data) => {
-	console.log(data.length + " records inserted!");
-	process.exit(0);
-})
-.catch((err) => {
-	console.error(err);
-	process.exit(1);
-});
+	db.Protips.deleteMany({})
+		.then(() => db.Protips.create(proTips))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
 
-db.BaseProjects.deleteMany({})
-	.then(() => db.BaseProjects.create(baseProjectsSeed))
-	.then((data) => {
-		console.log(data.length + " records inserted!");
-		process.exit(0);
-	})
-	.catch((err) => {
-		console.error(err);
-		process.exit(1);
-	});
+	db.BaseProjects.deleteMany({})
+		.then(() => db.BaseProjects.create(baseProjectsSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+}
+
+module.exports = {seed};

@@ -7,6 +7,7 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./utils/passport");
 const logger = require("morgan");
+const seed = require("./utils/seedDB");
 
 const PORT = process.env.PORT || 3001;
 
@@ -32,6 +33,7 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair", mongoOptions);
 
 mongoose.connection.on('connected', ()=>{
+  if (process.env.NODE_ENV === 'production') seed.seed();
   console.log('Mongoose is connected !')
 })
 
