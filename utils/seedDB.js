@@ -860,18 +860,18 @@ let pricing = [
 // Database name "Prepair" - please change if different
 
 // Removing all users with their currentProjects
-db.User.deleteMany({})
-	.then(() => db.User.create(userSeed))
-	.then((data) => {
-		console.log(data.length + " records inserted!");
-		process.exit(0);
-	})
-	.catch((err) => {
-		console.error(err);
-		process.exit(1);
-	});
+const seed = function () {
+	db.User.deleteMany({})
+		.then(() => db.User.create(userSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
 
-const seed = function() {
 	db.Pricing.deleteMany({})
 		.then(() => db.Pricing.create(pricing))
 		.then((data) => {
@@ -915,6 +915,6 @@ const seed = function() {
 			console.error(err);
 			process.exit(1);
 		});
-}
+};
 
-module.exports = {seed};
+module.exports = { seed };
