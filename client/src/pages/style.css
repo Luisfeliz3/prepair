@@ -12,13 +12,13 @@
 	background-image: url("../static/wood.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: 140vw 100vh;
+	background-size: 120vw 100vh;
 }
 
 .subtitle {
 	position: fixed;
-	left: 45%;
-	top: 50%;
+	left: 44%;
+	top: 53%;
 	color: white;
 	text-align: center;
 	font-size: small;
@@ -42,7 +42,7 @@ p {
 }
 
 .iconRow {
-	padding: 75px;
+	padding: 1%;
 }
 
 .subtitleRow {
