@@ -605,8 +605,8 @@ let pricing = [
 	{
 		name: "1-inch rod",
 		size: "4ft length",
-		sku: "",
-		price: "",
+		sku: " #252842",
+		price: "$14.72",
 	},
 	{
 		name: "plywood sheets",
