@@ -30,7 +30,6 @@ const UserSchema = new mongoose.Schema({
 				Object
 			]
 		}
-		// Object
 	],
 });
 
