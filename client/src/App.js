@@ -39,12 +39,12 @@ function App() {
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
 			<div className="App">
-				<Nav  />
+				<Nav />
 				
 					<Switch>
 
 						<Route exact path="/" className="App-link">
-							{/* <Container /> */}
+							<Container />
 					
 						</Route>
 
