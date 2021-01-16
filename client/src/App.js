@@ -44,7 +44,7 @@ function App() {
 					<Switch>
 
 						<Route exact path="/" className="App-link">
-							<Container />  // consider calling this HOME
+							{/* <Container /> */}
 					
 						</Route>
 
