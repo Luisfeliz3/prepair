@@ -4,10 +4,10 @@ const { mongoOptions } = require("./config");
 
 mongoose.connect(
    // Name below is name of local (Robo3T)
-	process.env.MONGODB_URI || "mongodb+srv://user1:local12345678@cluster0.k6ma6.mongodb.net/prepair?retryWrites=true&w=majority",
+	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
- 
+
 // User Projects - with matching project Ids - this is where new users would be stored
 let userSeed = [
 	{
@@ -35,6 +35,99 @@ let userSeed = [
 						completionStatus: 1,
 					},
 				],
+				resultCalcs: [
+						{
+							name: "2x4 nominal stud(s)",
+							twoByFourLengthCount: "",
+							twoByFourLengthInFeet: "",
+							twoByFourWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1-inch rod(s)",
+							rodCount: "",
+							rodLengthInFeet: "",
+							rodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "3/4 inch plywood",
+							threeFourPlywoodCount: "",
+							threeFourPlywoodAreaInFeet: "",
+							threeFourPlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1x3 nominal stud(s)",
+							oneByThreeLengthCount: "",
+							oneByThreeLengthInFeet: "",
+							oneByThreeWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1 inch plywood",
+							onePlywoodCount: "",
+							onePlywoodAreaInFeet: "",
+							onePlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "heavy-duty side-mounted drawer slide(s)",
+							slidesCount: "22in deep pairs",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "closet rod with sleeves",
+							closetRodLengthCount: "",
+							closetRodLengthInFeet: "",
+							closetRodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "subway tile",
+							tileInSquareFeet: "",
+							tileWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cement board backer",
+							cementBoardCount: "",
+							cementBoardAreaInFeet: "",
+							cementBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cementitious grout",
+							size: "1/8 inch joint thickness",
+							tileInSquareFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "thin-set mortar adhesive",
+							size: "1/8 inch thick layer",
+							cementBoardAreaInFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "gypsum board",
+							gypBoardCount: "",
+							gypBoardAreaInFeet: "",
+							gypBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						}
+				]
 			},
 		],
 	},
@@ -62,6 +155,99 @@ let userSeed = [
 						completionStatus: 3,
 					},
 				],
+				resultCalcs: [
+						{
+							name: "2x4 nominal stud(s)",
+							twoByFourLengthCount: "",
+							twoByFourLengthInFeet: "",
+							twoByFourWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1-inch rod(s)",
+							rodCount: "",
+							rodLengthInFeet: "",
+							rodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "3/4 inch plywood",
+							threeFourPlywoodCount: "",
+							threeFourPlywoodAreaInFeet: "",
+							threeFourPlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1x3 nominal stud(s)",
+							oneByThreeLengthCount: "",
+							oneByThreeLengthInFeet: "",
+							oneByThreeWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "1 inch plywood",
+							onePlywoodCount: "",
+							onePlywoodAreaInFeet: "",
+							onePlywoodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "heavy-duty side-mounted drawer slide(s)",
+							slidesCount: "22in deep pairs",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "closet rod with sleeves",
+							closetRodLengthCount: "",
+							closetRodLengthInFeet: "",
+							closetRodWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "subway tile",
+							tileInSquareFeet: "",
+							tileWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cement board backer",
+							cementBoardCount: "",
+							cementBoardAreaInFeet: "",
+							cementBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "cementitious grout",
+							size: "1/8 inch joint thickness",
+							tileInSquareFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "thin-set mortar adhesive",
+							size: "1/8 inch thick layer",
+							cementBoardAreaInFeet: "",
+							price: "",
+							totalCost: ""
+						},
+						{
+							name: "gypsum board",
+							gypBoardCount: "",
+							gypBoardAreaInFeet: "",
+							gypBoardWasteFactorPercentage: "",
+							price: "",
+							totalCost: ""
+						}
+				]
 			},
 		],
 	},
@@ -597,74 +783,74 @@ let completion = [
 // Pricing SKU to materials
 let pricing = [
 	{
-		name: "2x4 nominal studs",
-		size: "8ft lengths of 2x4 (1.5in x 3.5in)",
+		name: "2x4 nominal stud(s)",
+		size: "8ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "1-inch rod",
-		size: "4ft length",
+		name: "1-inch rod(s)",
+		size: "4ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "plywood sheets",
-		size: "4ft x 8ft x 11/16in",
+		name: "3/4 inch plywood",
+		size: "4ft x 8ft x 11/16in sheets",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "1x3 nominal studs",
-		size: "8ft lengths of 1x3 (0.5 in x 2.5in)",
+		name: "1x3 nominal stud(s)",
+		size: "8ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "thick plywood sheets",
-		size: "4ft x 8ft x 1in",
+		name: "1 inch plywood",
+		size: "4ft x 8ft x 1in sheets",
 		sku: "",
 		price: "",
 	},
 	{
-		name: "heavy-duty side-mounted drawer slides",
-		size: "22in depth",
+		name: "heavy-duty side-mounted drawer slide(s)",
+		size: "22in deep pairs",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "closet rod with sleeves",
-		size: "1-1/4 in diameter",
+		size: "1-1/4 inch diam. 6ft lengths",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "subway tile",
-		size: "3x6",
+		size: "square feet",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "cement board backer",
-		size: "3/4 in thick",
+		size: "3/4 inch thick sheets",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "cementitious grout",
-		size: "1/8 in joint thickness",
+		size: "1/8 inch joint thickness",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "thin-set mortar adhesive",
-		size: "1/8 in thick layer",
+		size: "1/8 inch thick layer",
 		sku: "",
 		price: "",
 	},
 	{
 		name: "gypsum board",
-		size: "4ft x 8ft x 5/8in",
+		size: "4ft x 8ft x 5/8in sheets",
 		sku: "",
 		price: "",
 	},
