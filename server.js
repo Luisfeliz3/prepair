@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 // We need to use sessions to keep track of our user's login status
-app.use(session(sessionOptions));
+// app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 
