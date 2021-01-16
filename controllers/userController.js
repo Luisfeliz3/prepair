@@ -45,4 +45,14 @@ module.exports = {
                comments: req.user.comments
          })
    }
+
+
+// get project options based on project id (project)
+
+// get user selections from database (user)
+
+// calculate results and store in userstate, then post to database (user)
+
+// get and display results 
+
 }
