@@ -901,6 +901,6 @@ db.BaseProjects.deleteMany({})
 		// process.exit(1);
 	});
 
-// setTimeout(function () {
-// 	process.exit(0);
-// }, 5000);
+setTimeout(function () {
+	process.exit(0);
+}, 5000);
