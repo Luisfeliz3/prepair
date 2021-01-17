@@ -16,14 +16,6 @@ module.exports = {
 		}
 	},
 
-	// getProTips: function (req, res) {
-		// let random = Math.floor(Math.random()*10);
-		// db.Protips
-		// 	.aggregate([{$sample: {size: 1}}])
-		// res.json({
-		// 	generatedProTip: req[random].proTipText
-		// })
-		// console.log(res.json);
 	}
 
 // get project options based on project id (project) ok
