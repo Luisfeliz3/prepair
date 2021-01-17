@@ -801,22 +801,18 @@ const seed = function () {
 		.then(() => db.Users.create(userSeed))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
-			process.exit(0);
 		})
 		.catch((err) => {
 			console.error(err);
-			process.exit(1);
 		});
 
 	db.Pricings.deleteMany({})
 		.then(() => db.Pricings.create(pricing))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
-			process.exit(0);
 		})
 		.catch((err) => {
 			console.error(err);
-			process.exit(1);
 		});
 
 	db.Completions.deleteMany({})
