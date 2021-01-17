@@ -8,7 +8,7 @@ router.route("/login")
 	// Using the passport.authenticate middleware with our local strategy.
 	// If the user has valid login credentials, send them to the members page.
 	// Otherwise the user will be sent an error
-	.post( passport.authenticate("local", {session: false}), userController.login);
+	.post( passport.authenticate("local"), userController.login);
 
 // Matches with "/api/user/signup"
 router.route("/signup")

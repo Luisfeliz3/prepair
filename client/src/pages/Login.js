@@ -21,7 +21,7 @@ class Login extends Component {
 
 	handleFormSubmit = (event) => {
 		event.preventDefault();
-		// if (this.state.email && this.state.password) {
+		if (this.state.email && this.state.password) {
 			userAPI
 				.loginUser({
 					email: this.state.email,
@@ -34,7 +34,7 @@ class Login extends Component {
 					}
 				})
 				.catch((err) => console.log(err));
-		// }
+		}
 	};
 
 	render() {

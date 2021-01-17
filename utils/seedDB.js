@@ -338,9 +338,6 @@ let baseProjectsSeed = [
 			"5mm shelf pin drill bit",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -383,9 +380,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["saw", "level", "hammer", "sandpaper", "drill", "1in wood screws"],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -440,9 +434,6 @@ let baseProjectsSeed = [
 			"biscuit joiner",
 		],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -511,9 +502,6 @@ let baseProjectsSeed = [
 			"self-leveling feet",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -575,9 +563,6 @@ let baseProjectsSeed = [
 			"diamond blades",
 			"diamond drill bits for hardware installation",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -625,9 +610,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["drywall screws", "level", "tape", "spackle", "laser"],
 		optional: ["insulation", "outlet box", "blocking", "wall paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -675,9 +657,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["2-in wood screws", "drill", "1-in drill bit", "sandpaper", "saw"],
 		optional: ["wood stain or paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -736,20 +715,20 @@ let proTips = [
 		proTipText:
 			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
 	},
-	// {
-	// 	proTipId: 6,
-	// 	proTipText:
-	// 		"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
-	// },
-	// {
-	// 	proTipId: 7,
-	// 	proTipText:
-	// 		"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
-	// },
-	// {
-	// 	proTipId: 8,
-	// 	proTipText: "Remember that preparation is 75% of the job.",
-	// },
+	{
+		proTipId: 6,
+		proTipText:
+			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
+	},
+	{
+		proTipId: 7,
+		proTipText:
+			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
+	},
+	{
+		proTipId: 8,
+		proTipText: "Remember that preparation is 75% of the job.",
+	}
 ];
 
 // Completion status of project, matched to userParams in userSeed
