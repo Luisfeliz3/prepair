@@ -18,19 +18,20 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 	},
 	currentProjects: [
-		{
-			projectId: {
-				type: Number,
-				unique: true,
-				required: false,
-			},
-			userParams: [
-				Object,
-			],
-			resultCalcs: [
-				Object,
-			],
-		},
+		Object
+		// {
+		// 	projectId: {
+		// 		type: Number,
+		// 		unique: true,
+		// 		required: false,
+		// 	},
+		// 	userParams: [
+		// 		Object,
+		// 	],
+		// 	resultCalcs: [
+		// 		Object,
+		// 	],
+		// },
 	],
 });
 
