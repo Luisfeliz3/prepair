@@ -15,17 +15,14 @@ module.exports = {
 			});
 		}
 	},
-};
 
-// signup: function (req, res) {
-// 	db.User.create({
-// 	 username: req.body.username,
-// 		email: req.body.email,
-// 		password: req.body.password
-// 	})
-//   .then(() => {res.redirect(307, "/api/user/login") })
-//   .catch((err) => { res.status(401).json(err) });
-// },
+	getProTips: function (req, res) {
+		let random = Math.floor(Math.random()*10);
+		res.json({
+			generatedProTip: req[random].proTipText
+		})
+	}
+};
 
 // get project options based on project id (project) ok
 

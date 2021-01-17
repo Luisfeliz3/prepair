@@ -286,9 +286,6 @@ let baseProjectsSeed = [
 			"1-inch diameter drill bit",
 		],
 		optional: ["paint or wood stain"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -341,9 +338,6 @@ let baseProjectsSeed = [
 			"5mm shelf pin drill bit",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -386,9 +380,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["saw", "level", "hammer", "sandpaper", "drill", "1in wood screws"],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -443,9 +434,6 @@ let baseProjectsSeed = [
 			"biscuit joiner",
 		],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -514,9 +502,6 @@ let baseProjectsSeed = [
 			"self-leveling feet",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -578,9 +563,6 @@ let baseProjectsSeed = [
 			"diamond blades",
 			"diamond drill bits for hardware installation",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -628,9 +610,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["drywall screws", "level", "tape", "spackle", "laser"],
 		optional: ["insulation", "outlet box", "blocking", "wall paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -678,9 +657,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["2-in wood screws", "drill", "1-in drill bit", "sandpaper", "saw"],
 		optional: ["wood stain or paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -752,7 +728,7 @@ let proTips = [
 	{
 		proTipId: 8,
 		proTipText: "Remember that preparation is 75% of the job.",
-	},
+	}
 ];
 
 // Completion status of project, matched to userParams in userSeed
@@ -859,18 +835,65 @@ let pricing = [
 // Should be five collections based on seeds - users with currentProjects, base projects, proTips, completion phases, and pricing.
 // Database name "Prepair" - please change if different
 
+
+// more logging - userrecords inserted - pricing records inserted.
+
 // Removing all users with their currentProjects
-db.Users.deleteMany({}).then(() => db.Users.create(userSeed));
-db.Pricings.deleteMany({}).then(() => db.Pricings.create(pricing));
-db.Completions.deleteMany({}).then(() => db.Completions.create(completion));
-db.Protips.deleteMany({}).then(() => db.Protips.create(proTips));
-db.BaseProjects.deleteMany({})
-	.then(() => db.BaseProjects.create(baseProjectsSeed))
-	.then((data) => {
-		console.log(data.length + " records inserted!");
-		process.exit(0);
-	})
-	.catch((err) => {
-		console.error(err);
-		process.exit(1);
-	});
+const seed = function () {
+	db.Users.deleteMany({})
+		.then(() => db.Users.create(userSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+
+	db.Pricings.deleteMany({})
+		.then(() => db.Pricings.create(pricing))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+
+	db.Completions.deleteMany({})
+		.then(() => db.Completions.create(completion))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+
+	db.Protips.deleteMany({})
+		.then(() => db.Protips.create(proTips))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+
+	db.BaseProjects.deleteMany({})
+		.then(() => db.BaseProjects.create(baseProjectsSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+			process.exit(0);
+		})
+		.catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
+};
+
+module.exports = { seed };

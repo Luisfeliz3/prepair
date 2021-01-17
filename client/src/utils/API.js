@@ -20,9 +20,9 @@ export default {
 };
 
 // New api endpoint - do garbage
-function doGarbage () {
-  return
-}
+// function doGarbage () {
+//   return
+// }
 
 // Note: This API costs money! Test sparingly:
   // Requests: $0.005 / use

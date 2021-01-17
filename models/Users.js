@@ -22,13 +22,14 @@ const UserSchema = new mongoose.Schema({
 			projectId: {
 				type: Number,
 				unique: true,
+				required: false,
 			},
-			userParams: {
+			userParams: [
 				Object,
-			},
-			resultCalcs: {
+			],
+			resultCalcs: [
 				Object,
-			},
+			],
 		},
 	],
 });
