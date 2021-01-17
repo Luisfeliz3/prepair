@@ -16,6 +16,11 @@ export default {
   // Saves a comment to the database
   saveComment: function(commentData) {
     return axios.post("/api/comments", commentData);
+  },
+
+  // Gets one random protip
+  getProTips: function() {
+    return axios.get("/prepair/")
   }
 };
 
@@ -31,15 +36,15 @@ export default {
   // https://rapidapi.com/a.rachitskiy/api/sku-io/endpoints
 
 // Test API function - may need to be moved to controllers
-const options = {
-  method: 'GET',
-  url: 'https://sku-io.p.rapidapi.com/request',
-  params: {param: 'drill', store: 'HOMEDEPOT', function: 'getSearch'},
-  headers: {
-    'x-rapidapi-key': '6a6c93e695msh75b8b667572cb64p157cf7jsnea4fbc5808b0',
-    'x-rapidapi-host': 'sku-io.p.rapidapi.com'
-  }
-};
+// const options = {
+//   method: 'GET',
+//   url: 'https://sku-io.p.rapidapi.com/request',
+//   params: {param: 'drill', store: 'HOMEDEPOT', function: 'getSearch'},
+//   headers: {
+//     'x-rapidapi-key': '6a6c93e695msh75b8b667572cb64p157cf7jsnea4fbc5808b0',
+//     'x-rapidapi-host': 'sku-io.p.rapidapi.com'
+//   }
+// };
 
 axios.request(options).then(function (response) {
 	console.log(response.data);
