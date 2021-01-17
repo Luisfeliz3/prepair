@@ -3,7 +3,7 @@ const projectController = require("../../controllers/projectController");
 
 
 router.route("/newproject")
-.get( projectController.getProjectOptions )
+.get( projectController.findAll )
 
 
 module.exports = router;

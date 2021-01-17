@@ -713,47 +713,47 @@ let baseProjectsSeed = [
 ];
 
 // Protips seed for home page
-let proTips = [
-	{
-		proTipId: 1,
-		proTipText:
-			"You can fix a cracked foundation with a small amount of epoxy and plastic tubing.",
-	},
-	{
-		proTipId: 2,
-		proTipText:
-			"A self-centering drill bit costs less than $25 and can save hours of frustration.",
-	},
-	{
-		proTipId: 3,
-		proTipText:
-			"A snap toggle anchor can hold up to 265 pounds in 1/2 inch drywall.",
-	},
-	{
-		proTipId: 4,
-		proTipText:
-			"Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches.",
-	},
-	{
-		proTipId: 5,
-		proTipText:
-			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
-	},
-	{
-		proTipId: 6,
-		proTipText:
-			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
-	},
-	{
-		proTipId: 7,
-		proTipText:
-			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
-	},
-	{
-		proTipId: 8,
-		proTipText: "Remember that preparation is 75% of the job.",
-	},
-];
+// let proTips = [
+// 	{
+// 		proTipId: 1,
+// 		proTipText:
+// 			"You can fix a cracked foundation with a small amount of epoxy and plastic tubing.",
+// 	},
+// 	{
+// 		proTipId: 2,
+// 		proTipText:
+// 			"A self-centering drill bit costs less than $25 and can save hours of frustration.",
+// 	},
+// 	{
+// 		proTipId: 3,
+// 		proTipText:
+// 			"A snap toggle anchor can hold up to 265 pounds in 1/2 inch drywall.",
+// 	},
+// 	{
+// 		proTipId: 4,
+// 		proTipText:
+// 			"Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches.",
+// 	},
+// 	{
+// 		proTipId: 5,
+// 		proTipText:
+// 			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
+// 	},
+// 	{
+// 		proTipId: 6,
+// 		proTipText:
+// 			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
+// 	},
+// 	{
+// 		proTipId: 7,
+// 		proTipText:
+// 			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
+// 	},
+// 	{
+// 		proTipId: 8,
+// 		proTipText: "Remember that preparation is 75% of the job.",
+// 	},
+// ];
 
 // Completion status of project, matched to userParams in userSeed
 //used for progress ring
@@ -863,7 +863,7 @@ let pricing = [
 db.Users.deleteMany({}).then(() => db.Users.create(userSeed));
 db.Pricings.deleteMany({}).then(() => db.Pricings.create(pricing));
 db.Completions.deleteMany({}).then(() => db.Completions.create(completion));
-db.Protips.deleteMany({}).then(() => db.Protips.create(proTips));
+// db.Protips.deleteMany({}).then(() => db.Protips.create(proTips));
 db.BaseProjects.deleteMany({})
 	.then(() => db.BaseProjects.create(baseProjectsSeed))
 	.then((data) => {

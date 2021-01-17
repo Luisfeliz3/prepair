@@ -7,10 +7,10 @@ import { Input, FormBtn } from "../components/Form";
 
 class Signup extends Component {
   state = {
-    email: "1@1",
-    username: "one",
-    password: "1",
-    passwordConf: "1"
+    email: "",
+    username: "",
+    password: "",
+    passwordConf: ""
   };
 
   componentDidMount() {

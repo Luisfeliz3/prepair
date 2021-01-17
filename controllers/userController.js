@@ -1,5 +1,6 @@
 const db = require("../models");
 
+
 // Defining methods for the userController
 module.exports = {
 
@@ -18,6 +19,7 @@ module.exports = {
 	// otherwise send back an error
    signup: function (req, res) {
 		db.User.create({
+		// db.User.insertOne({
          username: req.body.username,
 			email: req.body.email,
          password: req.body.password,
@@ -45,14 +47,5 @@ module.exports = {
                // comments: req.user.comments
          })
    }
-
-
-// get project options based on project id (project)
-
-// get user selections from database (user)
-
-// calculate results and store in userstate, then post to database (user)
-
-// get and display results 
 
 }

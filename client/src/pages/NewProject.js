@@ -16,7 +16,18 @@ import wood from "../static/wood.png";
 
 function NewProject() {
 	const [show, setShow] = useState(false);
+	// from base project seed below
+	const [dropdownOptions, showOptions] = useState({
+		widthOptions: [],
+		depthOptions: [],
+		heightOptions: []
+	})
 	useEffect(() => {
+		// showOptions({
+		// 	widthOptions: [],
+		// 	depthOptions: [],
+		// 	heightOptions: [],
+		// })
 		setShow(false);
 	}, []);
 	// const [showModal, setShowModal] = useState(false);
@@ -29,6 +40,7 @@ function NewProject() {
 					<Button
 						variant="outline-light"
 						className="iconBtn"
+						id="chair"
 						onClick={() => setShow(true)}
 					>
 						<img src={chair} className="icon" />
@@ -38,19 +50,19 @@ function NewProject() {
 				</Col>
 
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="bookcase">
 						<img src={bookcase} className="icon" />
 						<p>Bookcase</p>
 					</Button>
 				</Col>
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="table">
 						<img src={table} className="icon" alt="furniture-icon" />
 						<p className="special">Table</p>
 					</Button>
 				</Col>
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="desk">
 						<img src={desk} className="icon" alt="furniture-icon" />
 						<p>Desk</p>
 					</Button>
@@ -61,25 +73,25 @@ function NewProject() {
 			</Row>
 			<Row className="iconRow">
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="dresser">
 						<img src={dresser} className="icon" alt="furniture-icon" />
 						<p>Dresser</p>
 					</Button>
 				</Col>
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="tile">
 						<img src={tile} className="icon" alt="furniture-icon" />
 						<p>Tile</p>
 					</Button>
 				</Col>
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="wall">
 						<img src={wall} className="icon" alt="furniture-icon" />
 						<p>Wall</p>
 					</Button>
 				</Col>
 				<Col>
-					<Button variant="outline-light" className="iconBtn">
+					<Button variant="outline-light" className="iconBtn" id="ladder">
 						<img src={ladder} className="icon" alt="furniture-icon" />
 						<p>Ladder</p>
 					</Button>
