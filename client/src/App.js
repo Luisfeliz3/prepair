@@ -16,6 +16,14 @@ function App() {
 
 	const [userState, setUserState] = useState({});
 
+	// from base project seed below
+	const [dropdownOptions, showOptions] = useState({
+		pieceName: "",
+		widthOptions: [],
+		depthOptions: [],
+		heightOptions: []
+	})
+
 	document.title = "Prepair";
 
 
