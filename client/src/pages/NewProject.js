@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // import { Grid, Segment } from "semantic-ui-react";
 import { Button, Modal, Container, Row, Col } from "react-bootstrap";
-import Wrapper from "../components/Wrapper";
+// import Wrapper from "../components/Wrapper";
 import chair from "../static/construction-icons/chair-main.svg";
 import bookcase from "../static/construction-icons/bookcase-main.svg";
 import table from "../static/construction-icons/table-main.svg";
@@ -18,6 +18,7 @@ function NewProject() {
 	const [show, setShow] = useState(false);
 	// from base project seed below
 	const [dropdownOptions, showOptions] = useState({
+		pieceName: "",
 		widthOptions: [],
 		depthOptions: [],
 		heightOptions: []

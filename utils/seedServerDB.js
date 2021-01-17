@@ -257,7 +257,7 @@ let userSeed = [
 let baseProjectsSeed = [
 	{
 		projectName: "chair",
-		projectId: 1, //used as id
+		projectId: 1,
 		description: "A simple chair with an open back and a footrail.",
 		materials: [
 			{
