@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Container from "./components/Container";
 import userAPI from "./utils/userAPI";
+import API from "./utils/API";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NewProject from "./pages/NewProject";
 import SavedProjects from "./pages/SavedProjects";
-import ProtectedRoute from "./components/ProtectedRoute"
+import ProtectedRoute from "./components/ProtectedRoute";
 import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
-
 function App() {
-
 	const [userState, setUserState] = useState({});
 
 	// from base project seed below
@@ -21,71 +20,70 @@ function App() {
 		pieceName: "",
 		widthOptions: [],
 		depthOptions: [],
-		heightOptions: []
-	})
+		heightOptions: [],
+	});
 
 	document.title = "Prepair";
 
-
-	useEffect(() => { 
+	useEffect(() => {
 		// auth user on first render
-	   authenticate() 
+		authenticate();
+		loadProjects();
 	}, []);
 
-
-
-		//user authentication
-		function authenticate() {
-			return userAPI.authenticateUser()
-				.then(({ data }) => {
-					console.log('user:', data );
+	//user authentication
+	function authenticate() {
+		return userAPI
+			.authenticateUser()
+			.then(({ data }) => {
+				console.log("user:", data);
 				setUserState(data);
-				})
-				.catch((err) => console.log('registered user:', err.response));
-		}
-
+			})
+			.catch((err) => console.log("registered user:", err.response));
+	}
+	function loadProjects() {
+		API.getAllProjects()
+			.then((res) => showOptions(res.data))
+			.catch((err) => console.log(err));
+	}
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
 			<div className="App">
 				<Nav />
-				
-					<Switch>
 
-						<Route exact path="/" className="App-link">
-							<Container />
-					
-						</Route>
+				<Switch>
+					<Route exact path="/" className="App-link">
+						<Container />
+					</Route>
 
-						<Route exact path="/login" className="App-link">
-							<Login 
+					<Route exact path="/login" className="App-link">
+						<Login
 							// {...props}
 							userState={userState}
 							setUserState={setUserState}
-							/>
-						</Route>
+						/>
+					</Route>
 
-						<Route exact path="/signup" className="App-link"  >
-							<Signup 
-								// {...props}
-								authenticate={authenticate}
-								user={userState}
-							/>
-						</Route>
+					<Route exact path="/signup" className="App-link">
+						<Signup
+							// {...props}
+							authenticate={authenticate}
+							user={userState}
+						/>
+					</Route>
 
-						<ProtectedRoute exact path="/newproject" className="App-link" >
-							<NewProject {...userState} />
-						</ProtectedRoute>
+					<ProtectedRoute exact path="/newproject" className="App-link">
+						<NewProject {...userState} />
+					</ProtectedRoute>
 
-
-						<ProtectedRoute exact path="/myprojects" className="App-link">
-							<SavedProjects {...userState}/>
-						</ProtectedRoute>
-
+					<ProtectedRoute exact path="/myprojects" className="App-link">
+						<SavedProjects {...userState} />
+					</ProtectedRoute>
 
 					<Route component={NoMatch} />
-					</Switch>
+				</Switch>
 			</div>
-			{userState.email ? <Redirect to ="/newproject"/> : <></> }
+			{userState.email ? <Redirect to="/newproject" /> : <></>}
 		</BrowserRouter>
 	);
 }

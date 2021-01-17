@@ -19,19 +19,6 @@ const UserSchema = new mongoose.Schema({
 	},
 	currentProjects: [
 		Object
-		// {
-		// 	projectId: {
-		// 		type: Number,
-		// 		unique: true,
-		// 		required: false,
-		// 	},
-		// 	userParams: [
-		// 		Object,
-		// 	],
-		// 	resultCalcs: [
-		// 		Object,
-		// 	],
-		// },
 	],
 });
 

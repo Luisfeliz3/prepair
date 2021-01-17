@@ -790,10 +790,7 @@ let pricing = [
 ];
 
 // Should be five collections based on seeds - users with currentProjects, base projects, proTips, completion phases, and pricing.
-// Database name "Prepair" - please change if different
-
-
-// more logging - userrecords inserted - pricing records inserted.
+// Database name "Prepair"
 
 // Removing all users with their currentProjects
 const seed = function () {

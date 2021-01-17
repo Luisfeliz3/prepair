@@ -1,11 +1,10 @@
 const db = require("../models");
 
 module.exports = {
-	findAll: function (req, res) {
-		db.BaseProjects.find({}).toArray(function(err, res) {
-			if (err) throw err;
-			console.log(res);
-		})
+	findAll: function(req, res) {
+		db.BaseProjects.find()
+			.then((allProj) => res.json(allProj))
+			.catch((err) => res.status(422).json(err));
 		// for (let i = 0; i < BaseProjects.length; i++) {
 		// 	res.json({
 		// 		projectId: req.BaseProjects[i].projectId,
@@ -16,8 +15,8 @@ module.exports = {
 		// 		projectHeightOptions:
 		// 			req.BaseProjects[i].userParams[3].options,
 		// 	});
-		}
-	};
+	},
+};
 // get project options based on project id (project) ok
 
 // on calculate, post user selections to database (user)
