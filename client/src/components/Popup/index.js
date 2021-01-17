@@ -57,7 +57,7 @@ const Popup = (props) => {
 								<div>
 									Enter Width :
 									<DropdownButton
-										id="dropdown-basic-button"
+										className="dropdown-basic-button"
 										title="Dropdown button"
 									>
 										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -73,7 +73,7 @@ const Popup = (props) => {
 								<div>
 									Enter Height :
 									<DropdownButton
-										id="dropdown-basic-button"
+										className="dropdown-basic-button"
 										title="Dropdown button"
 									>
 										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
@@ -88,7 +88,7 @@ const Popup = (props) => {
 								<div>
 									Enter Depth :
 									<DropdownButton
-										id="dropdown-basic-button"
+										className="dropdown-basic-button"
 										title="Dropdown button"
 									>
 										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>

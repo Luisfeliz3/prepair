@@ -14,6 +14,7 @@ import "./style.css";
 import Popup from "../components/Popup/index";
 import wood from "../static/wood.png";
 
+
 function NewProject() {
 	const [show, setShow] = useState(false);
 	useEffect(() => {
@@ -31,28 +32,28 @@ function NewProject() {
 						id="chair"
 						onClick={() => setShow(true)}
 					>
-						<img src={chair} className="icon" />
-						<p>Chair</p>
+						<img src={chair} className="icon" id="chair-change" alt="furniture-icon"/>
+						<p className="title-text">Chair</p>
 					</Button>
 					<Popup show={show} />
 				</Col>
 
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="bookcase">
-						<img src={bookcase} className="icon" />
-						<p>Bookcase</p>
+						<img src={bookcase} className="icon" id="bookcase-change" alt="furniture-icon"/>
+						<p className="title-text">Bookcase</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="table">
-						<img src={table} className="icon" alt="furniture-icon" />
-						<p className="special">Table</p>
+						<img src={table} className="icon" id="table-change" alt="furniture-icon" />
+						<p className="title-text">Table</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="desk">
-						<img src={desk} className="icon" alt="furniture-icon" />
-						<p>Desk</p>
+						<img src={desk} className="icon" id="desk-change" alt="furniture-icon" />
+						<p className="title-text">Desk</p>
 					</Button>
 				</Col>
 			</Row>
@@ -62,26 +63,26 @@ function NewProject() {
 			<Row className="iconRow">
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="dresser">
-						<img src={dresser} className="icon" alt="furniture-icon" />
-						<p>Dresser</p>
+						<img src={dresser} className="icon"  id="dresser-change" alt="furniture-icon" />
+						<p className="title-text">Dresser</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="tile">
-						<img src={tile} className="icon" alt="furniture-icon" />
-						<p>Tile</p>
+						<img src={tile} className="icon"  id="tile-change" alt="furniture-icon"/>
+						<p className="title-text">Tile</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="wall">
-						<img src={wall} className="icon" alt="furniture-icon" />
-						<p>Wall</p>
+						<img src={wall} className="icon"  id="wall-change" alt="furniture-icon"/>
+						<p className="title-text">Wall</p>
 					</Button>
 				</Col>
 				<Col>
 					<Button variant="outline-light" className="iconBtn" id="ladder">
-						<img src={ladder} className="icon" alt="furniture-icon" />
-						<p>Ladder</p>
+						<img src={ladder} className="icon"  id="ladder-change" alt="furniture-icon"/>
+						<p className="title-text">Ladder</p>
 					</Button>
 				</Col>
 			</Row>
