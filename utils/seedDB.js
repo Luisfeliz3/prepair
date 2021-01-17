@@ -736,20 +736,20 @@ let proTips = [
 		proTipText:
 			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
 	},
-	{
-		proTipId: 6,
-		proTipText:
-			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
-	},
-	{
-		proTipId: 7,
-		proTipText:
-			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
-	},
-	{
-		proTipId: 8,
-		proTipText: "Remember that preparation is 75% of the job.",
-	},
+	// {
+	// 	proTipId: 6,
+	// 	proTipText:
+	// 		"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
+	// },
+	// {
+	// 	proTipId: 7,
+	// 	proTipText:
+	// 		"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
+	// },
+	// {
+	// 	proTipId: 8,
+	// 	proTipText: "Remember that preparation is 75% of the job.",
+	// },
 ];
 
 // Completion status of project, matched to userParams in userSeed

@@ -18,18 +18,7 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 	},
 	currentProjects: [
-		{
-			projectId: {
-				required: true,
-				type: Number,
-			},
-			userParams: [
-				Object
-			],
-			resultCalcs: [
-				Object
-			]
-		}
+		Object
 	],
 });
 
