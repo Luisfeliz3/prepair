@@ -7,7 +7,7 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./utils/passport");
 const logger = require("morgan");
-const seed = require("./utils/seedDB");
+const seed = require("./utils/seedServerDB");
 
 const PORT = process.env.PORT || 3001;
 
