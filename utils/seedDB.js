@@ -860,17 +860,47 @@ let pricing = [
 // Database name "Prepair" - please change if different
 
 // Removing all users with their currentProjects
-db.Users.deleteMany({}).then(() => db.Users.create(userSeed));
-db.Pricings.deleteMany({}).then(() => db.Pricings.create(pricing));
-db.Completions.deleteMany({}).then(() => db.Completions.create(completion));
-// db.Protips.deleteMany({}).then(() => db.Protips.create(proTips));
+db.Users.deleteMany({})
+	.then(() => db.Users.create(userSeed))
+	.then((data) => {
+		console.log(data.length + " records inserted!");
+		// process.exit(0);
+	})
+	.catch((err) => {
+		console.error(err);
+		// process.exit(1);
+	});
+db.Pricings.deleteMany({})
+	.then(() => db.Pricings.create(pricing))
+	.then((data) => {
+		console.log(data.length + " records inserted!");
+		// process.exit(0);
+	})
+	.catch((err) => {
+		console.error(err);
+		// process.exit(1);
+	});
+db.Completions.deleteMany({})
+	.then(() => db.Completions.create(completion))
+	.then((data) => {
+		console.log(data.length + " records inserted!");
+		// process.exit(0);
+	})
+	.catch((err) => {
+		console.error(err);
+		// process.exit(1);
+	});
 db.BaseProjects.deleteMany({})
 	.then(() => db.BaseProjects.create(baseProjectsSeed))
 	.then((data) => {
 		console.log(data.length + " records inserted!");
-		process.exit(0);
+		// process.exit(0);
 	})
 	.catch((err) => {
 		console.error(err);
-		process.exit(1);
+		// process.exit(1);
 	});
+
+setTimeout(function () {
+	process.exit(0);
+}, 5000);

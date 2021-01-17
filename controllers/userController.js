@@ -18,7 +18,7 @@ module.exports = {
 	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 	// otherwise send back an error
    signup: function (req, res) {
-		db.User.create({
+		db.Users.create({
 		// db.User.insertOne({
          username: req.body.username,
 			email: req.body.email,
