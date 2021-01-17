@@ -33,7 +33,7 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair", mongoOptions);
 
 mongoose.connection.on('connected', ()=>{
-  // if (process.env.NODE_ENV === 'production') seed.seed();
+  if (process.env.NODE_ENV === 'production') seed.seed();
   console.log('Mongoose is connected !')
 })
 
