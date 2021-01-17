@@ -4,6 +4,7 @@ export default {
 
 // New endpoint to get all projects from baseprojects model
 getAllProjects: function() {
+  console.log(axios.get("/api/getallprojects"));
   return axios.get("/api/getallprojects");
 }
 

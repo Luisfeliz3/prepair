@@ -85,7 +85,7 @@ function App() {
 					<Route component={NoMatch} />
 				</Switch>
 			</div>
-			{userState.email ? <Redirect to="/newproject" /> : <></>}
+			{/* {userState.email ? <Redirect to="/newproject" /> : <></>} */}
 		</BrowserRouter>
 	);
 }
