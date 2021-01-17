@@ -23,11 +23,6 @@ function NewProject() {
 		heightOptions: []
 	})
 	useEffect(() => {
-		// showOptions({
-		// 	widthOptions: [],
-		// 	depthOptions: [],
-		// 	heightOptions: [],
-		// })
 		setShow(false);
 	}, []);
 	// const [showModal, setShowModal] = useState(false);
