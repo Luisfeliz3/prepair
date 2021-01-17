@@ -1,10 +1,17 @@
 const db = require("../models");
 
 module.exports = {
-	findAll: function(req, res) {
-		db.BaseProjects.find()
-			.then((allProj) => res.json(allProj))
-			.catch((err) => res.status(422).json(err));
+	findAll: function (req, res) {
+		db.BaseProjects.find({}, function (err, result) {
+			if (err) {
+				console.log(err);
+			} else {
+				res.json(result);
+			}
+			// .then((allProj) => {
+				console.log(result);
+			// 	res.json(allProj)
+		}).catch((err) => res.status(422).json(err));
 		// for (let i = 0; i < BaseProjects.length; i++) {
 		// 	res.json({
 		// 		projectId: req.BaseProjects[i].projectId,

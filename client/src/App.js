@@ -17,10 +17,11 @@ function App() {
 
 	// from base project seed below
 	const [dropdownOptions, showOptions] = useState({
-		pieceName: "",
-		widthOptions: [],
-		depthOptions: [],
-		heightOptions: [],
+		projectName: "",
+		userParams: [],
+		// widthOptions: [],
+		// depthOptions: [],
+		// heightOptions: [],
 	});
 
 	document.title = "Prepair";
@@ -41,11 +42,13 @@ function App() {
 			})
 			.catch((err) => console.log("registered user:", err.response));
 	}
+
 	function loadProjects() {
-		API.getAllProjects()
+		return API.getAllProjects()
 			.then((res) => showOptions(res.data))
 			.catch((err) => console.log(err));
 	}
+
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
 			<div className="App">
@@ -58,7 +61,6 @@ function App() {
 
 					<Route exact path="/login" className="App-link">
 						<Login
-							// {...props}
 							userState={userState}
 							setUserState={setUserState}
 						/>
@@ -66,14 +68,14 @@ function App() {
 
 					<Route exact path="/signup" className="App-link">
 						<Signup
-							// {...props}
 							authenticate={authenticate}
 							user={userState}
 						/>
 					</Route>
 
 					<ProtectedRoute exact path="/newproject" className="App-link">
-						<NewProject {...userState} />
+						<NewProject {...userState}
+						dropdownOptions={dropdownOptions}/>
 					</ProtectedRoute>
 
 					<ProtectedRoute exact path="/myprojects" className="App-link">
