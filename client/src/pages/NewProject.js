@@ -16,18 +16,10 @@ import wood from "../static/wood.png";
 
 function NewProject() {
 	const [show, setShow] = useState(false);
-	// from base project seed below
-	const [dropdownOptions, showOptions] = useState({
-		pieceName: "",
-		widthOptions: [],
-		depthOptions: [],
-		heightOptions: []
-	})
 	useEffect(() => {
 		setShow(false);
 	}, []);
 	// const [showModal, setShowModal] = useState(false);
-	// probably a for each here that refers to the seed data
 	return (
 		// <Wrapper>
 		<Container fluid className="wrap">
