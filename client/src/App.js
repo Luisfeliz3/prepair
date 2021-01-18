@@ -13,23 +13,37 @@ import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
+	// {
+	// 	user: {}
+	// 	projects: [],
+	// }
 	const [userState, setUserState] = useState({});
 
 	// from base project seed below
-	const [dropdownOptions, showOptions] = useState({
-		projectName: "",
-		userParams: [],
+	
+	// const [projects, setProjects] = useState({
+	// 	data: {},
+		// userParams: [],
 		// widthOptions: [],
 		// depthOptions: [],
 		// heightOptions: [],
-	});
+	// });
+
+// 	class App extends Component {
+//     state = {
+//         data: {}
+//     }
+//     render() {
+//         return <App data={this.state}>
+//     }
+// }
 
 	document.title = "Prepair";
 
 	useEffect(() => {
 		// auth user on first render
 		authenticate();
-		loadProjects();
+		// loadProjects();
 	}, []);
 
 	//user authentication
@@ -43,11 +57,7 @@ function App() {
 			.catch((err) => console.log("registered user:", err.response));
 	}
 
-	function loadProjects() {
-		return API.getAllProjects()
-			.then((res) => showOptions(res.data))
-			.catch((err) => console.log(err));
-	}
+
 
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
@@ -75,7 +85,8 @@ function App() {
 
 					<ProtectedRoute exact path="/newproject" className="App-link">
 						<NewProject {...userState}
-						dropdownOptions={dropdownOptions}/>
+						// projects={projects}
+						/>
 					</ProtectedRoute>
 
 					<ProtectedRoute exact path="/myprojects" className="App-link">
