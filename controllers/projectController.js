@@ -2,12 +2,12 @@ const db = require("../models");
 
 module.exports = {
 	findAll: function (req, res) {
-		console.log("YOU ARE HERE!!!");
-		console.log(db.BaseProjects.find({}));
-		// db.BaseProjects.find(req.query)
-		// 	.then((allProj) => {
-		// 		res.json(allProj)
-		// }).catch((err) => res.status(422).json(err));
+		// console.log("YOU ARE HERE!!!");
+		// console.log(db.BaseProjects.find({}));
+		db.BaseProjects.find(req.query)
+			.then((allProj) => {
+				res.json(allProj)
+		}).catch((err) => res.status(422).json(err));
 
 		// db.BaseProjects.find({}, function (err, result) {
 		// 	if (err) {
