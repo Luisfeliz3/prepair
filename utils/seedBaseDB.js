@@ -451,7 +451,7 @@ let baseProjectsSeed = [
 				dimensionHeight: "inputHeight",
 				unit: "inches",
 				defaultQuantity: "30",
-				options: [26, 28, 30],
+				options: [38, 40, 42],
 			},
 			{
 				optionalArea: "calculatedArea",
@@ -483,11 +483,11 @@ let baseProjectsSeed = [
 				name: "heavy-duty side-mounted drawer slides",
 				size: "22in depth",
 			},
-			{
-				matType: "hardware",
-				name: "closet rod with sleeves",
-				size: "1-1/4 in diameter",
-			},
+			// {
+			// 	matType: "hardware",
+			// 	name: "closet rod with sleeves",
+			// 	size: "1-1/4 in diameter",
+			// },
 		],
 		tools: [
 			"saw",
@@ -501,6 +501,7 @@ let baseProjectsSeed = [
 			"paint or wood stain",
 			"self-leveling feet",
 			"anti-tip hardware",
+			"wood knobs"
 		],
 		userParams: [
 			{
@@ -703,7 +704,7 @@ let completion = [
 	},
 	{
 		completionStatus: 3,
-		description: "Watched instructional video.",
+		description: "Measured and cut all pieces and started assembly.",
 		completionPercentage: 75,
 	},
 	{
@@ -759,7 +760,7 @@ let pricing = [
 	},
 	{
 		name: "subway tile",
-		size: "square feet",
+		size: "10 square feet boxes",
 		sku: "",
 		price: "",
 	},

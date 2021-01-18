@@ -23,7 +23,7 @@ const Popup = (props) => {
 		setShow(props.show);
 	}, [props.show]);
 
-	const percentage = 66; //Number value for the Progress Ring
+	const percentage = 25; //Number value for the Progress Ring
 
 	return (
 		<div id="modal">
@@ -37,7 +37,7 @@ const Popup = (props) => {
 				centered
 			>
 				<Modal.Header closeButton>
-					<Modal.Title>Table Project</Modal.Title>
+					<Modal.Title>Project Name</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Row>
@@ -48,58 +48,59 @@ const Popup = (props) => {
 								className="explodedDiagram"
 								alt="exploded-diagram"
 							/>
-							<div id="calculate-button">Click "Calculate" </div>
 						</Col>
 
 						<section>
 							<form className="col-4">
 								<div className="form-group"></div>
 								<div>
-									Enter Width :
+									Width (in):
 									<DropdownButton
 										className="dropdown-basic-button"
-										title="Dropdown button"
+										title="Select"
 									>
-										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+										<Dropdown.Item href="#/action-1">12</Dropdown.Item>
 										<Dropdown.Item href="#/action-2">
-											Another action
+											24
 										</Dropdown.Item>
 										<Dropdown.Item href="#/action-3">
-											Something else
+											36
 										</Dropdown.Item>
 									</DropdownButton>
 								</div>
 
 								<div>
-									Enter Height :
+									Height (in):
 									<DropdownButton
 										className="dropdown-basic-button"
-										title="Dropdown button"
+										title="Select"
 									>
-										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+										<Dropdown.Item href="#/action-1">18</Dropdown.Item>
 										<Dropdown.Item href="#/action-2">
-											Another action
+											24
 										</Dropdown.Item>
 										<Dropdown.Item href="#/action-3">
-											Something else
+											30
 										</Dropdown.Item>
 									</DropdownButton>
 								</div>
 								<div>
-									Enter Depth :
+									Depth (in):
 									<DropdownButton
 										className="dropdown-basic-button"
-										title="Dropdown button"
+										title="Select"
 									>
-										<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+										<Dropdown.Item href="#/action-1">24</Dropdown.Item>
 										<Dropdown.Item href="#/action-2">
-											Another action
+											30
 										</Dropdown.Item>
 										<Dropdown.Item href="#/action-3">
-											Something else
+											36
 										</Dropdown.Item>
 									</DropdownButton>
 								</div>
+							<Button id="calculate-button">Calculate</Button>
+
 								<img
 									id="image"
 									src={wood}
@@ -110,36 +111,47 @@ const Popup = (props) => {
 								></img>
 							</form>
 							<div className="form-check">
-								<label>
 									<InputGroup className="mb-3">
+								<label>
 										<InputGroup.Prepend>
 											<InputGroup.Checkbox aria-label="Checkbox for following text input" />
 										</InputGroup.Prepend>
-									</InputGroup>
-									Option 1
+									Calculated materials.
 								</label>
+									</InputGroup>
 							</div>
 
 							<div className="form-check">
-								<label>
 									<InputGroup className="mb-3">
+								<label>
 										<InputGroup.Prepend>
 											<InputGroup.Checkbox aria-label="Checkbox for following text input" />
 										</InputGroup.Prepend>
-									</InputGroup>
-									Option 2
+									Purchased materials and prepared tools.
 								</label>
+									</InputGroup>
 							</div>
 
 							<div className="form-check">
-								<label>
 									<InputGroup className="mb-3">
+								<label>
 										<InputGroup.Prepend>
 											<InputGroup.Checkbox aria-label="Checkbox for following text input" />
 										</InputGroup.Prepend>
-									</InputGroup>
-									Option 3
+									Measured and cut all pieces and starting assembly.
 								</label>
+									</InputGroup>
+							</div>
+
+							<div className="form-check">
+									<InputGroup className="mb-3">
+								<label>
+										<InputGroup.Prepend>
+											<InputGroup.Checkbox aria-label="Checkbox for following text input" />
+										</InputGroup.Prepend>
+									Completed build.
+								</label>
+									</InputGroup>
 							</div>
 						</section>
 						<button className="btn btn-primary mt-2" type="submit">
