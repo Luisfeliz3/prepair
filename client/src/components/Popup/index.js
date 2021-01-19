@@ -100,7 +100,9 @@ const Popup = (props) => {
 									</DropdownButton>
 								</div>
 							<Button id="calculate-button">Calculate</Button>
-
+							<p>{props.projects.data[0].description}</p>
+							{/* games[0] == undefined ? "" : games[0].Player.name */}
+							{/* {console.log(props)} */}
 								<img
 									id="image"
 									src={wood}

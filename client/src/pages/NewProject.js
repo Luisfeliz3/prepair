@@ -17,24 +17,36 @@ import API from "../utils/API";
 
 function NewProject() {
 	const [show, setShow] = useState(false);
+	const [projects, setProjects] = useState({});
+
 	useEffect(() => {
 		setShow(false);
+		API.getAllProjects()
+				.then((res) => setProjects(res))
+				.catch((err) => console.log(err));
 	}, []);
 
-	function renderProjects(res) {
-		let projects = [];
-		projects = res.data;
-		console.log(projects)
-	}
+	// function renderProjects(res) {
+	// 	let projects = [];
+	// 	projects = res.data;
+	// 	console.log(projects);
+		// for (i = 0; i < res.data.length; i++) {
+		// 	let widths = projects[i].userParams[0].options;
+		// 	let depths = projects[i].userParams[1].options;
+		// 	let heights = projects[i].userParams[2].options;
+		// 	console.log(widths);
+		// 	console.log(depths);
+		// 	console.log(heights);
+		// }
+	// }
 
-	function loadProjects() {
-		return API.getAllProjects()
-			.then((res) => renderProjects(res))
-			.catch((err) => console.log(err));
-		}
-	loadProjects();
+	// function loadProjects() {
+	// 	return API.getAllProjects()
+	// 		.then((res) => renderProjects(res))
+	// 		.catch((err) => console.log(err));
+	// }
+	// loadProjects();
 
-	// const [showModal, setShowModal] = useState(false);
 	return (
 		// <Wrapper>
 		<Container fluid className="wrap">
@@ -54,7 +66,8 @@ function NewProject() {
 						/>
 						<p className="title-text">Chair</p>
 					</Button>
-					<Popup show={show} />
+					{projects.data.length > 0 ? <Popup projects={projects} show={show} /> : null}
+					
 				</Col>
 
 				<Col>
@@ -140,7 +153,7 @@ function NewProject() {
 					</Button>
 				</Col>
 			</Row>
-			<Popup show={show} />
+			{/* <Popup show={show} /> */}
 		</Container>
 		// </Wrapper>
 	);
