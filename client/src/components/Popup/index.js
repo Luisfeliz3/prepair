@@ -49,88 +49,115 @@ const Popup = (props) => {
 				</Modal.Header>
 				<Modal.Body className="short">
 					<Row>
-					<p>Description: {props.projects.data[0].description}</p>
-					<Col xs={6} md={12} className="row justify-content-around">
-						{/* <CircularProgressbar value={percentage} text={`${percentage}%`} /> */}
-					</Col>
-					{/* <section> */}
-					<Form className="col-4">
-						<div className="form-group">
-							<div>
-								<Form.Group controlId="exampleForm.ControlSelect1">
-									<Form.Label>Width (in):</Form.Label>
-									<Form.Control as="select">
-										<option>12</option>
-										<option>24</option>
-										<option>36</option>
-									</Form.Control>
-								</Form.Group>
+						<p>Description: {props.projects.data[0].description}</p>
+						<Col xs={6} md={12} className="row justify-content-around">
+							{/* <CircularProgressbar value={percentage} text={`${percentage}%`} /> */}
+						</Col>
+						{/* <section> */}
+						<Form className="col-4">
+							<div className="form-group">
+								<div>
+									<Form.Group controlId="exampleForm.ControlSelect1">
+										<Form.Label>Width (in):</Form.Label>
+										<Form.Control as="select">
+											<option>
+												{props.projects.data[0].userParams[0].options[0]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[0].options[1]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[0].options[2]}
+											</option>
+										</Form.Control>
+									</Form.Group>
+								</div>
+								<div>
+									<Form.Group controlId="exampleForm.ControlSelect1">
+										<Form.Label>Height (in):</Form.Label>
+										<Form.Control as="select">
+											<option>
+												{props.projects.data[0].userParams[1].options[0]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[1].options[1]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[1].options[2]}
+											</option>
+										</Form.Control>
+									</Form.Group>
+								</div>
+								<div>
+									<Form.Group controlId="exampleForm.ControlSelect1">
+										<Form.Label>Depth (in):</Form.Label>
+										<Form.Control as="select">
+											<option>
+												{props.projects.data[0].userParams[2].options[0]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[2].options[1]}
+											</option>
+											<option>
+												{props.projects.data[0].userParams[2].options[2]}
+											</option>
+										</Form.Control>
+									</Form.Group>
+								</div>
+								<Button id="calculate-button">Calculate</Button>
 							</div>
-							<div>
-								<Form.Group controlId="exampleForm.ControlSelect1">
-									<Form.Label>Height (in):</Form.Label>
-									<Form.Control as="select">
-										<option>18</option>
-										<option>24</option>
-										<option>30</option>
-									</Form.Control>
-								</Form.Group>
+							<img
+								src={expl}
+								className="explodedDiagram"
+								alt="exploded-diagram"
+							/>
+							<img
+								id="image"
+								src={twentyfive}
+								className="overlay"
+								alt="progress"
+							/>
+						</Form>
+						<row>
+							<Form className="form-group2">
+								{["checkbox"].map((type) => (
+									<div key={`inline-${type}`} className="mb-3">
+										<Form.Check
+											label="Calculated materials."
+											type={type}
+											id={`inline-${type}-1`}
+										/>
+										<Form.Check
+											label="Purchased materials and prepared tools."
+											type={type}
+											id={`inline-${type}-2`}
+										/>
+										<Form.Check
+											label="Measured and cut all pieces and starting assembly. (disabled)"
+											type={type}
+											id={`inline-${type}-3`}
+										/>
+										<Form.Check
+											disabled
+											label="Completed build. (disabled)"
+											type={type}
+											id={`inline-${type}-3`}
+										/>
+									</div>
+								))}
+								<button className="btn btn-secondary mt-2" type="submit">
+									Save Progress
+								</button>
+							</Form>
+							<div className="col-8">
+								<ul>
+									Tools:
+									{props.projects.data[0].tools}
+								</ul>
+								<ul>Optional: {props.projects.data[0].optional}</ul>
 							</div>
-							<div>
-								<Form.Group controlId="exampleForm.ControlSelect1">
-									<Form.Label>Depth (in):</Form.Label>
-									<Form.Control as="select">
-										<option>24</option>
-										<option>30</option>
-										<option>36</option>
-									</Form.Control>
-								</Form.Group>
-							</div>
-							<Button id="calculate-button">Calculate</Button>
-						</div>
-						<img
-							src={expl}
-							className="explodedDiagram"
-							alt="exploded-diagram"
-						/>
-						<img
-							id="image"
-							src={twentyfive}
-							className="overlay"
-							alt="progress"
-						/>
-					</Form>
-					<Form className="form-group2">
-						{["checkbox"].map((type) => (
-							<div key={`inline-${type}`} className="mb-3">
-								<Form.Check
-									label="Calculated materials."
-									type={type}
-									id={`inline-${type}-1`}
-								/>
-								<Form.Check
-									label="Purchased materials and prepared tools."
-									type={type}
-									id={`inline-${type}-2`}
-								/>
-								<Form.Check
-									label="Measured and cut all pieces and starting assembly. (disabled)"
-									type={type}
-									id={`inline-${type}-3`}
-								/>
-								<Form.Check
-									disabled
-									label="Completed build. (disabled)"
-									type={type}
-									id={`inline-${type}-3`}
-								/>
-							</div>
-						))}
-						<button className="btn btn-secondary mt-2" type="submit">
-							Save Progress
-						</button>
-					</Form>
-					{/* </section> */}
+						</row>
+						{/* </section> */}
 					</Row>
 				</Modal.Body>
 				{/* <Modal.Footer>
