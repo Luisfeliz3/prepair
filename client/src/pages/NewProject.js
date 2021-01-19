@@ -66,7 +66,7 @@ function NewProject() {
 						/>
 						<p className="title-text">Chair</p>
 					</Button>
-					{projects.data.length > 0 ? <Popup projects={projects} show={show} /> : null}
+					{projects.data ? <Popup projects={projects} show={show} /> : null}
 					
 				</Col>
 
@@ -153,7 +153,6 @@ function NewProject() {
 					</Button>
 				</Col>
 			</Row>
-			{/* <Popup show={show} /> */}
 		</Container>
 		// </Wrapper>
 	);
