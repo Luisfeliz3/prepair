@@ -720,7 +720,7 @@ let pricing = [
 		name: "2x4 nominal studs",
 		size: "8ft lengths of 2x4 (1.5in x 3.5in)",
 		sku: "1000020053",
-		price: "$6.56",
+		price: "6.56",
 	},
 	{
 		name: "1-inch wooden dowel",
