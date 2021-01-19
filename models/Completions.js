@@ -7,6 +7,6 @@ const completionSchema = new Schema({
 	completionPercentage: { type: Number, required: true }
 });
 
-const Completion = mongoose.model("Completion", completionSchema);
+const Completions = mongoose.model("Completions", completionSchema);
 
-module.exports = Completion;
+module.exports = Completions;

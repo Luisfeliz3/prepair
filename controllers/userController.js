@@ -1,5 +1,6 @@
 const db = require("../models");
 
+
 // Defining methods for the userController
 module.exports = {
 
@@ -9,7 +10,7 @@ module.exports = {
          _id: req.user._id,
          username: req.user.username,
          email: req.user.email,
-         comments: req.user.comments
+         // comments: req.user.comments
       });
    },
 
@@ -17,10 +18,11 @@ module.exports = {
 	// how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
 	// otherwise send back an error
    signup: function (req, res) {
-		db.User.create({
+		db.Users.create({
+		// db.User.insertOne({
          username: req.body.username,
 			email: req.body.email,
-			password: req.body.password
+         password: req.body.password,
 		})
       .then(() => {res.redirect(307, "/api/user/login") })
       .catch((err) => { res.status(401).json(err) });
@@ -42,7 +44,8 @@ module.exports = {
                _id: req.user._id,
                username: req.user.username,
                email: req.user.email,
-               comments: req.user.comments
+               // comments: req.user.comments
          })
    }
+
 }

@@ -1,39 +1,102 @@
-// import React, { useEffect, useState } from "react";
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Container from "./components/Container";
+import userAPI from "./utils/userAPI";
+import API from "./utils/API";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import NewProject from "./pages/NewProject";
 import SavedProjects from "./pages/SavedProjects";
+import ProtectedRoute from "./components/ProtectedRoute";
+import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
-	// const [userState, setUserState] = useState({});
+	// {
+	// 	user: {}
+	// 	projects: [],
+	// }
+	const [userState, setUserState] = useState({});
+
+	// from base project seed below
+	
+	// const [projects, setProjects] = useState({
+	// 	data: {},
+		// userParams: [],
+		// widthOptions: [],
+		// depthOptions: [],
+		// heightOptions: [],
+	// });
+
+// 	class App extends Component {
+//     state = {
+//         data: {}
+//     }
+//     render() {
+//         return <App data={this.state}>
+//     }
+// }
+
 	document.title = "Prepair";
+
+	useEffect(() => {
+		// auth user on first render
+		authenticate();
+		// loadProjects();
+	}, []);
+
+	//user authentication
+	function authenticate() {
+		return userAPI
+			.authenticateUser()
+			.then(({ data }) => {
+				console.log("user:", data);
+				setUserState(data);
+			})
+			.catch((err) => console.log("registered user:", err.response));
+	}
+
+
+
 	return (
 		<BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
 			<div className="App">
 				<Nav />
-					<Switch>
-						<Route exact path="/" className="App-link" component={App}>
-							<Container />
-						</Route>
-						<Route exact path="/login" className="App-link" component={Login}>
-							<Login />
-						</Route>
-						<Route exact path="/signup" className="App-link" component={Signup}>
-							<Signup />
-						</Route>
-						<Route exact path="/newproject" className="App-link" component={NewProject}>
-							<NewProject />
-						</Route>
-						<Route exact path="/myprojects" className="App-link" component={SavedProjects}>
-							<SavedProjects />
-						</Route>
-					</Switch>
+
+				<Switch>
+					<Route exact path="/" className="App-link">
+						<Container />
+					</Route>
+
+					<Route exact path="/login" className="App-link">
+						<Login
+							userState={userState}
+							setUserState={setUserState}
+						/>
+					</Route>
+
+					<Route exact path="/signup" className="App-link">
+						<Signup
+							authenticate={authenticate}
+							user={userState}
+						/>
+					</Route>
+
+					<ProtectedRoute exact path="/newproject" className="App-link">
+						<NewProject {...userState}
+						// projects={projects}
+						/>
+					</ProtectedRoute>
+
+					<ProtectedRoute exact path="/myprojects" className="App-link">
+						<SavedProjects {...userState} />
+					</ProtectedRoute>
+
+					<Route component={NoMatch} />
+				</Switch>
 			</div>
+			{userState.email ? <Redirect to="/newproject" /> : <></>}
 		</BrowserRouter>
 	);
 }

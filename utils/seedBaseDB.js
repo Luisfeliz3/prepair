@@ -3,11 +3,11 @@ const db = require("../models");
 const { mongoOptions } = require("./config");
 
 mongoose.connect(
-   // Name below is name of local (Robo3T)
+	// Name below is name of local (Robo3T)
 	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
- 
+
 // User Projects - with matching project Ids - this is where new users would be stored
 let userSeed = [
 	{
@@ -33,6 +33,99 @@ let userSeed = [
 					// check below
 					{
 						completionStatus: 1,
+					},
+				],
+				resultCalcs: [
+					{
+						name: "2x4 nominal stud(s)",
+						twoByFourLengthCount: "",
+						twoByFourLengthInFeet: "",
+						twoByFourWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1-inch rod(s)",
+						rodCount: "",
+						rodLengthInFeet: "",
+						rodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "3/4 inch plywood",
+						threeFourPlywoodCount: "",
+						threeFourPlywoodAreaInFeet: "",
+						threeFourPlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1x3 nominal stud(s)",
+						oneByThreeLengthCount: "",
+						oneByThreeLengthInFeet: "",
+						oneByThreeWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1 inch plywood",
+						onePlywoodCount: "",
+						onePlywoodAreaInFeet: "",
+						onePlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "heavy-duty side-mounted drawer slide(s)",
+						slidesCount: "22in deep pairs",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "closet rod with sleeves",
+						closetRodLengthCount: "",
+						closetRodLengthInFeet: "",
+						closetRodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "subway tile",
+						tileInSquareFeet: "",
+						tileWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cement board backer",
+						cementBoardCount: "",
+						cementBoardAreaInFeet: "",
+						cementBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cementitious grout",
+						size: "1/8 inch joint thickness",
+						tileInSquareFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "thin-set mortar adhesive",
+						size: "1/8 inch thick layer",
+						cementBoardAreaInFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "gypsum board",
+						gypBoardCount: "",
+						gypBoardAreaInFeet: "",
+						gypBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
 					},
 				],
 			},
@@ -62,6 +155,99 @@ let userSeed = [
 						completionStatus: 3,
 					},
 				],
+				resultCalcs: [
+					{
+						name: "2x4 nominal stud(s)",
+						twoByFourLengthCount: "",
+						twoByFourLengthInFeet: "",
+						twoByFourWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1-inch rod(s)",
+						rodCount: "",
+						rodLengthInFeet: "",
+						rodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "3/4 inch plywood",
+						threeFourPlywoodCount: "",
+						threeFourPlywoodAreaInFeet: "",
+						threeFourPlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1x3 nominal stud(s)",
+						oneByThreeLengthCount: "",
+						oneByThreeLengthInFeet: "",
+						oneByThreeWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1 inch plywood",
+						onePlywoodCount: "",
+						onePlywoodAreaInFeet: "",
+						onePlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "heavy-duty side-mounted drawer slide(s)",
+						slidesCount: "22in deep pairs",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "closet rod with sleeves",
+						closetRodLengthCount: "",
+						closetRodLengthInFeet: "",
+						closetRodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "subway tile",
+						tileInSquareFeet: "",
+						tileWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cement board backer",
+						cementBoardCount: "",
+						cementBoardAreaInFeet: "",
+						cementBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cementitious grout",
+						size: "1/8 inch joint thickness",
+						tileInSquareFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "thin-set mortar adhesive",
+						size: "1/8 inch thick layer",
+						cementBoardAreaInFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "gypsum board",
+						gypBoardCount: "",
+						gypBoardAreaInFeet: "",
+						gypBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+				],
 			},
 		],
 	},
@@ -71,7 +257,7 @@ let userSeed = [
 let baseProjectsSeed = [
 	{
 		projectName: "chair",
-		projectId: 1, //used as id
+		projectId: 1,
 		description: "A simple chair with an open back and a footrail.",
 		materials: [
 			{
@@ -100,15 +286,12 @@ let baseProjectsSeed = [
 			"1-inch diameter drill bit",
 		],
 		optional: ["paint or wood stain"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
 				unit: "inches",
 				defaultQuantity: "18",
-				options: [18, 24, 30], //populates drop downs 
+				options: [18, 24, 30],
 			},
 			{
 				dimensionDepth: "inputDepth",
@@ -155,9 +338,6 @@ let baseProjectsSeed = [
 			"5mm shelf pin drill bit",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -200,9 +380,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["saw", "level", "hammer", "sandpaper", "drill", "1in wood screws"],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -257,9 +434,6 @@ let baseProjectsSeed = [
 			"biscuit joiner",
 		],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -277,7 +451,7 @@ let baseProjectsSeed = [
 				dimensionHeight: "inputHeight",
 				unit: "inches",
 				defaultQuantity: "30",
-				options: [26, 28, 30],
+				options: [38, 40, 42],
 			},
 			{
 				optionalArea: "calculatedArea",
@@ -309,11 +483,11 @@ let baseProjectsSeed = [
 				name: "heavy-duty side-mounted drawer slides",
 				size: "22in depth",
 			},
-			{
-				matType: "hardware",
-				name: "closet rod with sleeves",
-				size: "1-1/4 in diameter",
-			},
+			// {
+			// 	matType: "hardware",
+			// 	name: "closet rod with sleeves",
+			// 	size: "1-1/4 in diameter",
+			// },
 		],
 		tools: [
 			"saw",
@@ -327,10 +501,8 @@ let baseProjectsSeed = [
 			"paint or wood stain",
 			"self-leveling feet",
 			"anti-tip hardware",
+			"wood knobs"
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -392,9 +564,6 @@ let baseProjectsSeed = [
 			"diamond blades",
 			"diamond drill bits for hardware installation",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -442,9 +611,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["drywall screws", "level", "tape", "spackle", "laser"],
 		optional: ["insulation", "outlet box", "blocking", "wall paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -492,9 +658,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["2-in wood screws", "drill", "1-in drill bit", "sandpaper", "saw"],
 		optional: ["wood stain or paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -526,49 +689,6 @@ let baseProjectsSeed = [
 	},
 ];
 
-// Protips seed for home page
-let proTips = [
-	{
-		proTipId: 1,
-		proTipText:
-			"You can fix a cracked foundation with a small amount of epoxy and plastic tubing.",
-	},
-	{
-		proTipId: 2,
-		proTipText:
-			"A self-centering drill bit costs less than $25 and can save hours of frustration.",
-	},
-	{
-		proTipId: 3,
-		proTipText:
-			"A snap toggle anchor can hold up to 265 pounds in 1/2 inch drywall.",
-	},
-	{
-		proTipId: 4,
-		proTipText:
-			"Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches.",
-	},
-	{
-		proTipId: 5,
-		proTipText:
-			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
-	},
-	{
-		proTipId: 6,
-		proTipText:
-			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
-	},
-	{
-		proTipId: 7,
-		proTipText:
-			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
-	},
-	{
-		proTipId: 8,
-		proTipText: "Remember that preparation is 75% of the job.",
-	},
-];
-
 // Completion status of project, matched to userParams in userSeed
 //used for progress ring
 let completion = [
@@ -584,7 +704,7 @@ let completion = [
 	},
 	{
 		completionStatus: 3,
-		description: "Watched instructional video.",
+		description: "Measured and cut all pieces and started assembly.",
 		completionPercentage: 75,
 	},
 	{
@@ -671,22 +791,45 @@ let pricing = [
 ];
 
 // Should be five collections based on seeds - users with currentProjects, base projects, proTips, completion phases, and pricing.
-// Database name "Prepair" - please change if different
+// Database name "Prepair"
 
 // Removing all users with their currentProjects
-db.User.deleteMany({})
-	.then(() => db.User.create(userSeed))
-	.then(() => db.Pricing.create(pricing))
-	.then(() => db.Completion.create(completion))
-	.then(() => db.Protips.create(proTips))
-	.then(() => db.BaseProjects.create(baseProjectsSeed))
-	.then((data) => {
+const seed = function () {
+	db.Users.deleteMany({})
+		.then(() => db.Users.create(userSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 
-		console.log(data.result.length + " records inserted!");
+	db.Pricings.deleteMany({})
+		.then(() => db.Pricings.create(pricing))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 
-		process.exit(0);
-	})
-	.catch((err) => {
-		console.error(err);
-		process.exit(1);
-	});
+	db.Completions.deleteMany({})
+		.then(() => db.Completions.create(completion))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+
+	db.BaseProjects.deleteMany({})
+		.then(() => db.BaseProjects.create(baseProjectsSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+};
+
+module.exports = { seed };
