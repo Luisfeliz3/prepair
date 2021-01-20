@@ -22,7 +22,6 @@ function NewProject() {
 		API.getAllProjects()
 			.then((res) => setProject(res))
 			.catch((err) => console.log(err));
-
 	}, []);
 
 	return (
@@ -36,6 +35,7 @@ function NewProject() {
 					</ul>
 				))}
 			</Row>
+			<h6 className="title">Create a New Project</h6>
 		</Container>
 	);
 }

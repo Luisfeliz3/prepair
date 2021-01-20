@@ -13,30 +13,7 @@ import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
-	// {
-	// 	user: {}
-	// 	projects: [],
-	// }
 	const [userState, setUserState] = useState({});
-
-	// from base project seed below
-	
-	// const [projects, setProjects] = useState({
-	// 	data: {},
-		// userParams: [],
-		// widthOptions: [],
-		// depthOptions: [],
-		// heightOptions: [],
-	// });
-
-// 	class App extends Component {
-//     state = {
-//         data: {}
-//     }
-//     render() {
-//         return <App data={this.state}>
-//     }
-// }
 
 	document.title = "Prepair";
 
