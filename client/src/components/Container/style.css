@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+
 .overall {
     height: 90vh;
     background-color: white;
@@ -7,6 +9,7 @@
 
 .background-placeholder {
     height: 100vh;
+    top: 50px;
     /* width: 100vw; */
     left: 0%;
     overflow-x: hidden;
@@ -18,13 +21,17 @@
 .title {
     position: fixed;
     left: 45%;
-    top: 50%;
-    color: white;
+    top: 48%;
+    color: rgba(201, 177, 157, 0.952);
     text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    font-size: x-large;
 }
 
 .proTip {
-    color: rgb(170, 170, 170);
+    color: rgba(201, 177, 157, 0.952);
+    font-family: 'Source Code Pro', monospace;
+    font-size: x-small;
     top: 90%;
     text-align: center;
 }

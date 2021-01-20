@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import placeholderwood from "../../static/planks.png";
 
+
 export function Container() {
 	let proTipArray = [
 		"You can fix a cracked foundation with a small amount of epoxy and plastic tubing.",
