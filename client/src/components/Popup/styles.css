@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+
 #calculate-button {
 	margin-block-end: 6em;
 	height: 50px;
@@ -5,6 +7,7 @@
 	background-color: rgba(26, 38, 32, 0.75);
 	margin-left: 3.5em;
 	margin-top: 3.5em;
+	font-family: "Source Code Pro", monospace;
 }
 
 #calculate-button:hover {
@@ -37,24 +40,34 @@
 .mt-2 {
 	height: 50px;
 	width: 100%;
+	font-family: "Source Code Pro", monospace;
 }
 
 .form-group {
-  margin: 15px;
+	margin: 15px;
 }
 
 .form-group2 {
-  width: 50%;
+	width: 50%;
 	margin: 25px;
 	color: black;
-  background-color: rgba(201, 177, 157, 0.952);
-  border-radius: 10px;
-  padding: 15px;
-  position: absolute;
-  top: 500px;
+	border: 1px solid rgba(26, 38, 32, 0.75);
+	background-color: rgba(201, 177, 157, 0.952);
+	border-radius: 10px;
+	padding: 15px;
+	position: absolute;
+	top: 500px;
 }
 
 .modal-body {
 	height: 80%;
+}
+
+button {
+	font-family: "Source Code Pro", monospace;
+}
+
+form {
+	font-family: "Source Code Pro", monospace;
 }
 
