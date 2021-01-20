@@ -6,6 +6,7 @@ import Login from "../../pages/Login";
 import Signup from "../../pages/Signup";
 import NewProject from "../../pages/NewProject";
 import SavedProjects from "../../pages/SavedProjects";
+import logo from "../../static/logo.png";
 // Can change icon below to match explanation slide
 import drop from "../../static/projects.png";
 import "./style.css";
@@ -15,7 +16,7 @@ function Nav() {
 		<nav className="navbar">
 			<Dropdown>
 				<Dropdown.Toggle variant="basic" id="dropdown-basic">
-					<img src={drop} className="App-dropdown" alt="dropicon" />
+					<img src={logo} className="App-dropdown" alt="dropicon" />
 				</Dropdown.Toggle>
 				<Dropdown.Menu>
 					<Dropdown.Item>

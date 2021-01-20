@@ -51,9 +51,7 @@ const Popup = (props) => {
 					<Row>
 						<p>Description: {props.projects.data[0].description}</p>
 						<Col xs={6} md={12} className="row justify-content-around">
-							{/* <CircularProgressbar value={percentage} text={`${percentage}%`} /> */}
 						</Col>
-						{/* <section> */}
 						<Form className="col-4">
 							<div className="form-group">
 								<div>
@@ -92,6 +90,11 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Depth (in):</Form.Label>
 										<Form.Control as="select">
+										{/* {props.projects.data[0].userParams[1].options.map((index) => {
+											<option>
+												{props.projects.data[0].userParams[1].options.index}
+											</option>
+										})} */}
 											<option>
 												{props.projects.data[0].userParams[2].options[0]}
 											</option>
@@ -145,7 +148,7 @@ const Popup = (props) => {
 										/>
 									</div>
 								))}
-								<button className="btn btn-secondary mt-2" type="submit">
+								<button className="btn btn-outline-light mt-2" type="submit">
 									Save Progress
 								</button>
 							</Form>
@@ -158,7 +161,6 @@ const Popup = (props) => {
 								<ul>InsertQty of {props.pricing.data[0].name} at ${props.pricing.data[0].price} each.</ul>
 							</div>
 						</row>
-						{/* </section> */}
 					</Row>
 				</Modal.Body>
 				{/* <Modal.Footer>
