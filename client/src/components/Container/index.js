@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import placeholderwood from "../../static/planks.png";
-
+import plankvid from "../Video/splittwo.mp4";
 
 export function Container() {
 	let proTipArray = [
@@ -14,21 +14,25 @@ export function Container() {
 		"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
 		"Remember that preparation is 75% of the job.",
 		"Measure twice and cut once.",
-		"Always use protective gear when working with a table saw."
+		"Always use protective gear when working with a table saw.",
 	];
 	let random = Math.floor(Math.random() * 10);
 
 	return (
 		<div className="overall">
-			<img
-				src={placeholderwood}
+			{/* <img
+				src={plankvid}
 				className="background-placeholder"
 				alt="woodplanks"
-			/>
+			/> */}
+			{/* <video className="background-placeholder" autoPlay loop muted>
+				<source src={plankvid} type="video/mp4" />
+			</video> */}
+			<video playsinline autoplay muted loop poster={placeholderwood} className="background-placeholder">
+				<source src={plankvid} type="video/mp4"/>
+			</video>
 			<h1 className="title">PREPAIR</h1>
-			<p className="proTip">
-				ProTip: {proTipArray[random]}
-			</p>
+			<p className="proTip">ProTip: {proTipArray[random]}</p>
 		</div>
 	);
 }
