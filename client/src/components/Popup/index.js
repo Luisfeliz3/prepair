@@ -23,9 +23,11 @@ const Popup = (props) => {
 	console.log(props);
 	const [show, setShow] = useState(true);
 	const handleClose = () => setShow(false);
+	// const [calc, showCalc] = useState(false);
 
 	useEffect(() => {
 		setShow(props.show);
+		// showCalc();
 	}, [props.show]);
 
 	const percentage = 25; //Number value for the Progress Ring
@@ -50,8 +52,7 @@ const Popup = (props) => {
 				<Modal.Body className="short">
 					<Row>
 						<p>Description: {props.projects.data[0].description}</p>
-						<Col xs={6} md={12} className="row justify-content-around">
-						</Col>
+						<Col xs={6} md={12} className="row justify-content-around"></Col>
 						<Form className="col-4">
 							<div className="form-group">
 								<div>
@@ -90,7 +91,7 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Depth (in):</Form.Label>
 										<Form.Control as="select">
-										{/* {props.projects.data[0].userParams[1].options.map((index) => {
+											{/* {props.projects.data[0].userParams[1].options.map((index) => {
 											<option>
 												{props.projects.data[0].userParams[1].options.index}
 											</option>
@@ -107,7 +108,10 @@ const Popup = (props) => {
 										</Form.Control>
 									</Form.Group>
 								</div>
-								<Button id="calculate-button">Calculate</Button>
+								<Button
+									id="calculate-button"
+									// onclick={showCalc}
+									>Calculate</Button>
 							</div>
 							<img
 								src={expl}
@@ -148,17 +152,39 @@ const Popup = (props) => {
 										/>
 									</div>
 								))}
+
 								<button className="btn btn-outline-light mt-2" type="submit">
 									Save Progress
 								</button>
 							</Form>
-							<div className="col-8">
+							<div className="required">
 								<ul>
-									Tools:
-									{props.projects.data[0].tools}
+									Required Tools:
+									{props.projects.data[0].tools.map((i) => (
+										<li>{i}</li>
+									))}
 								</ul>
-								<ul>Optional: {props.projects.data[0].optional}</ul>
-								<ul>InsertQty of {props.pricing.data[0].name} at ${props.pricing.data[0].price} each.</ul>
+								<ul>
+									Optional:{" "}
+									{props.projects.data[0].optional.map((i) => (
+										<li>{i}</li>
+									))}
+								</ul>
+							</div>
+
+							<div className="calculations">
+								<ul>
+									Calculations:
+									<li>InsertQty of {props.pricing.data[0].name} at $
+									{props.pricing.data[0].price} each.</li>
+									<li>InsertQty of {props.pricing.data[1].name} at $
+									{props.pricing.data[1].price} each.</li>
+									<li>InsertQty of {props.pricing.data[2].name} at $
+									{props.pricing.data[2].price} each.</li>
+									<li>InsertQty of {props.pricing.data[3].name} at $
+									{props.pricing.data[3].price} each.</li>
+								</ul>
+								<h3>Total Cost: InsCalculatedCost</h3>
 							</div>
 						</row>
 					</Row>
