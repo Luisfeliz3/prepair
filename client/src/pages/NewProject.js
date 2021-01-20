@@ -16,31 +16,27 @@ import wood from "../static/wood.png";
 import API from "../utils/API";
 
 function NewProject() {
- 
 	const [project, setProject] = useState([]);
 
 	useEffect(() => {
 		API.getAllProjects()
-				.then((res) => setProject(res))
-				.catch((err) => console.log(err));
+			.then((res) => setProject(res))
+			.catch((err) => console.log(err));
+
 	}, []);
 
 	return (
-	 
 		<Container fluid className="wrap">
 			<Row className="iconRow">
-	
 				{Object.entries(project).map((result, index) => (
-					<ul  >
+					<ul>
 						<li key={index}>
-							<ProjectButton
-							projects={project}/>
+							<ProjectButton projects={project} />
 						</li>
 					</ul>
 				))}
 			</Row>
 		</Container>
- 
 	);
 }
 

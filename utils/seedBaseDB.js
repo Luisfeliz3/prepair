@@ -267,7 +267,7 @@ let baseProjectsSeed = [
 			},
 			{
 				matType: "wood",
-				name: "1-inch rod",
+				name: "1-inch wooden dowel",
 				size: "4ft length",
 			},
 			{

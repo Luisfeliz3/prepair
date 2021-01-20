@@ -20,34 +20,38 @@ import API from "../../utils/API";
 function ProjectButton(props) {
 	const [show, setShow] = useState(false);
 	const [projects, setProjects] = useState({});
+	const [pricing, setPricing] = useState([]);
 
 	useEffect(() => {
 		setShow(false);
 		API.getAllProjects()
-				.then((res) => setProjects(res ))
-				.catch((err) => console.log(err));
+			.then((res) => setProjects(res))
+			.catch((err) => console.log(err));
+		API.getPricing()
+			.then((res) => setPricing(res))
+			.catch((err) => console.log(err));
 	}, []);
 
-
 	return (
-				<Col>
-					<Button
-						variant="outline-light"
-						className="iconBtn"
-						id="chair"
-						onClick={() => setShow(true)}
-					>
-						<img
-							src={chair}
-							className="icon"
-							id="chair-change"
-							alt="furniture-icon"
-						/>
-						<p className="title-text">Chair</p>
-					</Button>
-					{projects.data ? <Popup projects={projects} show={show} /> : null}
-
-				</Col>
+		<Col>
+			<Button
+				variant="outline-light"
+				className="iconBtn"
+				id="chair"
+				onClick={() => setShow(true)}
+			>
+				<img
+					src={chair}
+					className="icon"
+					id="chair-change"
+					alt="furniture-icon"
+				/>
+				<p className="title-text">Chair</p>
+			</Button>
+			{projects.data ? (
+				<Popup projects={projects} pricing={pricing} show={show} />
+			) : null}
+		</Col>
 	);
 }
 

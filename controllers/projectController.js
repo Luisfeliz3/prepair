@@ -6,8 +6,9 @@ module.exports = {
 		// console.log(db.BaseProjects.find({}));
 		db.BaseProjects.find(req.query)
 			.then((allProj) => {
-				res.json(allProj)
-		}).catch((err) => res.status(422).json(err));
+				res.json(allProj);
+			})
+			.catch((err) => res.status(422).json(err));
 
 		// db.BaseProjects.find({}, function (err, result) {
 		// 	if (err) {
@@ -30,10 +31,3 @@ module.exports = {
 		// 	});
 	},
 };
-// get project options based on project id (project) ok
-
-// on calculate, post user selections to database (user)
-
-// calculate results and store in userstate, then post to database (user)
-
-// get and display results

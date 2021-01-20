@@ -155,6 +155,7 @@ const Popup = (props) => {
 									{props.projects.data[0].tools}
 								</ul>
 								<ul>Optional: {props.projects.data[0].optional}</ul>
+								<ul>InsertQty of {props.pricing.data[0].name} at ${props.pricing.data[0].price} each.</ul>
 							</div>
 						</row>
 						{/* </section> */}
