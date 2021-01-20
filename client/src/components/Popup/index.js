@@ -21,22 +21,21 @@ import "./styles.css";
 
 const Popup = (props) => {
 	console.log(props);
-	const [show, setShow] = useState(true);
+	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
-	// const [calc, showCalc] = useState(false);
 
 	useEffect(() => {
 		setShow(props.show);
-		// showCalc();
 	}, [props.show]);
 
 	const percentage = 25; //Number value for the Progress Ring
-
+	const reload=()=>window.location.reload();
 	return (
 		<div id="modal">
 			<Modal
 				show={show}
 				onHide={handleClose}
+				onExit={reload}
 				backdrop="static"
 				keyboard={false}
 				size="lg"
@@ -51,142 +50,88 @@ const Popup = (props) => {
 				</Modal.Header>
 				<Modal.Body className="short">
 					<Row>
-						<p>Description: {props.projects.data[0].description}</p>
-						<Col xs={6} md={12} className="row justify-content-around"></Col>
-						<Form className="col-4">
-							<div className="form-group">
-								<div>
-									<Form.Group controlId="exampleForm.ControlSelect1">
-										<Form.Label>Width (in):</Form.Label>
-										<Form.Control as="select">
-											<option>
-												{props.projects.data[0].userParams[0].options[0]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[0].options[1]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[0].options[2]}
-											</option>
-										</Form.Control>
-									</Form.Group>
-								</div>
-								<div>
-									<Form.Group controlId="exampleForm.ControlSelect1">
-										<Form.Label>Height (in):</Form.Label>
-										<Form.Control as="select">
-											<option>
-												{props.projects.data[0].userParams[1].options[0]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[1].options[1]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[1].options[2]}
-											</option>
-										</Form.Control>
-									</Form.Group>
-								</div>
-								<div>
-									<Form.Group controlId="exampleForm.ControlSelect1">
-										<Form.Label>Depth (in):</Form.Label>
-										<Form.Control as="select">
-											{/* {props.projects.data[0].userParams[1].options.map((index) => {
-											<option>
-												{props.projects.data[0].userParams[1].options.index}
-											</option>
-										})} */}
-											<option>
-												{props.projects.data[0].userParams[2].options[0]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[2].options[1]}
-											</option>
-											<option>
-												{props.projects.data[0].userParams[2].options[2]}
-											</option>
-										</Form.Control>
-									</Form.Group>
-								</div>
-								<Button
-									id="calculate-button"
-									// onclick={showCalc}
-									>Calculate</Button>
+					<p>Description: {props.projects.data[0].description}</p>
+					<Col xs={6} md={12} className="row justify-content-around">
+						{/* <CircularProgressbar value={percentage} text={`${percentage}%`} /> */}
+					</Col>
+					{/* <section> */}
+					<Form className="col-4">
+						<div className="form-group">
+							<div>
+								<Form.Group controlId="exampleForm.ControlSelect1">
+									<Form.Label>Width (in):</Form.Label>
+									<Form.Control as="select">
+										<option>12</option>
+										<option>24</option>
+										<option>36</option>
+									</Form.Control>
+								</Form.Group>
 							</div>
-							<img
-								src={expl}
-								className="explodedDiagram"
-								alt="exploded-diagram"
-							/>
-							<img
-								id="image"
-								src={twentyfive}
-								className="overlay"
-								alt="progress"
-							/>
-						</Form>
-						<row>
-							<Form className="form-group2">
-								{["checkbox"].map((type) => (
-									<div key={`inline-${type}`} className="mb-3">
-										<Form.Check
-											label="Calculated materials."
-											type={type}
-											id={`inline-${type}-1`}
-										/>
-										<Form.Check
-											label="Purchased materials and prepared tools."
-											type={type}
-											id={`inline-${type}-2`}
-										/>
-										<Form.Check
-											label="Measured and cut all pieces and starting assembly. (disabled)"
-											type={type}
-											id={`inline-${type}-3`}
-										/>
-										<Form.Check
-											disabled
-											label="Completed build. (disabled)"
-											type={type}
-											id={`inline-${type}-3`}
-										/>
-									</div>
-								))}
-
-								<button className="btn btn-outline-light mt-2" type="submit">
-									Save Progress
-								</button>
-							</Form>
-							<div className="required">
-								<ul>
-									Required Tools:
-									{props.projects.data[0].tools.map((i) => (
-										<li>{i}</li>
-									))}
-								</ul>
-								<ul>
-									Optional:{" "}
-									{props.projects.data[0].optional.map((i) => (
-										<li>{i}</li>
-									))}
-								</ul>
+							<div>
+								<Form.Group controlId="exampleForm.ControlSelect1">
+									<Form.Label>Height (in):</Form.Label>
+									<Form.Control as="select">
+										<option>18</option>
+										<option>24</option>
+										<option>30</option>
+									</Form.Control>
+								</Form.Group>
 							</div>
-
-							<div className="calculations">
-								<ul>
-									Calculations:
-									<li>InsertQty of {props.pricing.data[0].name} at $
-									{props.pricing.data[0].price} each.</li>
-									<li>InsertQty of {props.pricing.data[1].name} at $
-									{props.pricing.data[1].price} each.</li>
-									<li>InsertQty of {props.pricing.data[2].name} at $
-									{props.pricing.data[2].price} each.</li>
-									<li>InsertQty of {props.pricing.data[3].name} at $
-									{props.pricing.data[3].price} each.</li>
-								</ul>
-								<h3>Total Cost: InsCalculatedCost</h3>
+							<div>
+								<Form.Group controlId="exampleForm.ControlSelect1">
+									<Form.Label>Depth (in):</Form.Label>
+									<Form.Control as="select">
+										<option>24</option>
+										<option>30</option>
+										<option>36</option>
+									</Form.Control>
+								</Form.Group>
 							</div>
-						</row>
+							<Button id="calculate-button">Calculate</Button>
+						</div>
+						<img
+							src={expl}
+							className="explodedDiagram"
+							alt="exploded-diagram"
+						/>
+						<img
+							id="image"
+							src={twentyfive}
+							className="overlay"
+							alt="progress"
+						/>
+					</Form>
+					<Form className="form-group2">
+						{["checkbox"].map((type) => (
+							<div key={`inline-${type}`} className="mb-3">
+								<Form.Check
+									label="Calculated materials."
+									type={type}
+									id={`inline-${type}-1`}
+								/>
+								<Form.Check
+									label="Purchased materials and prepared tools."
+									type={type}
+									id={`inline-${type}-2`}
+								/>
+								<Form.Check
+									label="Measured and cut all pieces and starting assembly. (disabled)"
+									type={type}
+									id={`inline-${type}-3`}
+								/>
+								<Form.Check
+									disabled
+									label="Completed build. (disabled)"
+									type={type}
+									id={`inline-${type}-3`}
+								/>
+							</div>
+						))}
+						<button className="btn btn-secondary mt-2" type="submit">
+							Save Progress
+						</button>
+					</Form>
+					{/* </section> */}
 					</Row>
 				</Modal.Body>
 				{/* <Modal.Footer>
