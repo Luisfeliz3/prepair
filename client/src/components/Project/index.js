@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Button} from 'react-bootstrap'
 import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
+import "../ProjectButton/node_modules/react-circular-progressbar/dist/styles.css";
 
 // import { CustomDialog, useDialog } from "react-st-modal";
 // import CustomDialogContent from "../CustomDialogContent/index";
