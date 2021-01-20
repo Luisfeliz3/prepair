@@ -4,11 +4,15 @@ export default {
 
 // New endpoint to get all projects from baseprojects model
 getAllProjects: function() {
-  console.log("IIIIIIIIå");
   console.log(axios.get("/api/newproject"));
   return axios.get("/api/newproject");
-}
+},
 
+// New endpoint to get pricing from pricing collection
+getPricing: function() {
+  console.log(axios.get("/api/pricing"));
+  return axios.get("/api/pricing");
+},
 
 //Below is old
 
@@ -29,9 +33,3 @@ getAllProjects: function() {
   //   return axios.post("/api/comments", commentData);
   // },
 };
-
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
