@@ -48,7 +48,7 @@ function ProjectButton(props) {
 				/>
 				<p className="title-text">Chair</p>
 			</Button>
-			{projects.data ? (
+			{projects.data && pricing.data ? (
 				<Popup projects={projects} pricing={pricing} show={show} />
 			) : null}
 		</Col>
