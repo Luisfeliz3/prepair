@@ -48,26 +48,44 @@
 }
 
 .form-group2 {
-	width: 50%;
+	width: 100%;
 	margin: 25px;
 	color: black;
 	border: 1px solid rgba(26, 38, 32, 0.75);
 	background-color: rgba(201, 177, 157, 0.952);
 	border-radius: 10px;
 	padding: 15px;
-	position: absolute;
-	top: 500px;
+	position: relative;
+	top: 540px;
+	left: -150px;
+	/* text-align: center; */
 }
 
 .modal-body {
 	height: 80%;
 }
 
-button {
-	font-family: "Source Code Pro", monospace;
-}
-
 form {
 	font-family: "Source Code Pro", monospace;
 }
 
+.required {
+	font-family: "Source Code Pro", monospace;
+	font-size: x-small;
+	position: relative;
+	top: -25vh;
+	left: -3vw;
+}
+
+.calculations {
+	border: 1px solid black;
+	position: relative;
+	color: rgba(26, 38, 32, 1);
+	font-family: "Source Code Pro", monospace;
+	font-size: small;
+	top: -5vh;
+	left: -9.75vw;
+	border-radius: 10px;
+	padding: 5px;
+	/* display: none; */
+}
