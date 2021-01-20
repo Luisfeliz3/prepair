@@ -28,9 +28,9 @@ function NewProject() {
 		<Container fluid className="wrap">
 			<Row className="iconRow">
 				{Object.entries(project).map((result, index) => (
-					<ul>
-						<li key={index}>
-							<ProjectButton projects={project} />
+					<ul key={index}>
+						<li >
+							<ProjectButton data = {result} projects={project} index={index}  />
 						</li>
 					</ul>
 				))}

@@ -20,7 +20,9 @@ import expl from "../../static/construction-icons/chair-ex.svg";
 import "./styles.css";
 
 const Popup = (props) => {
-	console.log(props);
+	
+	console.log(props.projects.data[props.index]);
+	console.log("^^^^^");
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 
@@ -45,12 +47,12 @@ const Popup = (props) => {
 			>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						A simple {props.projects.data[0].projectName}
+						A simple {props.projects.data[props.index].projectName}
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body className="short">
 					<Row>
-					<p>Description: {props.projects.data[0].description}</p>
+					<p>Description: {props.projects.data[props.index].description}</p>
 					<Col xs={6} md={12} className="row justify-content-around">
 						{/* <CircularProgressbar value={percentage} text={`${percentage}%`} /> */}
 					</Col>
@@ -61,19 +63,19 @@ const Popup = (props) => {
 								<Form.Group controlId="exampleForm.ControlSelect1">
 									<Form.Label>Width (in):</Form.Label>
 									<Form.Control as="select">
-										<option>12</option>
-										<option>24</option>
-										<option>36</option>
+										<option>{props.projects.data[props.index].userParams[0].options[0]}</option>
+										<option>{props.projects.data[props.index].userParams[0].options[1]}</option>
+										<option>{props.projects.data[props.index].userParams[0].options[2]}</option>
 									</Form.Control>
 								</Form.Group>
 							</div>
-							<div>
+							<div> 
 								<Form.Group controlId="exampleForm.ControlSelect1">
 									<Form.Label>Height (in):</Form.Label>
 									<Form.Control as="select">
-										<option>18</option>
-										<option>24</option>
-										<option>30</option>
+										<option>{props.projects.data[props.index].userParams[2].options[0]}</option>
+										<option>{props.projects.data[props.index].userParams[2].options[1]}</option>
+										<option>{props.projects.data[props.index].userParams[2].options[2]}</option>
 									</Form.Control>
 								</Form.Group>
 							</div>
@@ -81,9 +83,9 @@ const Popup = (props) => {
 								<Form.Group controlId="exampleForm.ControlSelect1">
 									<Form.Label>Depth (in):</Form.Label>
 									<Form.Control as="select">
-										<option>24</option>
-										<option>30</option>
-										<option>36</option>
+										<option>{props.projects.data[props.index].userParams[1].options[0]}</option>
+										<option>{props.projects.data[props.index].userParams[1].options[1]}</option>
+										<option>{props.projects.data[props.index].userParams[1].options[2]}</option>
 									</Form.Control>
 								</Form.Group>
 							</div>
