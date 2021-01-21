@@ -42,12 +42,12 @@ function ProjectButton(props) {
 				onClick={() => setShow(true)}
 			>
 				<img
-					src={chair}
+					src={props.projects.data[props.index].imgMain}
 					className="icon"
 					id="chair-change"
 					alt="furniture-icon"
 				/>
-				<p className="title-text">Chair</p>
+				<p className="title-text">{props.projects.data[props.index].projectName}</p>
 			</Button>
 			{projects.data && pricing.data ? (
 				<Popup projects={projects} pricing={pricing} show={show} index={index}/>

@@ -27,13 +27,11 @@ function NewProject() {
 	return (
 		<Container fluid className="wrap">
 			<Row className="iconRow">
-				{Object.entries(project).map((result, index) => (
-					// <ul>
-						<div key={index}>
-							<ProjectButton projects={project} index={index}/>
-						</div>
-					// </ul>
-				))}
+				{project.data ? project.data.map((result, index) => (
+					<div key={index} data-id={index}>
+						<ProjectButton projects={project} index={index} />
+					</div>
+				)) : null}
 			</Row>
 			<h6 className="title">Create a New Project</h6>
 		</Container>
