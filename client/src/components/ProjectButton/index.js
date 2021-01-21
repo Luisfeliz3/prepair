@@ -20,11 +20,7 @@ import API from "../../utils/API";
 function ProjectButton(props) {
 	const [show, setShow] = useState(false);
 	const [projects, setProjects] = useState({});
-	const [index, setIndex] = useState(props.index);
 	const [pricing, setPricing] = useState([]);
-	
-
-
 
 	useEffect(() => {
 		setShow(false);
@@ -34,7 +30,7 @@ function ProjectButton(props) {
 		API.getPricing()
 			.then((res) => setPricing(res))
 			.catch((err) => console.log(err));
-	}, [index]);
+	}, []);
 
 	return (
 		<Col>
@@ -50,10 +46,10 @@ function ProjectButton(props) {
 					id="chair-change"
 					alt="furniture-icon"
 				/>
-				<p className="title-text">{}</p>
+				<p className="title-text">Chair</p>
 			</Button>
 			{projects.data && pricing.data ? (
-				<Popup projects={projects} pricing={pricing} show={show} index={index}/>
+				<Popup projects={projects} pricing={pricing} show={show} />
 			) : null}
 		</Col>
 	);
