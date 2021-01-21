@@ -17,6 +17,7 @@ import fifty from "../../static/fifty.png";
 import seventyfive from "../../static/seventyfive.png";
 import hundred from "../../static/hundred.png";
 import expl from "../../static/construction-icons/chair-ex.svg";
+import ContextProvider from "../../utils/ContextProvider";
 import "./styles.css";
 
 const Popup = (props) => {
@@ -114,7 +115,7 @@ const Popup = (props) => {
 									>Calculate</Button>
 							</div>
 							<img
-								src={expl}
+								src={props.projects.data[props.index].imgEx}
 								className="explodedDiagram"
 								alt="exploded-diagram"
 							/>

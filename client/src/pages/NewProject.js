@@ -17,10 +17,18 @@ import API from "../utils/API";
 
 function NewProject() {
 	const [project, setProject] = useState([]);
+	const [dims, setDims] = useState({
+		dimensionWidth: "",
+		dimensionDepth: "",
+		dimensionHeight: ""
+	})
 
 	useEffect(() => {
 		API.getAllProjects()
 			.then((res) => setProject(res))
+			.catch((err) => console.log(err));
+		API.saveDims()
+			.then((res) => setDims(res))
 			.catch((err) => console.log(err));
 	}, []);
 
@@ -29,7 +37,7 @@ function NewProject() {
 			<Row className="iconRow">
 				{project.data ? project.data.map((result, index) => (
 					<div key={index} data-id={index}>
-						<ProjectButton projects={project} index={index} />
+						<ProjectButton projects={project} index={index} dims={dims}/>
 					</div>
 				)) : null}
 			</Row>

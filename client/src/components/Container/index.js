@@ -1,7 +1,6 @@
 import React from "react";
 import "./style.css";
 import placeholderwood from "../../static/planks.png";
-import plankvid from "../Video/splittwo.mp4";
 
 export function Container() {
 	let proTipArray = [
@@ -20,16 +19,8 @@ export function Container() {
 
 	return (
 		<div className="overall">
-			{/* <img
-				src={plankvid}
-				className="background-placeholder"
-				alt="woodplanks"
-			/> */}
-			{/* <video className="background-placeholder" autoPlay loop muted>
-				<source src={plankvid} type="video/mp4" />
-			</video> */}
 			<video playsinline autoplay muted loop poster={placeholderwood} className="background-placeholder">
-				<source src={plankvid} type="video/mp4"/>
+				<source src="/splittwo.mp4" type="video/mp4"/>
 			</video>
 			<h1 className="title">PREPAIR</h1>
 			<p className="proTip">ProTip: {proTipArray[random]}</p>
