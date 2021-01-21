@@ -60,15 +60,10 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Width (in):</Form.Label>
 										<Form.Control as="select">
-											<option>
-												{props.projects.data[props.index].userParams[0].options[0]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[0].options[1]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[0].options[2]}
-											</option>
+
+										{props.projects.data[props.index].userParams[0].options.map((i) => (
+										<option>{i}</option>
+									))}
 										</Form.Control>
 									</Form.Group>
 								</div>
@@ -76,15 +71,9 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Height (in):</Form.Label>
 										<Form.Control as="select">
-											<option>
-												{props.projects.data[props.index].userParams[1].options[0]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[1].options[1]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[1].options[2]}
-											</option>
+										{props.projects.data[props.index].userParams[1].options.map((i) => (
+										<option>{i}</option>
+									))}
 										</Form.Control>
 									</Form.Group>
 								</div>
@@ -92,20 +81,9 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Depth (in):</Form.Label>
 										<Form.Control as="select">
-											{/* {props.projects.data[0].userParams[1].options.map((index) => {
-											<option>
-												{props.projects.data[0].userParams[1].options.index}
-											</option>
-										})} */}
-											<option>
-												{props.projects.data[props.index].userParams[2].options[0]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[2].options[1]}
-											</option>
-											<option>
-												{props.projects.data[props.index].userParams[2].options[2]}
-											</option>
+											{props.projects.data[props.index].userParams[2].options.map((i) => (
+										<option>{i}</option>
+									))}
 										</Form.Control>
 									</Form.Group>
 								</div>
