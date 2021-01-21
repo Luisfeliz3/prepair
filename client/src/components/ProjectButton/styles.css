@@ -1,8 +1,4 @@
-CircularProgressbar{
 
-font-size: small;
-
-}
 
 #ring {
     box-sizing: border-box;
@@ -11,6 +7,13 @@ font-size: small;
     min-width: 100%;
     border:3px solid yellow;
   }
-  #clickRing {
-  
+
+  .iconBtn {
+    text-align: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 5%;
   }
+  

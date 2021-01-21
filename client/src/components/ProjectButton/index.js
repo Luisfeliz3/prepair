@@ -11,7 +11,7 @@ import dresser from "../../static/construction-icons/dresser-main.svg";
 import tile from "../../static/construction-icons/tile-main.svg";
 import wall from "../../static/construction-icons/wall-main.svg";
 import ladder from "../../static/construction-icons/ladder-main.svg";
-// import "../style.css";
+import "./styles.css";
 // import "../ProjectButton/style.css";
 import Popup from "../Popup/index";
 import wood from "../../static/wood.png";
