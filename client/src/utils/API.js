@@ -14,8 +14,12 @@ getPricing: function() {
   return axios.get("/api/pricing");
 },
 
-//Below is old
+// Saves the onChange params to the user collection
+  saveDims: function(dimData) {
+    return axios.post("/api/dims", dimData);
+  },
 
+//Below is old
   // // Gets all comments
   // getComments: function() {
   //   return axios.get("/api/comments");
