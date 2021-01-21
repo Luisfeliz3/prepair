@@ -17,24 +17,29 @@ let userSeed = [
 		currentProjects: [
 			{
 				projectId: 1,
-				userParams: [
-					{
-						dimensionWidth: "inputWidth",
-						quantity: "18",
-					},
-					{
-						dimensionDepth: "inputDepth",
-						quantity: "24",
-					},
-					{
-						dimensionHeight: "inputHeight",
-						quantity: "30",
-					},
-					// check below
-					{
-						completionStatus: 1,
-					},
-				],
+				// userParams: [
+				// 	{
+				// 		dimensionWidth: "inputWidth",
+				// 		quantity: "18",
+				// 	},
+				// 	{
+				// 		dimensionDepth: "inputDepth",
+				// 		quantity: "24",
+				// 	},
+				// 	{
+				// 		dimensionHeight: "inputHeight",
+				// 		quantity: "30",
+				// 	},
+				// 	// check below
+				// 	{
+				// 		completionStatus: 1,
+				// 	},
+				// ],
+				userParams: {
+					dimensionWidth: "",
+					dimensionDepth: "",
+					dimensionHeight: "",
+				},
 				resultCalcs: [
 					{
 						name: "2x4 nominal stud(s)",
@@ -138,23 +143,11 @@ let userSeed = [
 		currentProjects: [
 			{
 				projectId: 2,
-				userParams: [
-					{
-						dimensionWidth: "inputWidth",
-						quantity: "18",
-					},
-					{
-						dimensionDepth: "inputDepth",
-						quantity: "24",
-					},
-					{
-						dimensionHeight: "inputHeight",
-						quantity: "30",
-					},
-					{
-						completionStatus: 3,
-					},
-				],
+				userParams: {
+					dimensionWidth: "",
+					dimensionDepth: "",
+					dimensionHeight: "",
+				},
 				resultCalcs: [
 					{
 						name: "2x4 nominal stud(s)",
@@ -501,7 +494,7 @@ let baseProjectsSeed = [
 			"paint or wood stain",
 			"self-leveling feet",
 			"anti-tip hardware",
-			"wood knobs"
+			"wood knobs",
 		],
 		userParams: [
 			{

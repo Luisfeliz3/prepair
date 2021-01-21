@@ -44,13 +44,23 @@ function ProjectButton(props) {
 				<img
 					src={props.projects.data[props.index].imgMain}
 					className="icon"
-					id="chair-change"
+					// id="chair-change"
+					id={(props.projects.data[props.index].projectName == "chair") ? "chair-change"
+						: (props.projects.data[props.index].projectName == "dresser") ? "dresser-change"
+						: (props.projects.data[props.index].projectName == "bookcase") ? "bookcase-change"
+						: (props.projects.data[props.index].projectName == "table") ? "table-change"
+						: (props.projects.data[props.index].projectName == "wall") ? "wall-change"
+						: (props.projects.data[props.index].projectName == "tile") ? "tile-change"
+						: (props.projects.data[props.index].projectName == "ladder") ? "ladder-change"
+						: (props.projects.data[props.index].projectName == "desk") ? "desk-change"
+						: null}
 					alt="furniture-icon"
 				/>
 				<p className="title-text">{props.projects.data[props.index].projectName}</p>
 			</Button>
 			{projects.data && pricing.data ? (
-				<Popup projects={projects} pricing={pricing} show={show} index={index}/>
+				<Popup projects={projects} pricing={pricing} show={show} index={index} />
+				// dims={dims}
 			) : null}
 		</Col>
 	);
