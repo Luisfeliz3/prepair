@@ -59,7 +59,8 @@ function ProjectButton(props) {
 				<p className="title-text">{props.projects.data[props.index].projectName}</p>
 			</Button>
 			{projects.data && pricing.data ? (
-				<Popup projects={projects} pricing={pricing} show={show} index={index}/>
+				<Popup projects={projects} pricing={pricing} show={show} index={index} />
+				// dims={dims}
 			) : null}
 		</Col>
 	);

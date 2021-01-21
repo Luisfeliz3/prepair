@@ -27,9 +27,9 @@ function NewProject() {
 		API.getAllProjects()
 			.then((res) => setProject(res))
 			.catch((err) => console.log(err));
-		API.saveDims()
-			.then((res) => setDims(res))
-			.catch((err) => console.log(err));
+		// API.saveDims()
+		// 	.then((res) => setDims(res))
+		// 	.catch((err) => console.log(err));
 	}, []);
 
 	return (
