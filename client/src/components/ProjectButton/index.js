@@ -20,6 +20,7 @@ import API from "../../utils/API";
 function ProjectButton(props) {
 	const [show, setShow] = useState(false);
 	const [projects, setProjects] = useState({});
+	const [index, setIndex] = useState(props.index);
 	const [pricing, setPricing] = useState([]);
 
 	useEffect(() => {
@@ -49,7 +50,7 @@ function ProjectButton(props) {
 				<p className="title-text">Chair</p>
 			</Button>
 			{projects.data && pricing.data ? (
-				<Popup projects={projects} pricing={pricing} show={show} />
+				<Popup projects={projects} pricing={pricing} show={show} index={index}/>
 			) : null}
 		</Col>
 	);

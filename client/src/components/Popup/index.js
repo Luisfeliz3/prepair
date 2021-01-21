@@ -46,12 +46,12 @@ const Popup = (props) => {
 			>
 				<Modal.Header closeButton>
 					<Modal.Title>
-						A simple {props.projects.data[0].projectName}
+						A simple {props.projects.data[props.index].projectName}
 					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body className="short">
 					<Row>
-						<p>Description: {props.projects.data[0].description}</p>
+						<p>Description: {props.projects.data[props.index].description}</p>
 						<Col xs={6} md={12} className="row justify-content-around"></Col>
 						<Form className="col-4">
 							<div className="form-group">
@@ -60,13 +60,13 @@ const Popup = (props) => {
 										<Form.Label>Width (in):</Form.Label>
 										<Form.Control as="select">
 											<option>
-												{props.projects.data[0].userParams[0].options[0]}
+												{props.projects.data[props.index].userParams[0].options[0]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[0].options[1]}
+												{props.projects.data[props.index].userParams[0].options[1]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[0].options[2]}
+												{props.projects.data[props.index].userParams[0].options[2]}
 											</option>
 										</Form.Control>
 									</Form.Group>
@@ -76,13 +76,13 @@ const Popup = (props) => {
 										<Form.Label>Height (in):</Form.Label>
 										<Form.Control as="select">
 											<option>
-												{props.projects.data[0].userParams[1].options[0]}
+												{props.projects.data[props.index].userParams[1].options[0]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[1].options[1]}
+												{props.projects.data[props.index].userParams[1].options[1]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[1].options[2]}
+												{props.projects.data[props.index].userParams[1].options[2]}
 											</option>
 										</Form.Control>
 									</Form.Group>
@@ -97,13 +97,13 @@ const Popup = (props) => {
 											</option>
 										})} */}
 											<option>
-												{props.projects.data[0].userParams[2].options[0]}
+												{props.projects.data[props.index].userParams[2].options[0]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[2].options[1]}
+												{props.projects.data[props.index].userParams[2].options[1]}
 											</option>
 											<option>
-												{props.projects.data[0].userParams[2].options[2]}
+												{props.projects.data[props.index].userParams[2].options[2]}
 											</option>
 										</Form.Control>
 									</Form.Group>
@@ -160,13 +160,13 @@ const Popup = (props) => {
 							<div className="required">
 								<ul>
 									Required Tools:
-									{props.projects.data[0].tools.map((i) => (
+									{props.projects.data[props.index].tools.map((i) => (
 										<li>{i}</li>
 									))}
 								</ul>
 								<ul>
 									Optional:{" "}
-									{props.projects.data[0].optional.map((i) => (
+									{props.projects.data[props.index].optional.map((i) => (
 										<li>{i}</li>
 									))}
 								</ul>
