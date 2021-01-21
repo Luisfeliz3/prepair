@@ -312,8 +312,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/chair-main.svg",
-		imgEx: "../../static/construction-icons/chair-ex.png",
+		imgMain: "/construction-icons/chair-main.svg",
+		imgEx: "/construction-icons/chair-ex.png",
 	},
 	{
 		projectName: "bookcase",
@@ -364,8 +364,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/bookcase-main.svg",
-		imgEx: "../../static/construction-icons/bookcase-ex.png",
+		imgMain: "/construction-icons/bookcase-main.svg",
+		imgEx: "/construction-icons/bookcase-ex.png",
 	},
 	{
 		projectName: "table",
@@ -406,8 +406,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/table-main.svg",
-		imgEx: "../../static/construction-icons/table-ex.png",
+		imgMain: "/construction-icons/table-main.svg",
+		imgEx: "/construction-icons/table-ex.png",
 	},
 	{
 		projectName: "desk",
@@ -460,8 +460,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/desk-main.svg",
-		imgEx: "../../static/construction-icons/desk-ex.png",
+		imgMain: "/construction-icons/desk-main.svg",
+		imgEx: "/construction-icons/desk-ex.png",
 	},
 	{
 		projectName: "dresser",
@@ -529,8 +529,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/dresser-main.svg",
-		imgEx: "../../static/construction-icons/dresser-ex.png",
+		imgMain: "/construction-icons/dresser-main.svg",
+		imgEx: "/construction-icons/dresser-ex.png",
 	},
 	{
 		projectName: "tile",
@@ -590,8 +590,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/tile-main.svg",
-		imgEx: "../../static/construction-icons/tile-ex.png",
+		imgMain: "/construction-icons/tile-main.svg",
+		imgEx: "/construction-icons/tile-ex.png",
 	},
 	{
 		projectName: "wall",
@@ -637,8 +637,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "../../static/construction-icons/wall-main.svg",
-		imgEx: "../../static/construction-icons/wall-ex.png",
+		imgMain: "/construction-icons/wall-main.svg",
+		imgEx: "/construction-icons/wall-ex.png",
 	},
 	{
 		projectName: "ladder",
@@ -684,8 +684,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/ladder-main.png",
-		imgEx: "/public/construction-icons/ladder-ex.png",
+		imgMain: "/construction-icons/ladder-main.png",
+		imgEx: "/construction-icons/ladder-ex.png",
 	},
 ];
 
