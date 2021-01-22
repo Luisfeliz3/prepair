@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, setState, useEffect } from "react";
 import {
 	Button,
 	Modal,
@@ -19,23 +19,29 @@ import hundred from "../../static/hundred.png";
 import expl from "../../static/construction-icons/chair-ex.svg";
 import ContextProvider from "../../utils/ContextProvider";
 import "./styles.css";
-// import API from "../utils/API";
+import API from "../../utils/API";
 
 const Popup = (props) => {
-	console.log(props);
+	// console.log(props);
 	const [show, setShow] = useState(true);
 	const handleClose = () => setShow(false);
-	const [dims, getDims] = useState({});
+	const [dims, displayDims] = useState({});
 	// const [inputs, setInputs] = setState({
 	// 	dimensionWidth: "",
 	// 	dimensionDepth: "",
 	// 	dimensionHeight: "",
 	// });
+
 	// const [calc, showCalc] = useState(false);
 
 	useEffect(() => {
 		setShow(props.show);
-		// API.
+		API.getDims()
+			.then((res) => displayDims(res))
+			.catch((err) => console.log(err))
+		// API.setInputs(inputs)
+		// .then((res) => setInputs(res))
+		// .catch((err) => console.log(err));
 		// showCalc();
 	}, [props.show]);
 
@@ -64,14 +70,13 @@ const Popup = (props) => {
 							<div className="form-group">
 								<div>
 									<Form.Group
-										// dims={dims}
 										controlId="exampleForm.ControlSelect1"
 									>
 										<Form.Label>Width (in):</Form.Label>
 										<Form.Control
 											as="select"
-											// onChange={setDims}
-											>
+											// onChange={setInputs}
+										>
 											{props.projects.data[
 												props.index
 											].userParams[0].options.map((i) => (
@@ -95,7 +100,9 @@ const Popup = (props) => {
 								<div>
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Height (in):</Form.Label>
-										<Form.Control as="select">
+										<Form.Control as="select"
+										// onChange={setInputs(inputs.dimensionHeight)}
+										>
 											{props.projects.data[
 												props.index
 											].userParams[2].options.map((i) => (
@@ -106,7 +113,7 @@ const Popup = (props) => {
 								</div>
 								<Button
 									id="calculate-button"
-									// onclick={showCalc}
+									// onclick={setInputs(inputs)}
 								>
 									Calculate
 								</Button>
@@ -124,7 +131,6 @@ const Popup = (props) => {
 							/>
 						</Form>
 						<row>
-
 							<div className="required">
 								<ul>
 									Required Tools:
@@ -143,9 +149,15 @@ const Popup = (props) => {
 							<div className="calculations">
 								<ul>
 									Last calculated dims:
-									<li>test</li>
-									<li>test</li>
-									<li>test</li>
+									<li>Width: 
+										{ dims.data ? dims.data[0].currentProjects[0].userParams.dimensionWidth : null}
+									</li>
+									<li>Depth: 
+										{ dims.data ? dims.data[0].currentProjects[0].userParams.dimensionDepth : null}
+									</li>
+									<li>Height: 
+										{ dims.data ? dims.data[0].currentProjects[0].userParams.dimensionHeight : null}
+									</li>
 								</ul>
 								<ul>
 									Calculations:
@@ -168,36 +180,36 @@ const Popup = (props) => {
 								</ul>
 								<h4>Total Cost: InsCalculatedCost</h4>
 								<Form className="form-group2">
-								{["checkbox"].map((type) => (
-									<div key={`inline-${type}`} className="mb-3">
-										<Form.Check
-											label="Calculated materials."
-											type={type}
-											id={`inline-${type}-1`}
-										/>
-										<Form.Check
-											label="Purchased materials and prepared tools."
-											type={type}
-											id={`inline-${type}-2`}
-										/>
-										<Form.Check
-											label="Measured and cut all pieces and starting assembly. (disabled)"
-											type={type}
-											id={`inline-${type}-3`}
-										/>
-										<Form.Check
-											disabled
-											label="Completed build. (disabled)"
-											type={type}
-											id={`inline-${type}-3`}
-										/>
-									</div>
-								))}
+									{["checkbox"].map((type) => (
+										<div key={`inline-${type}`} className="mb-3">
+											<Form.Check
+												label="Calculated materials."
+												type={type}
+												id={`inline-${type}-1`}
+											/>
+											<Form.Check
+												label="Purchased materials and prepared tools."
+												type={type}
+												id={`inline-${type}-2`}
+											/>
+											<Form.Check
+												label="Measured and cut all pieces and starting assembly. (disabled)"
+												type={type}
+												id={`inline-${type}-3`}
+											/>
+											<Form.Check
+												disabled
+												label="Completed build. (disabled)"
+												type={type}
+												id={`inline-${type}-3`}
+											/>
+										</div>
+									))}
 
-								<button className="btn btn-outline-light mt-2" type="submit">
-									Save Progress
-								</button>
-							</Form>
+									<button className="btn btn-outline-light mt-2" type="submit">
+										Save Progress
+									</button>
+								</Form>
 							</div>
 						</row>
 					</Row>
