@@ -442,7 +442,7 @@ const Popup = (props) => {
 											{props.projects.data[
 												props.index
 											].userParams[0].options.map((i) => (
-												<option>{i}</option>
+												<option key={i}>{i}</option>
 											))}
 										</Form.Control>
 									</Form.Group>
@@ -454,7 +454,7 @@ const Popup = (props) => {
 											{props.projects.data[
 												props.index
 											].userParams[1].options.map((i) => (
-												<option>{i}</option>
+												<option key={i}>{i}</option>
 											))}
 										</Form.Control>
 									</Form.Group>
@@ -469,7 +469,7 @@ const Popup = (props) => {
 											{props.projects.data[
 												props.index
 											].userParams[2].options.map((i) => (
-												<option>{i}</option>
+												<option key={i}>{i}</option>
 											))}
 										</Form.Control>
 									</Form.Group>
@@ -494,18 +494,18 @@ const Popup = (props) => {
 								alt="progress"
 							/>
 						</Form>
-						<row>
+						<Row>
 							<div className="required">
 								<ul>
 									Required Tools:
 									{props.projects.data[props.index].tools.map((i) => (
-										<li>{i}</li>
+										<li key={i}>{i}</li>
 									))}
 								</ul>
 								<ul>
 									Optional:{" "}
 									{props.projects.data[props.index].optional.map((i) => (
-										<li>{i}</li>
+										<li key={i}>{i}</li>
 									))}
 								</ul>
 							</div>
@@ -593,7 +593,7 @@ const Popup = (props) => {
 									</button>
 								</Form>
 							</div>
-						</row>
+						</Row>
 					</Row>
 				</Modal.Body>
 			</Modal>
