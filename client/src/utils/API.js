@@ -14,14 +14,15 @@ export default {
 	},
 
 	// Saves the onChange params to the user collection
-	saveDims: function (dimData) {
-		return axios.post("/api/dims", dimData);
-	},
+	// saveDims: function (dimData) {
+	// 	return axios.post("/api/savedims", dimData);
+	// },
 
 	// Get the current userParams dimensions from the user collection on load
-  getDims: function (dimData) {
-    return axios.get("/api/getdims", dimData);
-  }
+	getDims: function (dimData) {
+		return axios.get("/api/getdims", dimData);
+	},
+
 	//Below is old
 	// // Gets all comments
 	// getComments: function() {

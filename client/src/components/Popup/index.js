@@ -24,14 +24,17 @@ const Popup = (props) => {
 	console.log(props);
 	const [show, setShow] = useState(true);
 	const handleClose = () => setShow(false);
+	// const [dims, setDims] = useState({
+	// 	dimensionWidth: "",
+	// 	dimensionDepth: "",
+	// 	dimensionHeight: "",
+	// });
 	// const [calc, showCalc] = useState(false);
 
 	useEffect(() => {
 		setShow(props.show);
 		// showCalc();
 	}, [props.show]);
-
-	const percentage = 25; //Number value for the Progress Ring
 
 	return (
 		<div id="modal">
@@ -57,23 +60,20 @@ const Popup = (props) => {
 						<Form className="col-4">
 							<div className="form-group">
 								<div>
-									<Form.Group controlId="exampleForm.ControlSelect1">
+									<Form.Group
+										// dims={dims}
+										controlId="exampleForm.ControlSelect1"
+									>
 										<Form.Label>Width (in):</Form.Label>
-										<Form.Control as="select">
-
-										{props.projects.data[props.index].userParams[0].options.map((i) => (
-										<option>{i}</option>
-									))}
-										</Form.Control>
-									</Form.Group>
-								</div>
-								<div>
-									<Form.Group controlId="exampleForm.ControlSelect1">
-										<Form.Label>Height (in):</Form.Label>
-										<Form.Control as="select">
-										{props.projects.data[props.index].userParams[1].options.map((i) => (
-										<option>{i}</option>
-									))}
+										<Form.Control
+											as="select"
+											// onChange={setDims}
+											>
+											{props.projects.data[
+												props.index
+											].userParams[0].options.map((i) => (
+												<option>{i}</option>
+											))}
 										</Form.Control>
 									</Form.Group>
 								</div>
@@ -81,16 +81,32 @@ const Popup = (props) => {
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Depth (in):</Form.Label>
 										<Form.Control as="select">
-											{props.projects.data[props.index].userParams[2].options.map((i) => (
-										<option>{i}</option>
-									))}
+											{props.projects.data[
+												props.index
+											].userParams[1].options.map((i) => (
+												<option>{i}</option>
+											))}
+										</Form.Control>
+									</Form.Group>
+								</div>
+								<div>
+									<Form.Group controlId="exampleForm.ControlSelect1">
+										<Form.Label>Height (in):</Form.Label>
+										<Form.Control as="select">
+											{props.projects.data[
+												props.index
+											].userParams[2].options.map((i) => (
+												<option>{i}</option>
+											))}
 										</Form.Control>
 									</Form.Group>
 								</div>
 								<Button
 									id="calculate-button"
 									// onclick={showCalc}
-									>Calculate</Button>
+								>
+									Calculate
+								</Button>
 							</div>
 							<img
 								src={props.projects.data[props.index].imgEx}
@@ -154,14 +170,22 @@ const Popup = (props) => {
 							<div className="calculations">
 								<ul>
 									Calculations:
-									<li>InsertQty of {props.pricing.data[0].name} at $
-									{props.pricing.data[0].price} each.</li>
-									<li>InsertQty of {props.pricing.data[1].name} at $
-									{props.pricing.data[1].price} each.</li>
-									<li>InsertQty of {props.pricing.data[2].name} at $
-									{props.pricing.data[2].price} each.</li>
-									<li>InsertQty of {props.pricing.data[3].name} at $
-									{props.pricing.data[3].price} each.</li>
+									<li>
+										InsertQty of {props.pricing.data[0].name} at $
+										{props.pricing.data[0].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[1].name} at $
+										{props.pricing.data[1].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[2].name} at $
+										{props.pricing.data[2].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[3].name} at $
+										{props.pricing.data[3].price} each.
+									</li>
 								</ul>
 								<h3>Total Cost: InsCalculatedCost</h3>
 							</div>

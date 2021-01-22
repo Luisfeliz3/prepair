@@ -10,7 +10,7 @@ module.exports = {
     },
     
     getDims: function (req, res) {
-		db.Users.find({})
+		db.Users.find({userParams}, req)
 			.then((data) => {
 				res.json(data);
 			})
