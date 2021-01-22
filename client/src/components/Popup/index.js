@@ -19,12 +19,14 @@ import hundred from "../../static/hundred.png";
 import expl from "../../static/construction-icons/chair-ex.svg";
 import ContextProvider from "../../utils/ContextProvider";
 import "./styles.css";
+// import API from "../utils/API";
 
 const Popup = (props) => {
 	console.log(props);
 	const [show, setShow] = useState(true);
 	const handleClose = () => setShow(false);
-	// const [dims, setDims] = useState({
+	const [dims, getDims] = useState({});
+	// const [inputs, setInputs] = setState({
 	// 	dimensionWidth: "",
 	// 	dimensionDepth: "",
 	// 	dimensionHeight: "",
@@ -33,6 +35,7 @@ const Popup = (props) => {
 
 	useEffect(() => {
 		setShow(props.show);
+		// API.
 		// showCalc();
 	}, [props.show]);
 
@@ -121,7 +124,50 @@ const Popup = (props) => {
 							/>
 						</Form>
 						<row>
-							<Form className="form-group2">
+
+							<div className="required">
+								<ul>
+									Required Tools:
+									{props.projects.data[props.index].tools.map((i) => (
+										<li>{i}</li>
+									))}
+								</ul>
+								<ul>
+									Optional:{" "}
+									{props.projects.data[props.index].optional.map((i) => (
+										<li>{i}</li>
+									))}
+								</ul>
+							</div>
+
+							<div className="calculations">
+								<ul>
+									Last calculated dims:
+									<li>test</li>
+									<li>test</li>
+									<li>test</li>
+								</ul>
+								<ul>
+									Calculations:
+									<li>
+										InsertQty of {props.pricing.data[0].name} at $
+										{props.pricing.data[0].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[1].name} at $
+										{props.pricing.data[1].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[2].name} at $
+										{props.pricing.data[2].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[3].name} at $
+										{props.pricing.data[3].price} each.
+									</li>
+								</ul>
+								<h4>Total Cost: InsCalculatedCost</h4>
+								<Form className="form-group2">
 								{["checkbox"].map((type) => (
 									<div key={`inline-${type}`} className="mb-3">
 										<Form.Check
@@ -152,52 +198,10 @@ const Popup = (props) => {
 									Save Progress
 								</button>
 							</Form>
-							<div className="required">
-								<ul>
-									Required Tools:
-									{props.projects.data[props.index].tools.map((i) => (
-										<li>{i}</li>
-									))}
-								</ul>
-								<ul>
-									Optional:{" "}
-									{props.projects.data[props.index].optional.map((i) => (
-										<li>{i}</li>
-									))}
-								</ul>
-							</div>
-
-							<div className="calculations">
-								<ul>
-									Calculations:
-									<li>
-										InsertQty of {props.pricing.data[0].name} at $
-										{props.pricing.data[0].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[1].name} at $
-										{props.pricing.data[1].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[2].name} at $
-										{props.pricing.data[2].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[3].name} at $
-										{props.pricing.data[3].price} each.
-									</li>
-								</ul>
-								<h3>Total Cost: InsCalculatedCost</h3>
 							</div>
 						</row>
 					</Row>
 				</Modal.Body>
-				{/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer> */}
 			</Modal>
 		</div>
 	);

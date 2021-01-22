@@ -48,16 +48,16 @@
 }
 
 .form-group2 {
-	width: 100%;
-	margin: 25px;
+	width: 90%;
+	margin: 30px;
 	color: black;
 	border: 1px solid rgba(26, 38, 32, 0.75);
 	background-color: rgba(201, 177, 157, 0.952);
 	border-radius: 10px;
 	padding: 15px;
 	position: relative;
-	top: 540px;
-	left: -150px;
+	top: -210px;
+	left: 350px;
 	/* text-align: center; */
 }
 
@@ -73,7 +73,7 @@ form {
 	font-family: "Source Code Pro", monospace;
 	font-size: x-small;
 	position: relative;
-	top: -25vh;
+	top: 5vh;
 	left: -3vw;
 }
 
@@ -82,10 +82,11 @@ form {
 	position: relative;
 	color: rgba(26, 38, 32, 1);
 	font-family: "Source Code Pro", monospace;
-	font-size: small;
-	top: -5vh;
-	left: -9.75vw;
+	font-size: x-small;
+	top: 28vh;
+	left: -18vw;
 	border-radius: 10px;
-	padding: 5px;
+	padding: 8px;
+	height: 13rem;
 	/* display: none; */
 }
