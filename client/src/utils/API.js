@@ -3,25 +3,24 @@ import axios from "axios";
 export default {
 	// New endpoint to get all projects from baseprojects model
 	getAllProjects: function () {
-		console.log(axios.get("/api/newproject"));
 		return axios.get("/api/newproject");
 	},
 
 	// New endpoint to get pricing from pricing collection
 	getPricing: function () {
-		console.log(axios.get("/api/pricing"));
 		return axios.get("/api/pricing");
 	},
 
 	// Saves the onChange params to the user collection
 	saveDims: function (dimData) {
-		return axios.post("/api/dims", dimData);
+		return axios.post("/api/saveInput", dimData);
 	},
 
 	// Get the current userParams dimensions from the user collection on load
-  getDims: function (dimData) {
-    return axios.get("/api/getdims", dimData);
-  }
+	getDims: function () {
+		return axios.get("/api/getdims");
+	},
+
 	//Below is old
 	// // Gets all comments
 	// getComments: function() {
