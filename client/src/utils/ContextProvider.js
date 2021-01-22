@@ -2,7 +2,6 @@ export default {
 	// Function to CALCULATE CHAIR
 	calculateChair: function (w, d, h) {
 		// Get values from userState inputs
-		// let averageWF = (twoByFourWasteFactorPercentage+plywoodWasteFactorPercentage+rodWasteFactorPercentage)/3;
 		//Calculating 2x4 wood material below
 		let twoByFourLengthInFeet = (h * 2 + (w - 1.5) + 34.5) / 12;
 		// below will give actual count of 2x4 material at 8 foot lengths
