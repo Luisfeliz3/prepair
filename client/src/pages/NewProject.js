@@ -22,12 +22,13 @@ function NewProject() {
 							<div key={index} data-id={index}>
 								<ProjectButton projects={project} index={index} />
 							</div>
-					))
+					))					
 					: null}
 			</Row>
 			<h6 className="create-title">Create a New Project</h6>
 		</Container>
 	);
+	console.log(project)
 }
 
 export default NewProject;
