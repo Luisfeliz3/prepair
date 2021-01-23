@@ -23,13 +23,13 @@
  Prepair allows users to select from a range of home improvement projects, like building a cabinet, input desired dimensions on that piece of furniture, select stain or paint colors, with options to select “tools I have at home” and will return a cost estimate for all materials needed to complete the project. Alongside material list, pricing, and a diagram, the app will also return a DIY instruction video for that project.
 
 # Table of Contents
-- [Installation](https://github.com/qudoki/react-google-books/blob/main/README.md#installation)
-- [Usage](https://github.com/qudoki/react-google-books/blob/main/README.md#usage)
-- [Screenshots](https://github.com/qudoki/react-google-books/blob/main/README.md#screenshots)
-- [Tests](https://github.com/qudoki/react-google-books/blob/main/README.md#usage)
-- [Contributing](https://github.com/qudoki/react-google-books/blob/main/README.md#contributions)
-- [Questions](https://github.com/qudoki/react-google-books/blob/main/README.md#questions)
-- [License](https://github.com/qudoki/react-google-books/blob/main/README.md#license)
+- [Installation](https://github.com/Luisfeliz3/prepair/blob/main/README.md#installation)
+- [Usage](https://github.com/qudoki/Luisfeliz3/prepair/blob/main/README.md#usage)
+- [Screenshots](https://github.com/Luisfeliz3/prepair/blob/main/README.md#screenshots)
+- [Tests](https://github.com/Luisfeliz3/prepair/blob/main/README.md#usage)
+- [Contributing](https://github.com/Luisfeliz3/prepair/blob/main/README.md#contributions)
+- [Questions](https://github.com/Luisfeliz3/prepair/blob/main/README.md#questions)
+- [License](https://github.com/Luisfeliz3/prepair/blob/main/README.md#license)
 
 ## Installation:
 - This package requires node.js and Inquirer. You can install the package dependencies by entering the following commands: "npm install" or "npm i".
@@ -39,18 +39,14 @@
 
 ## Screenshots:
 
-#### Home Page
-![ScreenShot](./client/public/screenshots/home.png)
-#### Searching Books
-![ScreenShot](./client/public/screenshots/search.png)
-#### Saving Books
-![ScreenShot](./client/public/screenshots/save.png)
+#### New Project Page
+![ScreenShot](./client/public/new.png)
 
 
 ## Contributing:
 - In most cases, please refer to this document: [Contributor Covenant](https://www.contributor-covenant.org/) 
 
-- Please contact the repository owner for collaboration.
+- Please contact Quinn Dong-Kilkenny (qudoki) for collaboration.
 - Please contact the owner.
 
 
