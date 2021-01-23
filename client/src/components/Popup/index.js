@@ -30,7 +30,6 @@ const Popup = (props) => {
 		dimensionHeight: "",
 	});
 	const [matState, setMatState] = useState({});
-	const [finalResult, setFinalResult] = useState(0);
 
 	const handleWidthChange = (event) => {
 		const { name, value } = event.target;
@@ -61,10 +60,6 @@ const Popup = (props) => {
 		API.getDims()
 			.then((res) => setDims(res))
 			.catch((err) => console.log(err));
-		// API.setInputs(inputs)
-		// .then((res) => setInputs(res))
-		// .catch((err) => console.log(err));
-		// showCalc();
 	}, [props.show]);
 
 	const calcButtonPressed = () => {
@@ -77,9 +72,7 @@ const Popup = (props) => {
 			height,
 			props.projects.data[props.index].projectName
 		);
-		console.log(materials);
 		setMatState(materials);
-		// setFinalResult(materials);
 	};
 
 	// Function to CALCULATE CHAIR
@@ -197,13 +190,12 @@ const Popup = (props) => {
 	}
 
 	function calculateDesk(w, d, h) {
-		let twoByFourLengthInFeet = (h - 12) * 4 + 2 * (d - 9);
+		let twoByFourLengthInFeet = ((h - 12) * 4 + 2 * (d - 9)) / 12;
 		// below will give actual count of 2x4 material at 8 foot lengths
 		let twoByFourLengthCount = roundUpEight(twoByFourLengthInFeet);
 		let twoByFourWasteFactorPercentage =
-			((twoByFourLengthCount * 8 - twoByFourLengthInFeet) /
-				(twoByFourLengthCount * 8)) *
-			100;
+			(twoByFourLengthCount * 8 - twoByFourLengthInFeet) /
+			(twoByFourLengthCount * 8 * 100);
 		console.log(
 			"You are using" +
 				twoByFourLengthCount +
@@ -284,6 +276,7 @@ const Popup = (props) => {
 	}
 
 	function calculateTile(w, d, h) {
+		let tileCount = (w * h) / 18;
 		let tileAreaInFeet = (w * h) / 144;
 		let boxCount = boxRound(tileAreaInFeet);
 
@@ -295,18 +288,18 @@ const Popup = (props) => {
 			100;
 		console.log(
 			"You are using" +
-				plywoodCount +
+			cementBoardCount +
 				" pieces of plywood at a waste factor of " +
-				plywoodWasteFactorPercentage +
+				cementBoardWasteFactorPercentage +
 				"%"
 		);
 
 		let groutCount = 1;
 		let adhesiveCount = 1;
 		return {
+			tileQty: tileCount,
 			tileArea: tileAreaInFeet,
 			tileBoxCount: boxCount,
-			tileWF: twoByFourWasteFactorPercentage,
 			cementBoardArea: cementBoardAreaInFeet,
 			cementBoardQty: cementBoardCount,
 			cementBoardWF: cementBoardWasteFactorPercentage,
@@ -371,7 +364,7 @@ const Popup = (props) => {
 		);
 
 		//Calculating rod material below
-		let rodLengthInFeet = (w - 3) * ((h / 12 - 1) * (w - 1.5));
+		let rodLengthInFeet = ((w - 3) * ((h / 12 - 1) * (w - 1.5))) / 12;
 		let rodCount = roundUpFour(rodLengthInFeet);
 		let rodWasteFactorPercentage =
 			((rodCount * 12 - rodLengthInFeet) / (rodCount * 12)) * 100;
@@ -402,10 +395,12 @@ const Popup = (props) => {
 		if (input < 4) return 1;
 		if (input > 4 && input < 8) return 2;
 		if (input > 8 && input < 12) return 3;
+		if (input > 12 && input < 16) return 4;
+		if (input > 16 && input < 20) return 5;
 	}
 
 	function plywoodRound(input) {
-		if (input < 32) return 32;
+		if (input < 32) return 1;
 		if (input > 32 && input < 64) return 2;
 		if (input > 64 && input < 96) return 3;
 		if (input > 96 && input < 128) return 4;
@@ -540,72 +535,135 @@ const Popup = (props) => {
 								<ul>
 									Current Dimensions:
 									<li>
-										Width: 
+										Width:
 										{dims ? dims.dimensionWidth : null} in
 									</li>
 									<li>
-										Depth: 
+										Depth:
 										{dims ? dims.dimensionDepth : null} in
 									</li>
 									<li>
-										Height: 
+										Height:
 										{dims ? dims.dimensionHeight : null} in
 									</li>
 								</ul>
 								<ul>
 									Calculations:
-									
-										{matState.rodQty ? <li>{matState.rodQty} of {props.pricing.data[0].name} at $
-										{props.pricing.data[0].price} each. </li> : null}
-									
-									<li>
-										InsertQty of {props.pricing.data[1].name} at $
-										{props.pricing.data[1].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[2].name} at $
-										{props.pricing.data[2].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[3].name} at $
-										{props.pricing.data[3].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[4].name} at $
-										{props.pricing.data[4].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[5].name} at $
-										{props.pricing.data[5].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[6].name} at $
-										{props.pricing.data[6].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[7].name} at $
-										{props.pricing.data[7].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[8].name} at $
-										{props.pricing.data[8].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[9].name} at $
-										{props.pricing.data[9].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[10].name} at $
-										{props.pricing.data[10].price} each.
-									</li>
-									<li>
-										InsertQty of {props.pricing.data[11].name} at $
-										{props.pricing.data[11].price} each.
-									</li>
+									{matState.rodQty ? (
+										<li>
+											{matState.rodQty} of {props.pricing.data[0].name} at $
+											{props.pricing.data[0].price} each.{" "}
+										</li>
+									) : null}
+									{matState.twoByFourQty ? (
+										<li>
+											{matState.twoByFourQty} of {props.pricing.data[1].name} at
+											${props.pricing.data[1].price} each.{" "}
+										</li>
+									) : null}
+									{matState.plywoodQty ? (
+										<li>
+											{matState.plywoodQty} of {props.pricing.data[2].name} at $
+											{props.pricing.data[2].price} each.{" "}
+										</li>
+									) : null}
+									{matState.oneByThreeQty ? (
+										<li>
+											{matState.oneByThreeQty} of {props.pricing.data[3].name}{" "}
+											at ${props.pricing.data[3].price} each.{" "}
+										</li>
+									) : null}
+									{matState.plywoodThickQty ? (
+										<li>
+											{matState.plywoodThickQty} of {props.pricing.data[4].name}{" "}
+											at ${props.pricing.data[4].price} each.{" "}
+										</li>
+									) : null}
+									{matState.hardwareSlideCount ? (
+										<li>
+											{matState.hardwareSlideCount} of{" "}
+											{props.pricing.data[5].name} at $
+											{props.pricing.data[5].price} each.{" "}
+										</li>
+									) : null}
+									{matState.closetRodCount ? (
+										<li>
+											{matState.closetRodCount} of {props.pricing.data[6].name}{" "}
+											at ${props.pricing.data[6].price} each.{" "}
+										</li>
+									) : null}
+									{matState.cementBoardCount ? (
+										<li>
+											{matState.cementBoardCount} of{" "}
+											{props.pricing.data[7].name} at $
+											{props.pricing.data[7].price} each.{" "}
+										</li>
+									) : null}
+									{matState.tileQty ? (
+										<li>
+											{matState.tileQty} of {props.pricing.data[8].name} at $
+											{props.pricing.data[8].price} each.{" "}
+										</li>
+									) : null}
+									{matState.groutQty ? (
+										<li>
+											{matState.groutQty} of {props.pricing.data[9].name} at $
+											{props.pricing.data[9].price} each.{" "}
+										</li>
+									) : null}
+									{matState.gypsumBoardQty ? (
+										<li>
+											{matState.gypsumBoardQty} of {props.pricing.data[10].name}{" "}
+											at ${props.pricing.data[10].price} each.{" "}
+										</li>
+									) : null}
+									{matState.thinSet ? (
+										<li>
+											{matState.thinSet} of {props.pricing.data[11].name} at $
+											{props.pricing.data[11].price} each.{" "}
+										</li>
+									) : null}
 								</ul>
-								<h4>Total Cost: ${finalResult}</h4>
-
-								<h6>{/* {console.log(calculateChair(w, d, h))} */}</h6>
+								<h4>
+									Total Cost: $
+									{(matState.rodQty
+										? matState.rodQty * props.pricing.data[0].price
+										: null) +
+										(matState.twoByFourQty
+											? matState.twoByFourQty * props.pricing.data[1].price
+											: null) +
+										(matState.plywoodQty
+											? matState.plywoodQty * props.pricing.data[2].price
+											: null) +
+										(matState.oneByThreeQty
+											? matState.oneByThreeQty * props.pricing.data[3].price
+											: null) +
+										(matState.plywoodThickQty
+											? matState.plywoodThickQty * props.pricing.data[4].price
+											: null) +
+										(matState.hardwareSlideCount
+											? matState.hardwareSlideCount *
+											  props.pricing.data[5].price
+											: null) +
+										(matState.closetRodCount
+											? matState.closetRodCount * props.pricing.data[6].price
+											: null) +
+										(matState.cementBoardCount
+											? matState.cementBoardCount * props.pricing.data[7].price
+											: null) +
+										(matState.tileQty
+											? matState.tileQty * props.pricing.data[8].price
+											: null) +
+										(matState.groutQty
+											? matState.groutQty * props.pricing.data[9].price
+											: null) +
+										(matState.gypsumBoardQty
+											? matState.gypsumBoardQty * props.pricing.data[10].price
+											: null) +
+										(matState.thinSet
+											? matState.thinSet * props.pricing.data[11].price
+											: null)}
+								</h4>
 
 								<Form className="form-group2">
 									{["checkbox"].map((type) => (

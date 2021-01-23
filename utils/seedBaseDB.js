@@ -296,7 +296,7 @@ let baseProjectsSeed = [
 				dimensionHeight: "inputHeight",
 				unit: "inches",
 				defaultQuantity: "30",
-				options: [24, 30, 36],
+				options: [24, 30, 36, 42],
 			},
 			{
 				optionalArea: "calculatedArea",
@@ -475,12 +475,7 @@ let baseProjectsSeed = [
 				matType: "hardware",
 				name: "heavy-duty side-mounted drawer slides",
 				size: "22in depth",
-			},
-			// {
-			// 	matType: "hardware",
-			// 	name: "closet rod with sleeves",
-			// 	size: "1-1/4 in diameter",
-			// },
+			}
 		],
 		tools: [
 			"saw",
@@ -615,7 +610,7 @@ let baseProjectsSeed = [
 				dimensionDepth: "inputDepth",
 				unit: "inches",
 				defaultQuantity: "5",
-				options: [5],
+				options: [5, 6],
 			},
 			{
 				dimensionHeight: "inputHeight",
@@ -662,7 +657,7 @@ let baseProjectsSeed = [
 				dimensionDepth: "inputDepth",
 				unit: "inches",
 				defaultQuantity: "3.5",
-				options: [3.5],
+				options: [3.5, 4, 4.5],
 			},
 			{
 				dimensionHeight: "inputHeight",
