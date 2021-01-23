@@ -3,7 +3,7 @@ import userAPI from "../utils/userAPI";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
-import "./style.css"
+import "./style.css";
 
 class Login extends Component {
 	state = {
@@ -42,7 +42,8 @@ class Login extends Component {
 			<Container fluid>
 				<Row>
 					<Col size="12">
-						<form className="main">Email
+						<form className="main">
+							Email
 							<Input
 								value={this.state.email}
 								onChange={this.handleInputChange}
@@ -50,8 +51,7 @@ class Login extends Component {
 								placeholder="Email (required)"
 								className="main-button"
 							/>
-Password
-
+							Password
 							<Input
 								value={this.state.password}
 								onChange={this.handleInputChange}

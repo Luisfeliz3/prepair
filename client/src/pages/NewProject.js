@@ -13,17 +13,17 @@ function NewProject() {
 		API.getAllProjects()
 			.then((res) => setProject(res))
 			.catch((err) => console.log(err));
-		}, []);
-		
-		return (
+	}, []);
+	return (
 		<Container fluid className="wrap">
 			<Row className="iconRow">
-				{project.data ? project.data.map((result, index) => (
-					<div key={index} data-id={index}>
-						<ProjectButton projects={project} index={index}
-						/>
-					</div>
-				)) : null}
+				{project.data
+					? project.data.map((result, index) => (
+							<div key={index} data-id={index}>
+								<ProjectButton projects={project} index={index} />
+							</div>
+					))
+					: null}
 			</Row>
 			<h6 className="create-title">Create a New Project</h6>
 		</Container>
