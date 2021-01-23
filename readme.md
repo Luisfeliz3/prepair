@@ -2,8 +2,8 @@
 
 ### Deployment & Repository
 
-- [Heroku Deployment](https://pacific-retreat-75457.herokuapp.com/)
-- [Github Repository Link](https://github.com/qudoki/react-google-books)
+- [Heroku Deployment](https://prepair-final.herokuapp.com/)
+- [Github Repository Link](https://github.com/Luisfeliz3/prepair)
 
 ### Technical Requirements
 * Javascript
