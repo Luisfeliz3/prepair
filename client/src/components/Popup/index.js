@@ -22,22 +22,49 @@ import "./styles.css";
 import API from "../../utils/API";
 
 const Popup = (props) => {
-	// console.log(props);
 	const [show, setShow] = useState(true);
 	const handleClose = () => setShow(false);
-	const [dims, displayDims] = useState({});
+	const [dims, setDims] = useState({
+		dimensionWidth: "",
+		dimensionDepth: "",
+		dimensionHeight: "",
+	});
+	const [finalResult, setFinalResult] = useState(0);
+
 	// const [inputs, setInputs] = setState({
-	// 	dimensionWidth: "",
-	// 	dimensionDepth: "",
-	// 	dimensionHeight: "",
+	// dimensionWidth: "",
+	// dimensionDepth: "",
+	// dimensionHeight: "",
 	// });
 
-	// const [calc, showCalc] = useState(false);
+	const handleWidthChange = (event) => {
+		const { name, value } = event.target;
+		setDims({
+			...dims,
+			dimensionWidth: value,
+		});
+	};
+
+	const handleDepthChange = (event) => {
+		const { name, value } = event.target;
+		setDims({
+			...dims,
+			dimensionDepth: value,
+		});
+	};
+
+	const handleHeightChange = (event) => {
+		const { name, value } = event.target;
+		setDims({
+			...dims,
+			dimensionHeight: value,
+		});
+	};
 
 	useEffect(() => {
 		setShow(props.show);
 		API.getDims()
-			.then((res) => displayDims(res))
+			.then((res) => setDims(res))
 			.catch((err) => console.log(err));
 		// API.setInputs(inputs)
 		// .then((res) => setInputs(res))
@@ -45,7 +72,19 @@ const Popup = (props) => {
 		// showCalc();
 	}, [props.show]);
 
-
+	const calcButtonPressed = () => {
+		const width = dims.dimensionWidth;
+		const depth = dims.dimensionDepth;
+		const height = dims.dimensionHeight;
+		const materials = calculateForPopup(
+			width,
+			depth,
+			height,
+			props.projects.data[props.index].projectName
+		);
+		setFinalResult(materials);
+		console.log(materials);
+	};
 
 	// Function to CALCULATE CHAIR
 	function calculateChair(w, d, h) {
@@ -391,23 +430,31 @@ const Popup = (props) => {
 		if (input > 100 && input < 110) return 10;
 	}
 
-	//hard dims
-	let w = 24;
-	let d = 36;
-	let h = 30;
-
-	// let resultObj = (w, d, h) => {{props.projects.data[props.index].description == "chair"
-	// ? calculateChair(w, d, h)
-	// : props.projects.data[props.index].description == "bookcase" ? calculateBookcase(w, d, h)
-	// : props.projects.data[props.index].description == "table" ? calculateTable(w, d, h)
-	// : props.projects.data[props.index].description == "desk" ? calculateDesk(w, d, h)
-	// : props.projects.data[props.index].description == "dresser" ? calculateDresser(w, d, h)
-	// : props.projects.data[props.index].description == "tile" ? calculateTile(w, d, h)
-	// : props.projects.data[props.index].description == "wall" ? calculateWall(w, d, h)
-	// : props.projects.data[props.index].description == "ladder" ? calculateLadder(w, d, h)
-	// : "null"}}
+	let calculateForPopup = (w, d, h, projectType) => {
+		return projectType == "chair"
+			? calculateChair(w, d, h)
+			: projectType == "bookcase"
+			? calculateBookcase(w, d, h)
+			: projectType == "table"
+			? calculateTable(w, d, h)
+			: projectType == "desk"
+			? calculateDesk(w, d, h)
+			: projectType == "dresser"
+			? calculateDresser(w, d, h)
+			: projectType == "tile"
+			? calculateTile(w, d, h)
+			: projectType == "wall"
+			? calculateWall(w, d, h)
+			: projectType == "ladder"
+			? calculateLadder(w, d, h)
+			: "null";
+	};
 
 	// console.log(resultObj)
+
+	function saveUserDims(x) {
+		console.log(x);
+	}
 
 	return (
 		<div id="modal">
@@ -435,10 +482,7 @@ const Popup = (props) => {
 								<div>
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Width (in):</Form.Label>
-										<Form.Control
-											as="select"
-											// onChange={setInputs}
-										>
+										<Form.Control as="select" onChange={handleWidthChange}>
 											{props.projects.data[
 												props.index
 											].userParams[0].options.map((i) => (
@@ -450,7 +494,7 @@ const Popup = (props) => {
 								<div>
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Depth (in):</Form.Label>
-										<Form.Control as="select">
+										<Form.Control as="select" onChange={handleDepthChange}>
 											{props.projects.data[
 												props.index
 											].userParams[1].options.map((i) => (
@@ -462,10 +506,7 @@ const Popup = (props) => {
 								<div>
 									<Form.Group controlId="exampleForm.ControlSelect1">
 										<Form.Label>Height (in):</Form.Label>
-										<Form.Control
-											as="select"
-											// onChange={setInputs(inputs.dimensionHeight)}
-										>
+										<Form.Control as="select" onChange={handleHeightChange}>
 											{props.projects.data[
 												props.index
 											].userParams[2].options.map((i) => (
@@ -474,11 +515,7 @@ const Popup = (props) => {
 										</Form.Control>
 									</Form.Group>
 								</div>
-								<Button
-									id="calculate-button"
-									// onclick={setInputs(inputs)}
-									// onClick={resultObj}
-								>
+								<Button id="calculate-button" onClick={calcButtonPressed}>
 									Calculate
 								</Button>
 							</div>
@@ -514,25 +551,16 @@ const Popup = (props) => {
 								<ul>
 									Last calculated dims:
 									<li>
-										Width: {w}
-										{dims.data
-											? dims.data[0].currentProjects[0].userParams
-													.dimensionWidth
-											: null}
+										Width:
+										{dims ? dims.dimensionWidth : null}
 									</li>
 									<li>
-										Depth: {d}
-										{dims.data
-											? dims.data[0].currentProjects[0].userParams
-													.dimensionDepth
-											: null}
+										Depth:
+										{dims ? dims.dimensionDepth : null}
 									</li>
 									<li>
-										Height: {h}
-										{dims.data
-											? dims.data[0].currentProjects[0].userParams
-													.dimensionHeight
-											: null}
+										Height:
+										{dims ? dims.dimensionHeight : null}
 									</li>
 								</ul>
 								<ul>
@@ -554,12 +582,9 @@ const Popup = (props) => {
 										{props.pricing.data[3].price} each.
 									</li>
 								</ul>
-								<h4>Total Cost: InsCalculatedCost</h4>
+								<h4>Total Cost: ${finalResult}</h4>
 
-								<h6>
-									{/* {console.log(calculateChair(w, d, h))} */}
-
-								</h6>
+								<h6>{/* {console.log(calculateChair(w, d, h))} */}</h6>
 
 								<Form className="form-group2">
 									{["checkbox"].map((type) => (
