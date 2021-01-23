@@ -6,7 +6,7 @@
 	width: 220px;
 	background-color: rgba(26, 38, 32, 0.75);
 	margin-left: 3.5em;
-	margin-top: 3.5em;
+	margin-top: 2em;
 	font-family: "Source Code Pro", monospace;
 }
 
@@ -17,13 +17,13 @@
 	background-color: white;
 	color: black;
 	margin-left: 3.5em;
-	margin-top: 3.5em;
+	margin-top: 2em;
 }
 
 .explodedDiagram {
 	position: relative;
-	top: -520px;
-	left: 450px;
+	top: -490px;
+	left: 440px;
 	/* width: 250px; */
 	max-height: 250px;
 	/* border: 1px solid #000000; */
@@ -32,10 +32,10 @@
 .overlay {
 	position: absolute;
 	top: 350px;
-	left: 30px;
+	left: 20px;
 	width: 350px;
 	margin-block-start: -26em;
-	margin-left: 23.5em;
+	margin-left: 23em;
 }
 
 .mt-2 {
@@ -57,8 +57,8 @@
 	border-radius: 10px;
 	padding: 15px;
 	position: relative;
-	top: -32vh;
-	left: 250px;
+	top: -22vh;
+	left: 300px;
 	/* text-align: center; */
 }
 
@@ -74,8 +74,8 @@ form {
 	font-family: "Source Code Pro", monospace;
 	font-size: x-small;
 	position: relative;
-	top: 5vh;
-	left: -3vw;
+	top: 10vh;
+	left: -6vw;
 }
 
 .calculations {
@@ -84,7 +84,7 @@ form {
 	color: rgba(26, 38, 32, 1);
 	font-family: "Source Code Pro", monospace;
 	font-size: x-small;
-	top: 30vh;
+	top: 40vh;
 	left: -22vw;
 	border-radius: 10px;
 	padding: 8px;
