@@ -13,18 +13,14 @@ function NewProject() {
 		API.getAllProjects()
 			.then((res) => setProject(res))
 			.catch((err) => console.log(err));
-		// API.saveDims()
-		// 	.then((res) => setDims(res))
-		// 	.catch((err) => console.log(err));
-	}, []);
-
-	return (
+		}, []);
+		
+		return (
 		<Container fluid className="wrap">
 			<Row className="iconRow">
 				{project.data ? project.data.map((result, index) => (
 					<div key={index} data-id={index}>
 						<ProjectButton projects={project} index={index}
-						// dims={dims}
 						/>
 					</div>
 				)) : null}

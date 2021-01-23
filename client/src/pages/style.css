@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
+
 .wrap {
 	/* background-color: grey; */
 	background-image: url("../static/wood.png");
@@ -82,4 +84,25 @@ height: 4%
 #ladder-change:hover {
 	content: url('../static/construction-icons/ladder-ex.png');
 	transition: 1s ease;
+}
+
+.main-button {
+	font-family: "Source Code Pro", monospace;
+	font-size: small;
+	margin: 40px;
+}
+
+form {
+	margin: 40px;
+	/* width: 50%; */
+	font-family: "Source Code Pro", monospace;
+}
+
+.main {
+	width: 50%;
+}
+
+.title {
+	left: 41.25%;
+	top: 54.5%;
 }
