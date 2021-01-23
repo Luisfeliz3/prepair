@@ -27,18 +27,18 @@
 
 .title {
 	position: fixed;
-	left: 46%;
+	left: 50%;
 	top: 54%;
 	color: rgba(201, 177, 157, 0.952);
 	text-align: center;
 	font-family: "Source Code Pro", monospace;
-	font-size: small;
+	font-size: medium;
 }
 
 .proTip {
 	color: rgba(201, 177, 157, 0.952);
 	font-family: "Source Code Pro", monospace;
-	font-size: x-small;
+	font-size: small;
 	top: 85%;
 	text-align: center;
 }
