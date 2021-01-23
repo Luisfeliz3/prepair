@@ -4,7 +4,7 @@ module.exports = {
 	findAll: function (req, res) {
 		// console.log("YOU ARE HERE!!!");
 		// console.log(db.BaseProjects.find({}));
-		db.BaseProjects.find(req.query)
+		db.BaseProjects.find(req.query).sort({projectId: -1})
 			.then((allProj) => {
 				res.json(allProj);
 			})
