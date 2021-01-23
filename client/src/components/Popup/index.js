@@ -29,13 +29,8 @@ const Popup = (props) => {
 		dimensionDepth: "",
 		dimensionHeight: "",
 	});
+	const [matState, setMatState] = useState({});
 	const [finalResult, setFinalResult] = useState(0);
-
-	// const [inputs, setInputs] = setState({
-	// dimensionWidth: "",
-	// dimensionDepth: "",
-	// dimensionHeight: "",
-	// });
 
 	const handleWidthChange = (event) => {
 		const { name, value } = event.target;
@@ -82,8 +77,9 @@ const Popup = (props) => {
 			height,
 			props.projects.data[props.index].projectName
 		);
-		setFinalResult(materials);
 		console.log(materials);
+		setMatState(materials);
+		// setFinalResult(materials);
 	};
 
 	// Function to CALCULATE CHAIR
@@ -96,7 +92,7 @@ const Popup = (props) => {
 				(twoByFourLengthCount * 8)) *
 			100;
 		console.log(
-			"You are using" +
+			"You are using " +
 				twoByFourLengthCount +
 				" lengths of 2x4 at a waste factor of " +
 				twoByFourWasteFactorPercentage +
@@ -109,7 +105,7 @@ const Popup = (props) => {
 		let plywoodWasteFactorPercentage =
 			((plywoodCount * 32 - plywoodAreaInFeet) / (plywoodCount * 32)) * 100;
 		console.log(
-			"You are using" +
+			"You are using " +
 				plywoodCount +
 				" pieces of plywood at a waste factor of " +
 				plywoodWasteFactorPercentage +
@@ -157,9 +153,9 @@ const Popup = (props) => {
 
 		let oneByThreeLengthInFeet = (2 * d - 5 + 2 * w) / 12;
 		// below will give actual count of 2x4 material at 8 foot lengths
-		let oneByThreeLengthCount = roundUpEight(twoByFourLengthInFeet);
+		let oneByThreeLengthCount = roundUpEight(oneByThreeLengthInFeet);
 		let oneByThreeWasteFactorPercentage =
-			((oneByThreeLengthCount * 8 - twoByFourLengthInFeet) /
+			((oneByThreeLengthCount * 8 - oneByThreeLengthInFeet) /
 				(oneByThreeLengthCount * 8)) *
 			100;
 		console.log(
@@ -386,7 +382,6 @@ const Popup = (props) => {
 				rodWasteFactorPercentage +
 				"%"
 		);
-		console.log("Your overall average waste factor is " + averageWF + " %");
 		return {
 			twoByFourLength: twoByFourLengthInFeet,
 			twoByFourQty: twoByFourLengthCount,
@@ -449,12 +444,6 @@ const Popup = (props) => {
 			? calculateLadder(w, d, h)
 			: "null";
 	};
-
-	// console.log(resultObj)
-
-	function saveUserDims(x) {
-		console.log(x);
-	}
 
 	return (
 		<div id="modal">
@@ -549,26 +538,26 @@ const Popup = (props) => {
 
 							<div className="calculations">
 								<ul>
-									Last calculated dims:
+									Current Dimensions:
 									<li>
-										Width:
-										{dims ? dims.dimensionWidth : null}
+										Width: 
+										{dims ? dims.dimensionWidth : null} in
 									</li>
 									<li>
-										Depth:
-										{dims ? dims.dimensionDepth : null}
+										Depth: 
+										{dims ? dims.dimensionDepth : null} in
 									</li>
 									<li>
-										Height:
-										{dims ? dims.dimensionHeight : null}
+										Height: 
+										{dims ? dims.dimensionHeight : null} in
 									</li>
 								</ul>
 								<ul>
 									Calculations:
-									<li>
-										InsertQty of {props.pricing.data[0].name} at $
-										{props.pricing.data[0].price} each.
-									</li>
+									
+										{matState.rodQty ? <li>{matState.rodQty} of {props.pricing.data[0].name} at $
+										{props.pricing.data[0].price} each. </li> : null}
+									
 									<li>
 										InsertQty of {props.pricing.data[1].name} at $
 										{props.pricing.data[1].price} each.
@@ -580,6 +569,38 @@ const Popup = (props) => {
 									<li>
 										InsertQty of {props.pricing.data[3].name} at $
 										{props.pricing.data[3].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[4].name} at $
+										{props.pricing.data[4].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[5].name} at $
+										{props.pricing.data[5].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[6].name} at $
+										{props.pricing.data[6].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[7].name} at $
+										{props.pricing.data[7].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[8].name} at $
+										{props.pricing.data[8].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[9].name} at $
+										{props.pricing.data[9].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[10].name} at $
+										{props.pricing.data[10].price} each.
+									</li>
+									<li>
+										InsertQty of {props.pricing.data[11].name} at $
+										{props.pricing.data[11].price} each.
 									</li>
 								</ul>
 								<h4>Total Cost: ${finalResult}</h4>
