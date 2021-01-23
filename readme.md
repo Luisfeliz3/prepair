@@ -20,7 +20,7 @@
 - [SKU IO - Price Scraper for Big Retailers](https://rapidapi.com/a.rachitskiy/api/sku-io/endpoints)
   
 ### Description: 
- Prepair allows users to select from a range of home improvement projects, like building a cabinet, input desired dimensions on that piece of furniture, select stain or paint colors, with options to select “tools I have at home” and will return a cost estimate for all materials needed to complete the project. Alongside material list, pricing, and a diagram, the app will also return a DIY instruction video for that project.
+ Prepair allows users to select from a range of home improvement projects, like building a cabinet, input desired dimensions on that piece of furniture, select stain or paint colors, with options to select “tools I have at home” and will return a cost estimate for all materials needed to complete the project. Alongside material list, pricing, and a diagram, the app will also return a DIY instruction video for that project (in future development).
 
 # Table of Contents
 - [Installation](https://github.com/Luisfeliz3/prepair/blob/main/README.md#installation)
