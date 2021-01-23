@@ -697,7 +697,7 @@ const seed = function () {
 		});
 
 	db.Pricings.deleteMany({})
-		.then(() => db.Pricings.create(pricing).sort({productId: -1}))
+		.then(() => db.Pricings.create(pricing))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
 		})
@@ -715,7 +715,7 @@ const seed = function () {
 		});
 
 	db.BaseProjects.deleteMany({})
-		.then(() => db.BaseProjects.create(baseProjectsSeed).sort({projectId: -1}))
+		.then(() => db.BaseProjects.create(baseProjectsSeed))
 		.then((data) => {
 			console.log(data.length + " records inserted!");
 		})
