@@ -58,7 +58,7 @@
 	padding: 15px;
 	position: relative;
 	top: -32vh;
-	left: 350px;
+	left: 250px;
 	/* text-align: center; */
 }
 
@@ -85,7 +85,7 @@ form {
 	font-family: "Source Code Pro", monospace;
 	font-size: x-small;
 	top: 30vh;
-	left: -18vw;
+	left: -22vw;
 	border-radius: 10px;
 	padding: 8px;
 	height: 13rem;
