@@ -25,7 +25,7 @@ function NewProject() {
 					</div>
 				)) : null}
 			</Row>
-			<h6 className="title">Create a New Project</h6>
+			<h6 className="create-title">Create a New Project</h6>
 		</Container>
 	);
 }
