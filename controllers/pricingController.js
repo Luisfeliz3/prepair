@@ -2,7 +2,7 @@ const db = require("../models");
 
 module.exports = {
 	getPricing: function (req, res) {
-		db.Pricings.find(req.query).sortBy({id: -1})
+		db.Pricings.find(req.query).sortBy({productId: -1})
 			.then((prices) => {
 				res.json(prices);
 			})
