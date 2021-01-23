@@ -2,7 +2,7 @@ module.exports = {
 	mongoOptions: {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-		autoIndex: false,
+		autoIndex: true,
 		useFindAndModify: false,
 	},
 	sessionOptions: {
