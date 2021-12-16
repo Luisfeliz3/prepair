@@ -5,33 +5,33 @@ import { Link } from "react-router-dom";
 import { Col, Row } from "../components/Grid";
 import { Table, Tr, Td } from "../components/Table";
 import { ForwardRefInput, FormBtn } from "../components/Form";
-import Ring from '../components/Ring/index'
- 
+import Ring from "../components/Ring/index";
+
 function Comments({ username }) {
 	// Setting our component's initial state
 	const [comments, setComments] = useState([]);
 	const [formObject, setFormObject] = useState({
-      body: "",
-      username: ""
-   });
-   
-   // get input element ref for focus
-   const titleInputElRef = useRef();
+		body: "",
+		username: "",
+	});
+
+	// get input element ref for focus
+	const titleInputElRef = useRef();
 
 	// Load all comments and store them with setComments
 	useEffect(() => {
-      // set user after successful component mount
-      setFormObject({
-         body: "",
-         username: "", 
-         username})
+		// set user after successful component mount
+		setFormObject({
+			body: "",
+			username: "",
+			username,
+		});
 
-      loadComments();
+		loadComments();
 
-      // focus on titleInputEl if ref exists
-    //   titleInputElRef.current.focus()
-   }, []);
-   
+		// focus on titleInputEl if ref exists
+		//   titleInputElRef.current.focus()
+	}, []);
 
 	// Loads all comments and sets them to comments
 	function loadComments() {
@@ -62,17 +62,18 @@ function Comments({ username }) {
 	// 			body: formObject.body,
 	// 			username: formObject.username,
 	// 		})
-    //         .then(loadComments)
-    //         .then(() => setFormObject({
-    //            body: "",
-    //            username: ""
-    //         }))
+	//         .then(loadComments)
+	//         .then(() => setFormObject({
+	//            body: "",
+	//            username: ""
+	//         }))
 	// 			.catch((err) => console.log(err));
 	// 	}
 	// }
 
-	return <>
-		{/* <Row>
+	return (
+		<>
+			{/* <Row>
 			<Col size='md-12'>
 				<form>
 					<Col size='sm-12'>
@@ -86,37 +87,38 @@ function Comments({ username }) {
 				</form>
 			</Col>
 		</Row>, */}
-		<Row>
-			<Col size='md-12'>
-				{comments.length ? (
-					<Table>
-						{comments.map(comment => (
-							<Tr key={comment._id} className="d-flex float-left">
-							
-								<Td >
-								<Ring />
-								<Ring />
-								<Ring/>
-									{/* <Link
+			<Row>
+				<Col size="md-12">
+					{comments.length ? (
+						<Table>
+							{comments.map((comment) => (
+								<Tr key={comment._id} className="d-flex float-left">
+									<Td>
+										<Ring />
+										<Ring />
+										<Ring />
+										{/* <Link
 										to={"/comments/" + comment._id}
 										style={{ textAlign: "left", display: "block" }}>
 										<strong>{comment.username}:</strong> {comment.body}
 									</Link> */}
-								</Td>
-								{/* <Td>{comment.date}</Td> */}
-								
-								<Td>
-									{/* <DeleteBtn onClick={() => deleteComment(comment._id)} /> */}
-								</Td>
-							</Tr>
-						))}
-					</Table>
-				) : (
-					<h3>No Results to Display</h3>
-				)}
-			</Col>
-		</Row>,
-	</>;
+									</Td>
+									{/* <Td>{comment.date}</Td> */}
+
+									<Td>
+										{/* <DeleteBtn onClick={() => deleteComment(comment._id)} /> */}
+									</Td>
+								</Tr>
+							))}
+						</Table>
+					) : (
+						<h3>No Results to Display</h3>
+					)}
+				</Col>
+			</Row>
+			,
+		</>
+	);
 }
 
 export default Comments;

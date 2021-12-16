@@ -1,12 +1,11 @@
 const db = require("../models");
 
 module.exports = {
-	getAllProjects: function (req, res) {
-		res.json({
-			// _id: req.user._id,
-			// username: req.user.username,
-			// email: req.user.email,
-			// comments: req.user.comments
-		});
+	findAll: function (req, res) {
+		db.BaseProjects.find(req.query).sort({projectId: -1})
+			.then((allProj) => {
+				res.json(allProj);
+			})
+			.catch((err) => res.status(422).json(err));
 	},
 };

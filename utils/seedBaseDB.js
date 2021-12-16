@@ -3,11 +3,11 @@ const db = require("../models");
 const { mongoOptions } = require("./config");
 
 mongoose.connect(
-   // Name below is name of local (Robo3T)
+	// Name below is name of local (Robo3T)
 	process.env.MONGODB_URI || "mongodb://localhost/prepair",
 	mongoOptions
 );
- 
+
 // User Projects - with matching project Ids - this is where new users would be stored
 let userSeed = [
 	{
@@ -17,247 +17,132 @@ let userSeed = [
 		currentProjects: [
 			{
 				projectId: 1,
-				userParams: [
+				// userParams: [
+				// 	{
+				// 		dimensionWidth: "inputWidth",
+				// 		quantity: "18",
+				// 	},
+				// 	{
+				// 		dimensionDepth: "inputDepth",
+				// 		quantity: "24",
+				// 	},
+				// 	{
+				// 		dimensionHeight: "inputHeight",
+				// 		quantity: "30",
+				// 	},
+				// 	// check below
+				// 	{
+				// 		completionStatus: 1,
+				// 	},
+				// ],
+				userParams: {
+					dimensionWidth: "",
+					dimensionDepth: "",
+					dimensionHeight: "",
+				},
+				resultCalcs: [
 					{
-						dimensionWidth: "inputWidth",
-						quantity: "18",
+						name: "2x4 nominal stud(s)",
+						twoByFourLengthCount: "",
+						twoByFourLengthInFeet: "",
+						twoByFourWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
 					},
 					{
-						dimensionDepth: "inputDepth",
-						quantity: "24",
+						name: "1-inch rod(s)",
+						rodCount: "",
+						rodLengthInFeet: "",
+						rodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
 					},
 					{
-						dimensionHeight: "inputHeight",
-						quantity: "30",
+						name: "3/4 inch plywood",
+						threeFourPlywoodCount: "",
+						threeFourPlywoodAreaInFeet: "",
+						threeFourPlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
 					},
-					// check below
 					{
-						completionStatus: 1,
+						name: "1x3 nominal stud(s)",
+						oneByThreeLengthCount: "",
+						oneByThreeLengthInFeet: "",
+						oneByThreeWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "1 inch plywood",
+						onePlywoodCount: "",
+						onePlywoodAreaInFeet: "",
+						onePlywoodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "heavy-duty side-mounted drawer slide(s)",
+						slidesCount: "22in deep pairs",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "closet rod with sleeves",
+						closetRodLengthCount: "",
+						closetRodLengthInFeet: "",
+						closetRodWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "subway tile",
+						tileInSquareFeet: "",
+						tileWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cement board backer",
+						cementBoardCount: "",
+						cementBoardAreaInFeet: "",
+						cementBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "cementitious grout",
+						size: "1/8 inch joint thickness",
+						tileInSquareFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "thin-set mortar adhesive",
+						size: "1/8 inch thick layer",
+						cementBoardAreaInFeet: "",
+						price: "",
+						totalCost: "",
+					},
+					{
+						name: "gypsum board",
+						gypBoardCount: "",
+						gypBoardAreaInFeet: "",
+						gypBoardWasteFactorPercentage: "",
+						price: "",
+						totalCost: "",
 					},
 				],
-				resultCalcs: [
-						{
-							name: "2x4 nominal stud(s)",
-							twoByFourLengthCount: "",
-							twoByFourLengthInFeet: "",
-							twoByFourWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1-inch rod(s)",
-							rodCount: "",
-							rodLengthInFeet: "",
-							rodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "3/4 inch plywood",
-							threeFourPlywoodCount: "",
-							threeFourPlywoodAreaInFeet: "",
-							threeFourPlywoodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1x3 nominal stud(s)",
-							oneByThreeLengthCount: "",
-							oneByThreeLengthInFeet: "",
-							oneByThreeWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1 inch plywood",
-							onePlywoodCount: "",
-							onePlywoodAreaInFeet: "",
-							onePlywoodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "heavy-duty side-mounted drawer slide(s)",
-							slidesCount: "22in deep pairs",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "closet rod with sleeves",
-							closetRodLengthCount: "",
-							closetRodLengthInFeet: "",
-							closetRodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "subway tile",
-							tileInSquareFeet: "",
-							tileWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "cement board backer",
-							cementBoardCount: "",
-							cementBoardAreaInFeet: "",
-							cementBoardWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "cementitious grout",
-							size: "1/8 inch joint thickness",
-							tileInSquareFeet: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "thin-set mortar adhesive",
-							size: "1/8 inch thick layer",
-							cementBoardAreaInFeet: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "gypsum board",
-							gypBoardCount: "",
-							gypBoardAreaInFeet: "",
-							gypBoardWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						}
-				]
 			},
 		],
-	},
-	{
-		username: "Admin",
-		email: "admin@contact.us",
-		password: "1",
-		currentProjects: [
-			{
-				projectId: 2,
-				userParams: [
-					{
-						dimensionWidth: "inputWidth",
-						quantity: "18",
-					},
-					{
-						dimensionDepth: "inputDepth",
-						quantity: "24",
-					},
-					{
-						dimensionHeight: "inputHeight",
-						quantity: "30",
-					},
-					{
-						completionStatus: 3,
-					},
-				],
-				resultCalcs: [
-						{
-							name: "2x4 nominal stud(s)",
-							twoByFourLengthCount: "",
-							twoByFourLengthInFeet: "",
-							twoByFourWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1-inch rod(s)",
-							rodCount: "",
-							rodLengthInFeet: "",
-							rodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "3/4 inch plywood",
-							threeFourPlywoodCount: "",
-							threeFourPlywoodAreaInFeet: "",
-							threeFourPlywoodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1x3 nominal stud(s)",
-							oneByThreeLengthCount: "",
-							oneByThreeLengthInFeet: "",
-							oneByThreeWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "1 inch plywood",
-							onePlywoodCount: "",
-							onePlywoodAreaInFeet: "",
-							onePlywoodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "heavy-duty side-mounted drawer slide(s)",
-							slidesCount: "22in deep pairs",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "closet rod with sleeves",
-							closetRodLengthCount: "",
-							closetRodLengthInFeet: "",
-							closetRodWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "subway tile",
-							tileInSquareFeet: "",
-							tileWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "cement board backer",
-							cementBoardCount: "",
-							cementBoardAreaInFeet: "",
-							cementBoardWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "cementitious grout",
-							size: "1/8 inch joint thickness",
-							tileInSquareFeet: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "thin-set mortar adhesive",
-							size: "1/8 inch thick layer",
-							cementBoardAreaInFeet: "",
-							price: "",
-							totalCost: ""
-						},
-						{
-							name: "gypsum board",
-							gypBoardCount: "",
-							gypBoardAreaInFeet: "",
-							gypBoardWasteFactorPercentage: "",
-							price: "",
-							totalCost: ""
-						}
-				]
-			},
-		],
-	},
+	}
 ];
 
 // All base projects - with matching project Ids to userSeed
 let baseProjectsSeed = [
 	{
 		projectName: "chair",
-		projectId: 1, //used as id
+		projectId: 1,
 		description: "A simple chair with an open back and a footrail.",
 		materials: [
 			{
@@ -267,7 +152,7 @@ let baseProjectsSeed = [
 			},
 			{
 				matType: "wood",
-				name: "1-inch rod",
+				name: "1-inch wooden dowel",
 				size: "4ft length",
 			},
 			{
@@ -286,15 +171,12 @@ let baseProjectsSeed = [
 			"1-inch diameter drill bit",
 		],
 		optional: ["paint or wood stain"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
 				unit: "inches",
 				defaultQuantity: "18",
-				options: [18, 24, 30], //populates drop downs 
+				options: [18, 24, 30],
 			},
 			{
 				dimensionDepth: "inputDepth",
@@ -306,7 +188,7 @@ let baseProjectsSeed = [
 				dimensionHeight: "inputHeight",
 				unit: "inches",
 				defaultQuantity: "30",
-				options: [24, 30, 36],
+				options: [24, 30, 36, 42],
 			},
 			{
 				optionalArea: "calculatedArea",
@@ -315,8 +197,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/chair-main.png",
-		imgEx: "/public/construction-icons/chair-ex.png",
+		imgMain: "/construction-icons/chair-main.svg",
+		imgEx: "/construction-icons/chair-ex.png",
 	},
 	{
 		projectName: "bookcase",
@@ -341,9 +223,6 @@ let baseProjectsSeed = [
 			"5mm shelf pin drill bit",
 			"anti-tip hardware",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -370,8 +249,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/bookcase-main.png",
-		imgEx: "/public/construction-icons/bookcase-ex.png",
+		imgMain: "/construction-icons/bookcase-main.svg",
+		imgEx: "/construction-icons/bookcase-ex.png",
 	},
 	{
 		projectName: "table",
@@ -386,9 +265,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["saw", "level", "hammer", "sandpaper", "drill", "1in wood screws"],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -415,8 +291,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/table-main.png",
-		imgEx: "/public/construction-icons/table-ex.png",
+		imgMain: "/construction-icons/table-main.svg",
+		imgEx: "/construction-icons/table-ex.png",
 	},
 	{
 		projectName: "desk",
@@ -443,9 +319,6 @@ let baseProjectsSeed = [
 			"biscuit joiner",
 		],
 		optional: ["paint or wood stain", "self-leveling feet"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -463,7 +336,7 @@ let baseProjectsSeed = [
 				dimensionHeight: "inputHeight",
 				unit: "inches",
 				defaultQuantity: "30",
-				options: [26, 28, 30],
+				options: [38, 40, 42],
 			},
 			{
 				optionalArea: "calculatedArea",
@@ -472,8 +345,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/desk-main.png",
-		imgEx: "/public/construction-icons/desk-ex.png",
+		imgMain: "/construction-icons/desk-main.svg",
+		imgEx: "/construction-icons/desk-ex.png",
 	},
 	{
 		projectName: "dresser",
@@ -494,12 +367,7 @@ let baseProjectsSeed = [
 				matType: "hardware",
 				name: "heavy-duty side-mounted drawer slides",
 				size: "22in depth",
-			},
-			{
-				matType: "hardware",
-				name: "closet rod with sleeves",
-				size: "1-1/4 in diameter",
-			},
+			}
 		],
 		tools: [
 			"saw",
@@ -513,10 +381,8 @@ let baseProjectsSeed = [
 			"paint or wood stain",
 			"self-leveling feet",
 			"anti-tip hardware",
+			"wood knobs",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -543,8 +409,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/dresser-main.png",
-		imgEx: "/public/construction-icons/dresser-ex.png",
+		imgMain: "/construction-icons/dresser-main.svg",
+		imgEx: "/construction-icons/dresser-ex.png",
 	},
 	{
 		projectName: "tile",
@@ -578,9 +444,6 @@ let baseProjectsSeed = [
 			"diamond blades",
 			"diamond drill bits for hardware installation",
 		],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -607,8 +470,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/tile-main.png",
-		imgEx: "/public/construction-icons/tile-ex.png",
+		imgMain: "/construction-icons/tile-main.svg",
+		imgEx: "/construction-icons/tile-ex.png",
 	},
 	{
 		projectName: "wall",
@@ -628,9 +491,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["drywall screws", "level", "tape", "spackle", "laser"],
 		optional: ["insulation", "outlet box", "blocking", "wall paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -642,7 +502,7 @@ let baseProjectsSeed = [
 				dimensionDepth: "inputDepth",
 				unit: "inches",
 				defaultQuantity: "5",
-				options: [5],
+				options: [5, 6],
 			},
 			{
 				dimensionHeight: "inputHeight",
@@ -657,8 +517,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/wall-main.png",
-		imgEx: "/public/construction-icons/wall-ex.png",
+		imgMain: "/construction-icons/wall-main.svg",
+		imgEx: "/construction-icons/wall-ex.png",
 	},
 	{
 		projectName: "ladder",
@@ -678,9 +538,6 @@ let baseProjectsSeed = [
 		],
 		tools: ["2-in wood screws", "drill", "1-in drill bit", "sandpaper", "saw"],
 		optional: ["wood stain or paint"],
-		// inputWidth: "",
-		// inputDepth: "",
-		// inputHeight: "",
 		userParams: [
 			{
 				dimensionWidth: "inputWidth",
@@ -692,7 +549,7 @@ let baseProjectsSeed = [
 				dimensionDepth: "inputDepth",
 				unit: "inches",
 				defaultQuantity: "3.5",
-				options: [3.5],
+				options: [3.5, 4, 4.5],
 			},
 			{
 				dimensionHeight: "inputHeight",
@@ -707,51 +564,8 @@ let baseProjectsSeed = [
 				calculatedWasteFactor: "calculatedWastePercentage",
 			},
 		],
-		imgMain: "/public/construction-icons/ladder-main.png",
-		imgEx: "/public/construction-icons/ladder-ex.png",
-	},
-];
-
-// Protips seed for home page
-let proTips = [
-	{
-		proTipId: 1,
-		proTipText:
-			"You can fix a cracked foundation with a small amount of epoxy and plastic tubing.",
-	},
-	{
-		proTipId: 2,
-		proTipText:
-			"A self-centering drill bit costs less than $25 and can save hours of frustration.",
-	},
-	{
-		proTipId: 3,
-		proTipText:
-			"A snap toggle anchor can hold up to 265 pounds in 1/2 inch drywall.",
-	},
-	{
-		proTipId: 4,
-		proTipText:
-			"Sand with the grain of the wood, especially for the final grits. To remove deep scratches and stains, angle across the grain up to about 45º for the first sanding. Before moving to the next finer grit, sand with the grain to remove all cross-grain scratches.",
-	},
-	{
-		proTipId: 5,
-		proTipText:
-			"When building with wood, know the correct moisture content of each piece. Too dry, and the finished product may swell or crack. Too moist, and the end product may shrink or warp. Incorrect moisture causes 80% of all woodworking problems.",
-	},
-	{
-		proTipId: 6,
-		proTipText:
-			"Make accurate measuring and marking layouts on boards faster and easier with a drafting square.",
-	},
-	{
-		proTipId: 7,
-		proTipText:
-			"Always try to use cut tiles that are between half- and full-size. Anything less than half-size will look like an out-of-place sliver compared to larger tiles.",
-	},
-	{
-		proTipId: 8,
-		proTipText: "Remember that preparation is 75% of the job.",
+		imgMain: "/construction-icons/ladder-main.png",
+		imgEx: "/construction-icons/ladder-ex.png",
 	},
 ];
 
@@ -770,7 +584,7 @@ let completion = [
 	},
 	{
 		completionStatus: 3,
-		description: "Watched instructional video.",
+		description: "Measured and cut all pieces and started assembly.",
 		completionPercentage: 75,
 	},
 	{
@@ -783,96 +597,131 @@ let completion = [
 // Pricing SKU to materials
 let pricing = [
 	{
-		name: "2x4 nominal stud(s)",
-		size: "8ft lengths",
-		sku: "",
-		price: "",
+		productId: 1,
+		name: "2x4 nominal studs",
+		size: "8ft lengths of 2x4 (1.5in x 3.5in)",
+		sku: "1000020053",
+		price: "6.56",
 	},
 	{
-		name: "1-inch rod(s)",
-		size: "4ft lengths",
-		sku: "",
-		price: "",
+		productId: 2,
+		name: "1-inch wooden dowel",
+		size: "4ft length",
+		sku: "148318",
+		price: "4.30",
 	},
 	{
-		name: "3/4 inch plywood",
-		size: "4ft x 8ft x 11/16in sheets",
-		sku: "",
-		price: "",
+		productId: 3,
+		name: "plywood sheets",
+		size: "4ft x 8ft x 11/32in",
+		sku: "166065",
+		price: "27.53",
 	},
 	{
-		name: "1x3 nominal stud(s)",
-		size: "8ft lengths",
-		sku: "",
-		price: "",
+		productId: 4,
+		name: "1x3 nominal studs",
+		size: "8ft lengths of 1x3 (0.5 in x 2.5in)",
+		sku: "164704",
+		price: "2.18",
 	},
 	{
-		name: "1 inch plywood",
-		size: "4ft x 8ft x 1in sheets",
-		sku: "",
-		price: "",
+		productId: 5,
+		name: "thick plywood sheets",
+		size: "4ft x 8ft x 1in",
+		sku: "166057",
+		price: "50.68",
 	},
 	{
-		name: "heavy-duty side-mounted drawer slide(s)",
-		size: "22in deep pairs",
-		sku: "",
-		price: "",
+		productId: 6,
+		name: "heavy-duty side-mounted drawer slides",
+		size: "22in depth",
+		sku: "1002755017",
+		price: "20.98",
 	},
 	{
+		productId: 7,
 		name: "closet rod with sleeves",
-		size: "1-1/4 inch diam. 6ft lengths",
-		sku: "",
-		price: "",
+		size: "1-1/4 in diameter",
+		sku: "320668",
+		price: "18.47",
 	},
 	{
+		productId: 8,
 		name: "subway tile",
-		size: "square feet",
-		sku: "",
-		price: "",
+		size: "3x6",
+		sku: "1002671570",
+		price: ".15",
 	},
 	{
+		productId: 9,
 		name: "cement board backer",
-		size: "3/4 inch thick sheets",
-		sku: "",
-		price: "",
+		size: "3/4 in thick",
+		sku: "202225",
+		price: "14.48",
 	},
 	{
+		productId: 10,
 		name: "cementitious grout",
-		size: "1/8 inch joint thickness",
-		sku: "",
-		price: "",
+		size: "1/8 in joint thickness",
+		sku: "1001212242",
+		price: "21.98",
 	},
 	{
+		productId: 11,
 		name: "thin-set mortar adhesive",
-		size: "1/8 inch thick layer",
-		sku: "",
-		price: "",
+		size: "1/8 in thick layer",
+		sku: "765695",
+		price: "47.68",
 	},
 	{
+		productId: 12,
 		name: "gypsum board",
-		size: "4ft x 8ft x 5/8in sheets",
-		sku: "",
-		price: "",
+		size: "4ft x 8ft x 5/8in",
+		sku: "1005842564",
+		price: "13.94",
 	},
 ];
 
 // Should be five collections based on seeds - users with currentProjects, base projects, proTips, completion phases, and pricing.
-// Database name "Prepair" - please change if different
+// Database name "Prepair"
 
 // Removing all users with their currentProjects
-db.User.deleteMany({})
-	.then(() => db.User.create(userSeed))
-	.then(() => db.Pricing.create(pricing))
-	.then(() => db.Completion.create(completion))
-	.then(() => db.Protips.create(proTips))
-	.then(() => db.BaseProjects.create(baseProjectsSeed))
-	.then((data) => {
+const seed = function () {
+	db.Users.deleteMany({})
+		.then(() => db.Users.create(userSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 
-		console.log(data.result.length + " records inserted!");
+	db.Pricings.deleteMany({})
+		.then(() => db.Pricings.create(pricing))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
 
-		process.exit(0);
-	})
-	.catch((err) => {
-		console.error(err);
-		process.exit(1);
-	});
+	db.Completions.deleteMany({})
+		.then(() => db.Completions.create(completion))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+
+	db.BaseProjects.deleteMany({})
+		.then(() => db.BaseProjects.create(baseProjectsSeed))
+		.then((data) => {
+			console.log(data.length + " records inserted!");
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+};
+
+module.exports = { seed };

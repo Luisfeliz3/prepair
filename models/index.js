@@ -1,7 +1,7 @@
 module.exports = {
-  User: require("./User"),
-  Pricing: require("./Pricing"),
-  Completion: require("./Completion"),
+  Users: require("./Users"),
+  Pricings: require("./Pricings"),
+  Completions: require("./Completions"),
   Protips: require("./Protips"),
   BaseProjects: require("./BaseProjects")
 };

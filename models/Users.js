@@ -18,19 +18,7 @@ const UserSchema = new mongoose.Schema({
 		required: true,
 	},
 	currentProjects: [
-		{
-			projectId: {
-				required: true,
-				type: Number,
-			},
-			userParams: [
-				Object
-			],
-			resultCalcs: [
-				Object
-			]
-		}
-		// Object
+		Object
 	],
 });
 
@@ -50,5 +38,5 @@ UserSchema.pre("save", function (next) {
 UserSchema.methods.validPassword = function (password) {
 	return bcrypt.compareSync(password, this.password);
 };
-const User = mongoose.model("User", UserSchema);
-module.exports = User;
+const Users = mongoose.model("Users", UserSchema);
+module.exports = Users;

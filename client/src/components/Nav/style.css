@@ -1,6 +1,7 @@
 .navbar {
-    background-color: black;
-    position: fixed;
+    background-color: transparent;
+    position: relative;
+    z-index: 1000;
 }
 
 .App-link {

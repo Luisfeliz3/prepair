@@ -1,24 +1,18 @@
-.iconBtn {
-	text-align: center;
-	align-items: center;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
-	margin: 10%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
 
 .wrap {
-	background-color: grey;
+	/* background-color: grey; */
 	background-image: url("../static/wood.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	background-size: 140vw 100vh;
+	background-size: 110vw 100vh;
+	/* width: 100%; */
 }
 
 .subtitle {
 	position: fixed;
 	left: 45%;
-	top: 50%;
+	top: 53.5%;
 	color: white;
 	text-align: center;
 	font-size: small;
@@ -27,24 +21,91 @@
 .icon {
 	max-width: 90%;
 	max-height: 90%;
+	padding: 10px;
 }
 
 p {
 	font-size: small;
 	text-align: center;
-    padding: 2%;
-    position: relative;
+	padding: 2%;
+	position: relative;
 }
 
-.special {
-    position: relative;
-    margin-top: 33%;
+.title-text {
+	position: relative;
+	text-align: center;
+	bottom: 0;
 }
 
 .iconRow {
-	padding: 75px;
+	padding: 2%;
 }
 
 .subtitleRow {
-height: 4%
+	height: 4%;
+}
+
+#chair-change:hover {
+	content: url("../static/construction-icons/chair-ex.png");
+	transition: 1s ease;
+}
+
+#bookcase-change:hover {
+	content: url("../static/construction-icons/bookcase-ex.png");
+	transition: 1s ease;
+}
+
+#table-change:hover {
+	content: url("../static/construction-icons/table-ex.png");
+	transition: 1s ease;
+}
+
+#desk-change:hover {
+	content: url("../static/construction-icons/desk-ex.png");
+	transition: 1s ease;
+}
+
+#dresser-change:hover {
+	content: url("../static/construction-icons/dresser-ex.png");
+	transition: 1s ease;
+}
+
+#tile-change:hover {
+	content: url("../static/construction-icons/tile-ex.png");
+	transition: 1s ease;
+}
+
+#wall-change:hover {
+	content: url("../static/construction-icons/wall-ex.png");
+	transition: 1s ease;
+}
+
+#ladder-change:hover {
+	content: url("../static/construction-icons/ladder-ex.png");
+	transition: 1s ease;
+}
+
+.main-button {
+	font-family: "Source Code Pro", monospace;
+	font-size: small;
+	margin: 40px;
+}
+
+form {
+	margin: 40px;
+	font-family: "Source Code Pro", monospace;
+}
+
+.main {
+	width: 50%;
+}
+
+.create-title {
+	left: 41.25%;
+	top: 54.5%;
+	z-index: 100;
+	text-align: center;
+	font-family: "Source Code Pro", monospace;
+	color: rgba(201, 177, 157, 0.952);
+	position: fixed;
 }
