@@ -28,8 +28,9 @@ export function TextArea(props) {
 export function FormBtn(props) {
 	return (
 		<button
-			{...props}
-			style={{ marginLeft: 10 }}
+			// {...props}
+			style={{ marginLeft: 26,
+			marginTop:25 }}
 			className='btn btn-dark rounded-0'>
 			{props.children}
 		</button>

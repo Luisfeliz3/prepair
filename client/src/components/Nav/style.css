@@ -1,5 +1,5 @@
 .navbar {
-    background-color: transparent;
+    background-color: black;
     position: relative;
     z-index: 1000;
 }
@@ -8,5 +8,5 @@
     color: black;
 }
 .App-dropdown {
-    width: 35px;
+    width: 50px;
 }

@@ -31,6 +31,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair", mongoOptions);
+// mongoose.createConnection(`mongodb+srv://user1:password1234@cluster0.k6ma6.mongodb.net/prepair?retryWrites=true&w=majority`, mongoOptions);
 
 mongoose.connection.on('connected', ()=>{
   if (process.env.NODE_ENV === 'production') seed.seed();

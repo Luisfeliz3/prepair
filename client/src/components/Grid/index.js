@@ -5,7 +5,7 @@ import React from "react";
 // This Container component allows us to use a bootstrap container without worrying about class names
 export function Container({ fluid, children }) {
   return <div 
-            className={`container${fluid ? "-fluid main-container pt-3" : " main-container pt-3"}`} 
+            className={`${fluid ? "row justify-content-md-center wrap" : " "}`} 
             >
                {children}
             </div>;

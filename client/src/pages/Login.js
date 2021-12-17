@@ -43,32 +43,34 @@ class Login extends Component {
 				<Row>
 					<Col size="12">
 						<form className="main">
-							Email
+							<div> Email(USE: email@email.com)</div>
+							
 							<Input
 								value={this.state.email}
 								onChange={this.handleInputChange}
 								name="email"
 								placeholder="Email (required)"
-								className="main-button"
+								// className="main-button"
 							/>
-							Password
+							<div> Password(USE: testPassword)</div>
+							
 							<Input
 								value={this.state.password}
 								onChange={this.handleInputChange}
 								name="password"
 								placeholder="Password (required)"
 								type="password"
-								className="main-button"
+								// className="main-button"
 							/>
 							<FormBtn
 								disabled={!(this.state.email && this.state.password)}
 								onClick={this.handleFormSubmit}
-								className="main-button"
+								// className="main-button"
 							>
 								Log in
 							</FormBtn>
 							<Link to="/signup">
-								<FormBtn className="main-button"> Signup </FormBtn>
+								<FormBtn > Signup </FormBtn>
 							</Link>
 						</form>
 					</Col>

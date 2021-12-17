@@ -86,9 +86,9 @@ p {
 }
 
 .main-button {
-	font-family: "Source Code Pro", monospace;
+	/* font-family: "Source Code Pro", monospace;
 	font-size: small;
-	margin: 40px;
+	margin: 40px; */
 }
 
 form {
@@ -97,7 +97,7 @@ form {
 }
 
 .main {
-	width: 50%;
+	width: 76%;
 }
 
 .create-title {
@@ -109,3 +109,5 @@ form {
 	color: rgba(201, 177, 157, 0.952);
 	position: fixed;
 }
+
+ 
