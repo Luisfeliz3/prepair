@@ -1,8 +1,8 @@
-const db = require("../models");
+import db from "../models/index.js";
 
 
 // Defining methods for the userController
-module.exports = {
+export default {
 
    login: function(req, res) {
       // Sending back a password, even a hashed password, isn't a good idea

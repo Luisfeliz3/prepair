@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
+import mongoose from "mongoose";
+
+import bcrypt from "bcrypt";
 
 const UserSchema = new mongoose.Schema({
 	email: {
@@ -39,4 +40,4 @@ UserSchema.methods.validPassword = function (password) {
 	return bcrypt.compareSync(password, this.password);
 };
 const Users = mongoose.model("Users", UserSchema);
-module.exports = Users;
+export default Users;

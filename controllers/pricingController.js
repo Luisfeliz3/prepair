@@ -1,6 +1,6 @@
-const db = require("../models");
+import db from "../models/index.js";
 
-module.exports = {
+export default {
 	getPricing: function (req, res) {
 		db.Pricings.find(req.query).sort({productId: -1})
 			.then((prices) => {

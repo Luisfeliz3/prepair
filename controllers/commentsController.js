@@ -1,7 +1,7 @@
-const db = require("../models");
+import db from "../models/index.js";
 
 // Defining methods for the commentsController
-module.exports = {
+export default {
 	findAll: function (req, res) {
 		db.Comment.find(req.query)
 			.sort({ date: -1 })

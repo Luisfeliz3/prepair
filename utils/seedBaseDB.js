@@ -1,11 +1,11 @@
-const mongoose = require("mongoose");
-const db = require("../models");
-const { mongoOptions } = require("./config");
+import mongoose from "mongoose";
+import db from "../models/index.js";
+// import  mongoOptions  from "../utils/config.js";
 
 mongoose.connect(
 	// Name below is name of local (Robo3T)
 	process.env.MONGODB_URI || "mongodb://localhost/prepair",
-	mongoOptions
+	// mongoOptions
 );
 
 // User Projects - with matching project Ids - this is where new users would be stored
@@ -724,4 +724,4 @@ const seed = function () {
 		});
 };
 
-module.exports = { seed };
+export default{ seed };

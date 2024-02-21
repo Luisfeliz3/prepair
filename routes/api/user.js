@@ -1,8 +1,9 @@
-const router = require("express").Router();
-const userController = require("../../controllers/userController");
+import {Router} from "express";
+import userController from "../../controllers/userController.js";
 // Requiring passport as we've configured it
-const passport = require("../../utils/passport");
+import passport from "../../utils/passport.js";
 
+const router = Router();
 // Matches with "/api/user/login"
 router
 	.route("/login")
@@ -26,4 +27,4 @@ router
 	// Route for getting some data about our user to be used client side
 	.post(userController.authenticate);
 
-module.exports = router;
+export default  router;

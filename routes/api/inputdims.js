@@ -1,8 +1,12 @@
-const router = require("express").Router();
-const dimsController = require("../../controllers/dimsController");
+import {Router} from "express";
 
+
+import dimsController from "../../controllers/dimsController.js";
+
+
+const router = Router();
 // Matches with "/api/saveInput" from API.js
 router.route("/")
     .get(dimsController.saveDims);
 
-module.exports = router;
+export default router;

@@ -1,6 +1,6 @@
-const db = require("../models");
+import db from "../models/index.js";
 
-module.exports = {
+export default {
 	findAll: function (req, res) {
 		db.BaseProjects.find(req.query).sort({projectId: -1})
 			.then((allProj) => {

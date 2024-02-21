@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import userAPI from "../utils/userAPI";
-import {  Redirect, Link } from "react-router-dom";
+import {  Navigate, Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 
@@ -36,7 +36,7 @@ class Signup extends Component {
         .then(res => {
           if(res.status === 200 ){
             this.props.authenticate();
-            return <Redirect to="/newproject" />
+            return <Navigate to="/newproject" />
           }
         })
         .catch(err => console.log(err.response.data));
@@ -90,8 +90,8 @@ class Signup extends Component {
           </Col>
           
         </Row>
-        {/* redirect on authenticated */}
-        {this.props.authenticated ? <Redirect to='/comments'/>: <div></div>}
+        {/* Navigate on authenticated */}
+        {this.props.authenticated ? <Navigate to='/comments'/>: <div></div>}
 
 
       </Container>

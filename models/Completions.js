@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
 const Schema = mongoose.Schema;
 
 const completionSchema = new Schema({
@@ -9,4 +10,4 @@ const completionSchema = new Schema({
 
 const Completions = mongoose.model("Completions", completionSchema);
 
-module.exports = Completions;
+export default Completions;

@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const db = require("../models");
-const { mongoOptions } = require("./config");
-const seed = require("./seedBaseDB");
+import mongoose from "mongoose";
+import db from "../models/index.js";
+import { mongoOptions } from "./config.js";
+import seed from "./seedBaseDB.js";
 
 mongoose.connect(
 	// Name below is name of local (Robo3T)

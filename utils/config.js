@@ -1,9 +1,9 @@
-module.exports = {
+export default {
 	mongoOptions: {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		autoIndex: true,
-		useFindAndModify: false,
+		// useFindAndModify: false,
 	},
 	sessionOptions: {
 		secret: "keyboard cat",

@@ -1,5 +1,7 @@
-const router = require("express").Router();
-const commentsController = require("../../controllers/commentsController");
+import {Router} from "express";
+import commentsController from "../../controllers/commentsController.js";
+
+const router = Router();
 
 // Matches with "/api/comments"
 router.route("/")
@@ -13,4 +15,4 @@ router
   .put(commentsController.update)
   .delete(commentsController.remove);
 
-module.exports = router;
+export default router;

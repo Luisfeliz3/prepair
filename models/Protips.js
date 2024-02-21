@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
 const Schema = mongoose.Schema;
 
 const proTipSchema = new Schema({
@@ -8,4 +9,4 @@ const proTipSchema = new Schema({
 
 const Protips = mongoose.model("Protips", proTipSchema);
 
-module.exports = Protips;
+export default Protips;

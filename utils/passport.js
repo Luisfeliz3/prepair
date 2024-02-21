@@ -1,7 +1,7 @@
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+import passport from "passport";
+ import {Strategy as LocalStrategy  }  from "passport-local";
 
-const db = require("../models");
+import db from "../models/index.js";
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(
@@ -45,4 +45,4 @@ passport.deserializeUser((obj, cb) => {
 });
 
 // Exporting our configured passport
-module.exports = passport;
+export default  passport;

@@ -1,6 +1,6 @@
-const db = require("../models");
+import db from "../models/index.js";
 
-module.exports = {
+export default {
 	getDims: function (req, res) {
 		db.Users.find(req.query)
 			.then((data) => {

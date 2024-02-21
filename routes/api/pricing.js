@@ -1,8 +1,12 @@
-const router = require("express").Router();
-const pricingController = require("../../controllers/pricingController");
+import {Router} from "express";
+
+import pricingController from "../../controllers/pricingController.js";
+
+
+const router = Router();
 
 // Matches with "/api/pricing" from API.js
 router.route("/")
     .get(pricingController.getPricing);
 
-module.exports = router;
+export default router;

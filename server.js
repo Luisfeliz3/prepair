@@ -1,13 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const { mongoOptions, sessionOptions } = require("./utils/config");
-const routes = require("./routes");
+import express  from 'express'
+import mongoose from 'mongoose'
+import mongoOptions  from "./utils/config.js";
+// import  sessionOptions  from "./utils/config.js";
+import routes from "./routes/index.js";
 const app = express();
-const session = require("express-session");
+import session  from 'express-session' 
 // Requiring passport as we've configured it
-const passport = require("./utils/passport");
-const logger = require("morgan");
-const seed = require("./utils/seedBaseDB");
+import passport from "./utils/passport.js";
+import logger from "morgan";
+import seed from "./utils/seedBaseDB.js";
 
 const PORT = process.env.PORT || 3001;
 
@@ -22,15 +23,15 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 // We need to use sessions to keep track of our user's login status
-app.use(session(sessionOptions));
-app.use(passport.initialize());
-app.use(passport.session());
+// // app.use(session(sessionOptions));
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair", mongoOptions);
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair");
 
 mongoose.connection.on('connected', ()=>{
   if (process.env.NODE_ENV === 'production') seed.seed();

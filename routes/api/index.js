@@ -1,13 +1,14 @@
-const router = require("express").Router();
-// const commentRoutes = require("./comments");
-const userRoutes = require("./user");
-const newProjectRoutes = require("./newproject");
-const pricingRoutes = require("./pricing");
-const dimInputRoutes = require("./inputdims");
-const getDimRoutes = require("./getdims");
+import {Router} from "express";
+// import commentRoutes from "./comments";
+import userRoutes from "./user.js";
+import newProjectRoutes from "./newproject.js";
+import pricingRoutes from "./pricing.js";
+import dimInputRoutes from "./inputdims.js";
+import getDimRoutes from "./getdims.js";
+const router = Router();
 
 // comments routes
-// router.use("/comments", commentRoutes);
+// Router.use("/comments", commentRoutes);
 
 // projects routes
 router.use("/newproject", newProjectRoutes);
@@ -20,4 +21,4 @@ router.use("/saveInput", dimInputRoutes);
 // dim routes (get)
 router.use("/getdims", getDimRoutes)
 
-module.exports = router;
+export default router;
