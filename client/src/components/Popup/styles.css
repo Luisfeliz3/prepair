@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap");
-
+/* 
 #calculate-button {
 	margin-block-end: 6em;
 	height: 50px;
@@ -8,9 +8,9 @@
 	margin-left: 3.5em;
 	margin-top: 2em;
 	font-family: "Source Code Pro", monospace;
-}
+} */
 
-#calculate-button:hover {
+/* #calculate-button:hover {
 	margin-block-end: 6em;
 	height: 50px;
 	width: 220px;
@@ -18,37 +18,39 @@
 	color: black;
 	margin-left: 3.5em;
 	margin-top: 2em;
-}
+} */
 
-.explodedDiagram {
+.exploded-diagram {
 	position: relative;
-	top: -490px;
-	left: 440px;
-	/* width: 250px; */
-	max-height: 250px;
-	/* border: 1px solid #000000; */
+	max-width: 40%;	
+	margin: -20px;	
+	top: 120px;	
+}   
+
+
+#circle-progress-bar{
+	margin: -100px;
+	width: 300px;
+	
 }
 
-.overlay {
-	position: absolute;
-	top: 350px;
-	left: 20px;
-	width: 350px;
-	margin-block-start: -26em;
-	margin-left: 23em;
+.progress-image{
+
+
 }
 
-.mt-2 {
+
+/* .mt-2 {
 	height: 50px;
 	width: 100%;
 	font-family: "Source Code Pro", monospace;
-}
+} */
 
-.form-group {
+/* .form-group {
 	margin: 15px;
-}
+} */
 
-.form-group2 {
+/* .form-group2 {
 	width: 90%;
 	margin: 30px;
 	color: black;
@@ -59,26 +61,26 @@
 	position: relative;
 	top: -22vh;
 	left: 300px;
-	/* text-align: center; */
-}
 
-.modal-body {
-	height: 80%;
-}
+} */
 
-form {
+/* .modal-body {
+	height: 10%;
+} */
+
+/* form {
 	font-family: "Source Code Pro", monospace;
-}
+} */
 
-.required {
+/* .required {
 	font-family: "Source Code Pro", monospace;
 	font-size: x-small;
 	position: relative;
 	top: 10vh;
 	left: -6vw;
-}
+} */
 
-.calculations {
+/* .calculations {
 	border: 1px solid black;
 	position: relative;
 	color: rgba(26, 38, 32, 1);
@@ -89,5 +91,6 @@ form {
 	border-radius: 10px;
 	padding: 8px;
 	height: 13rem;
-	/* display: none; */
+
 }
+ */

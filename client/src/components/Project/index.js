@@ -14,7 +14,7 @@ function Ring (){
 
 
   return (
-    <div id="ring" className="float-left m-0">
+    <div id="ring" className="float-right m-0">
       <div
         href=""
         id="clickRing"

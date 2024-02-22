@@ -15,11 +15,11 @@ function NewProject() {
 			.catch((err) => console.log(err));
 	}, []);
 	return (
-		<Container fluid className="wrap">
+		<Container fluid className="wrap col-10">
 			<Row className="iconRow">
 				{project.data
 					? project.data.map((result, index) => (
-							<div key={index} data-id={index}>
+							<div key={index} data-id={index} className="col-xs-6 col-md-4">
 								<ProjectButton projects={project} index={index} />
 							</div>
 					))					

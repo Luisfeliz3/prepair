@@ -29,9 +29,12 @@ app.use(express.static("client/build"));
 
 // Add routes, both API and view
 app.use(routes);
-
+mongodb://localhost:27017
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/prepair");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/prepair", {
+    useUnifiedTopology: true ,
+  useNewUrlParser: true,
+});
 
 mongoose.connection.on('connected', ()=>{
   if (process.env.NODE_ENV === 'production') seed.seed();

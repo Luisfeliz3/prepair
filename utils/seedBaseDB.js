@@ -4,7 +4,11 @@ import db from "../models/index.js";
 
 mongoose.connect(
 	// Name below is name of local (Robo3T)
-	process.env.MONGODB_URI || "mongodb://localhost/prepair",
+	process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/prepair", {
+
+	useUnifiedTopology: true ,
+	useNewUrlParser: true,
+	}
 	// mongoOptions
 );
 

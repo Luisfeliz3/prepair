@@ -5,10 +5,14 @@ import seed from "./seedBaseDB.js";
 
 mongoose.connect(
 	// Name below is name of local (Robo3T)
-	process.env.MONGODB_URI || "mongodb://localhost/prepair",
-	mongoOptions
+	process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/prepair",
+	// mongoOptions  
+	{
+		useUnifiedTopology: true ,
+		useNewUrlParser: true,
+	}
 );
-
+x
 seed.seed();
 
 setTimeout(function () {
