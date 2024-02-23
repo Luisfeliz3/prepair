@@ -19,9 +19,9 @@ function NewProject() {
       <Row className="iconRow">
         {project.data
           ? project.data.map((result, index) => (
-              <div key={index} data-id={index} className="col-xs-6 col-md-4">
-                <ProjectButton project={result} />
-              </div>
+              <li key={index} data-id={index} className="col-xs-6 col-md-4">
+                <ProjectButton project={result} index={index} />
+              </li>
             ))
           : null}
       </Row>

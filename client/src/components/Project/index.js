@@ -31,9 +31,7 @@ function Ring (){
         }}/>
       </div>
 
-       {/* <Popup show={showModal}/> */}
-        
- 
+      
     </div>
   );
 };

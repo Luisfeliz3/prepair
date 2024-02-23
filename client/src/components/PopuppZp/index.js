@@ -49,13 +49,13 @@ const Popup = (props) => {
     });
   };
 
-//   const handleHeightChange = (event) => {
-//     const { name, value } = event.target;
-//     setDims({
-//       ...dims,
-//       dimensionHeight: value,
-//     });
-//   };
+  const handleHeightChange = (event) => {
+    const { name, value } = event.target;
+    setDims({
+      ...dims,
+      dimensionHeight: value,
+    });
+  };
 
   useEffect(() => {
     setShow(props.show);
@@ -503,7 +503,7 @@ const Popup = (props) => {
                     Calculate
                   </Button>
 				  <Form className="form-group2">
-			 <h4>
+			          <h4>
                   Total Cost: $
                   {(matState.rodQty
                     ? matState.rodQty * props.pricing.data[0].price

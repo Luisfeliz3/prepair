@@ -25,7 +25,10 @@
 	max-width: 40%;	
 	margin: -20px;	
 	top: 120px;	
-}   
+	width : 120px;
+	height: 200px;
+
+}  
 
 
 #circle-progress-bar{
@@ -34,17 +37,19 @@
 	
 }
 
-/* .progress-image{
 
+Modal{
+    opacity:50.5 !important;
+}
+.progress-image{
+padding-left: 1000%;
 
-} */
+}
 
+.full-form{
+	margin-right:108px
+}
 
-/* .mt-2 {
-	height: 50px;
-	width: 100%;
-	font-family: "Source Code Pro", monospace;
-} */
 
 /* .form-group {
 	margin: 15px;

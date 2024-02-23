@@ -25,44 +25,189 @@ import API from "../../utils/API";
 
 
 const  Popup = (props) => {
-  
-  const {project} = props;
 
+  const [show, setShow] = useState(false);
+  const [dims, setDims] = useState({
+    dimensionWidth: "",
+    dimensionDepth: "",
+    dimensionHeight: "",
+  });
+  const [matState, setMatState] = useState({});
+  
+  useEffect(() => {
+    setShow(props.show);
+    API.getDims()
+      .then((res) => setDims(res))
+      .catch((err) => console.log(err));
+  }, [props.show]);
+
+  
+ 
+const {projectName,description, userParams, index } = props.project
+
+console.log(props)
   return (
     <Modal  
-    {...props}
-    backdrop="static"
-    keyboard={false}
+    show={show}
+    backdrop={true}
+    keyboard={true}
     size="xl"
     dialogClassName="modal-90w"
     aria-labelledby="contained-modal-title-vcenter"
     centered>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          A simple {project.projectName}
+          A simple { projectName}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
           <Row>
             <Col xs={12} md={8}>
-              .col-xs-12 .col-md-8
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+             
+            <Form>
+                <div className="full-form">
+				            <p>Description: { description}</p>
+                  <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Label>Width (in):</Form.Label>
+                    <Form.Control as="select" >
+                    {userParams[0].options.map((i) => (
+                        <option>{i}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+
+                  <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Label>Depth (in):</Form.Label>
+                    <Form.Control as="select" >
+                      {userParams[1].options.map((i) => (
+                        <option>{i}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+
+                   <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Label>Height (in):</Form.Label>
+                    <Form.Control as="select" >
+                    {userParams[2].options.map((i) => (
+                        <option>{i}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group> 
+                  <Button id="calculate-button" >
+                    Calculate
+                  </Button>
+			
+                </div>
+              </Form>
+
+              <Form className="form-group2">
+			          <h4>
+                  Total Cost: $
+                  {(matState.rodQty
+                    ? matState.rodQty * props.pricing.data[0].price
+                    : null) +
+                    (matState.twoByFourQty
+                      ? matState.twoByFourQty * props.pricing.data[1].price
+                      : null) +
+                    (matState.plywoodQty
+                      ? matState.plywoodQty * props.pricing.data[2].price
+                      : null) +
+                    (matState.oneByThreeQty
+                      ? matState.oneByThreeQty * props.pricing.data[3].price
+                      : null) +
+                    (matState.plywoodThickQty
+                      ? matState.plywoodThickQty * props.pricing.data[4].price
+                      : null) +
+                    (matState.hardwareSlideCount
+                      ? matState.hardwareSlideCount *
+                        props.pricing.data[5].price
+                      : null) +
+                    (matState.closetRodCount
+                      ? matState.closetRodCount * props.pricing.data[6].price
+                      : null) +
+                    (matState.cementBoardCount
+                      ? matState.cementBoardCount * props.pricing.data[7].price
+                      : null) +
+                    (matState.tileQty
+                      ? matState.tileQty * props.pricing.data[8].price
+                      : null) +
+                    (matState.groutQty
+                      ? matState.groutQty * props.pricing.data[9].price
+                      : null) +
+                    (matState.gypsumBoardQty
+                      ? matState.gypsumBoardQty * props.pricing.data[10].price
+                      : null) +
+                    (matState.thinSet
+                      ? matState.thinSet * props.pricing.data[11].price
+                      : null)}
+                </h4> 
+                   {["checkbox"].map((type) => (
+                    <div key={`inline-${type}`} className="mb-3">
+                      <Form.Check
+                        label="Calculated materials."
+                        type={type}
+                        id={`inline-${type}-1`}
+                      />
+                      <Form.Check
+                        label="Purchased materials and prepared tools."
+                        type={type}
+                        id={`inline-${type}-2`}
+                      />
+                      <Form.Check
+                        label="Measured and cut all pieces and starting assembly."
+                        type={type}
+                        id={`inline-${type}-3`}
+                      />
+                      <Form.Check
+                       
+                        label="Completed build"
+                        type={type}
+                        id={`inline-${type}-3`}
+                      />
+				
+                    </div>
+					
+                  ))}  
+
+					<Button className="btn btn-outline-light mt-2" type="submit">
+                    Save Progress
+                  </Button>
+                </Form>
+
+
+
+
+            </Col >
+            <Col xs={6} md={4} className="progress-image">
+            <div>
+                  <img
+				  	className="exploded-diagram inline-flex"
+                    src={props.project.imgEx}
+                    alt="exploded-diagram"
+                  />
+    		 	</div>
+                <div>
+                  <img
+				  	className="overlay"
+                    id="circle-progress-bar"
+                    src={twentyfive}
+                    alt="progress"
+                  />
+                </div>
             </Col>
           </Row>
 
           <Row>
-            <Col xs={6} md={4}>
+            {/* <Col xs={6} md={4}>
               .col-xs-6 .col-md-4
             </Col>
             <Col xs={6} md={4}>
               .col-xs-6 .col-md-4
-            </Col>
+            </Col>s
             <Col xs={6} md={4}>
               .col-xs-6 .col-md-4
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </Modal.Body>

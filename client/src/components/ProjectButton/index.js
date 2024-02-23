@@ -8,22 +8,24 @@ import Popup from "../Popup/index.js";
 import wood from "../../static/wood.png";
 import API from "../../utils/API";
 
-function ProjectButton({project}) {
+function ProjectButton(props) {
 
-	const [projects, setProjects] = useState([])
+// 	const [projects, setProjects] = useState([])
 
-  useEffect(() => {
-    API.getAllProjects()
-      .then((res) => setProjects(res))
-      .catch((err) => console.log(err));
-  }, []);
+//   useEffect(() => {
+//     API.getAllProjects()
+//       .then((res) => setProjects(res))
+//       .catch((err) => console.log(err));
+//   }, []);
 
 
 	
+// console.log(props)
 
 
 	const [show, setShow] = useState(false);
 	const [pricing, setPricing] = useState([]);
+
 
 	
 
@@ -36,37 +38,23 @@ function ProjectButton({project}) {
 				onClick={() => setShow(true)}
 			>
 				<img
-					src={project.imgMain}
+					src={props.project.imgMain}
 					className="icon"
 					alt="furniture-icon"
-					onMouseOver={e => (e.currentTarget.src = project.imgEx)}
-					onMouseOut={e => (e.currentTarget.src = project.imgMain)}
+					onMouseOver={e => (e.currentTarget.src = props.project.imgEx)}
+					onMouseOut={e => (e.currentTarget.src = props.project.imgMain)}
 				/>
-				<p className="title-text">{project.projectName}</p>
+				<p className="title-text">{props.project.projectName}</p>
 
 
 			</Button>
-			{projects.data
-          ? projects.data.map((result, index) => (
-              <div key={index} data-id={index} className="col-xs-6 col-md-4">
-                <Popup project={result} show={show} onHide={() => setShow(false)} />
-              </div>
-            ))
-          : null}
-			
-			{<Popup project={project} show={show} onHide={() => setShow(false)} />}
-
-
-			{/* {project && project ? (
-				<Popup project={project} pricing={pricing} show={false}
-				/>
-			) : null} */}
-
+			 
+					
+			 
 		
-
+                <Popup project={props.project} show={show}  index={props.index} onHide={() => setShow(false)} />     
+          
 			
-
-
 		</Col>
 	);
 }
