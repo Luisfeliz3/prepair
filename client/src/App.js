@@ -13,92 +13,82 @@ import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
-	const [userState, setUserState] = useState({});
+  const [userState, setUserState] = useState(false);
 
-	document.title = "Prepair";
+  document.title = "Prepair";
 
-	// useEffect(() => {
-	// 	// auth user on first render
-	// 	authenticate();
-	// 	// loadProjects();
-	// }, []);
+  useEffect(() => {
+    // auth user on first render
+    authenticate();
+    // loadProjects();
+  }, []);
 
-	// //user authentication
-	// function authenticate() {
-	// 	return userAPI
-	// 		.authenticateUser()
-	// 		.then(({ data }) => {
-	// 			console.log("user:", data);
-	// 			setUserState(data);
-	// 		})
-	// 		.catch((err) => console.log("registered user:", err.response));
-	// }
+  //user authentication
+  async function authenticate() {
+    try {
+      const { data } = await userAPI.authenticateUser();
+      console.log("user:", data);
 
+      setUserState(data);
+      
+    } catch (err) {
+      return console.log("registered user:", err.response);
+    }
+  }
 
+  return (
+    // <BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
+    <BrowserRouter>
+      <div className="App">
+        <Nav />
 
-	return (
-		// <BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
-		<BrowserRouter >
-			<div className="App">
-				<Nav />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            className="App-link"
+            element={<Container />}
+          ></Route>
 
-				<Routes>
-					<Route exact path="/" className="App-link"
-					element={<Container />}
-					>
-						
-					</Route>
+          <Route
+            exact
+            path="/login"
+            className="App-link"
+            element={
+              <Login userState={userState} setUserState={setUserState} />
+            }
+          ></Route>
 
-					{/* <Route exact path="/login" className="App-link">
-						<Login
-							userState={userState}
-							setUserState={setUserState}
-						/>
-					</Route> */}
+          <Route
+            exact
+            path="/signup"
+            className="App-link"
+            element={<Signup authenticate={authenticate} user={userState} />}
+          ></Route>
 
-					{/* <Route exact path="/signup" className="App-link">
-						<Signup
-							authenticate={authenticate}
-							user={userState}
-						/>
-					</Route> */}
+          <Route element={<ProtectedRoute isLoggedIn={userState} />}>
+            <Route
+              exact
+              path="/newproject"
+              className="App-link"
+              element={<NewProject {...userState} />}
+            ></Route>
 
-					<Route exact path="/newproject" className="App-link"
-					element={<NewProject {...userState}/>}
-					
-					>
-					
-						{/* // projects={projects} */}
+            <Route
+              exact
+              path="/myprojects"
+              className="App-link"
+              element={<SavedProjects {...userState} />}
+            ></Route>
+      			{userState.email ? <Navigate to="/newproject" /> : <></>}
 
+          </Route>
 
-					</Route>
-
-					<Route exact path="/myprojects" className="App-link"
-					element={<SavedProjects {...userState} />}
-					>
-						
-					</Route>
-
-
-
-					{/* <ProtectedRoute exact path="/newproject" className="App-link">
-						<NewProject {...userState}
-						// projects={projects}
-						/>
-					</ProtectedRoute>
-
-					<ProtectedRoute exact path="/myprojects" className="App-link">
-						<SavedProjects {...userState} />
-					</ProtectedRoute> */}
-
-					
-
-					<Route component={NoMatch} />
-				</Routes>
-			</div>
-			{/* {userState.email ? <Navigate to="/newproject" /> : <></>} */}
-		</BrowserRouter>
-	);
+          <Route component={NoMatch} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

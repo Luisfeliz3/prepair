@@ -1,11 +1,14 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import {Outlet, Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({ children }) => (
-   <Route >
-      {children.props._id
-       ? children
-       : <Link to='/login' />}
-   </Route>
-)
+import logger from "morgan";
+
+const ProtectedRoute = ({isLoggedIn}) => {
+
+  
+   return <div>
+                {isLoggedIn ? <Outlet/> : <Navigate to="/login" />}
+          </div>
+  }
+
  export default ProtectedRoute;

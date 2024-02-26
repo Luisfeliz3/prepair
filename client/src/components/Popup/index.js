@@ -27,25 +27,25 @@ import API from "../../utils/API";
 const  Popup = (props) => {
 
   const [show, setShow] = useState(false);
-  const [dims, setDims] = useState({
-    dimensionWidth: "",
-    dimensionDepth: "",
-    dimensionHeight: "",
-  });
-  const [matState, setMatState] = useState({});
+  // const [dims, setDims] = useState({
+  //   dimensionWidth: "",
+  //   dimensionDepth: "",
+  //   dimensionHeight: "",
+  // });
+  // const [matState, setMatState] = useState({});
   
   useEffect(() => {
     setShow(props.show);
-    API.getDims()
-      .then((res) => setDims(res))
-      .catch((err) => console.log(err));
+    // API.getDims()
+    //   .then((res) => setDims(res))
+    //   .catch((err) => console.log(err));
   }, [props.show]);
 
   
  
 const {projectName,description, userParams, index } = props.project
 
-console.log(props)
+// console.log(props)
   return (
     <Modal  
     show={show}
@@ -71,26 +71,26 @@ console.log(props)
                   <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Width (in):</Form.Label>
                     <Form.Control as="select" >
-                    {userParams[0].options.map((i) => (
-                        <option>{i}</option>
+                    {userParams[0].options.map((i,index) => (
+                        <option key={index}>{i}</option>
                       ))}
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId="exampleForm.ControlSelect1">
+                  <Form.Group controlId="exampleForm.ControlSelect2">
                     <Form.Label>Depth (in):</Form.Label>
                     <Form.Control as="select" >
-                      {userParams[1].options.map((i) => (
-                        <option>{i}</option>
+                      {userParams[1].options.map((i,index) => (
+                        <option  key={index}>{i}</option>
                       ))}
                     </Form.Control>
                   </Form.Group>
 
-                   <Form.Group controlId="exampleForm.ControlSelect1">
+                   <Form.Group controlId="exampleForm.ControlSelect3">
                     <Form.Label>Height (in):</Form.Label>
                     <Form.Control as="select" >
-                    {userParams[2].options.map((i) => (
-                        <option>{i}</option>
+                    {userParams[2].options.map((i,index) => (
+                        <option  key={index}>{i}</option>
                       ))}
                     </Form.Control>
                   </Form.Group> 
@@ -102,7 +102,7 @@ console.log(props)
               </Form>
 
               <Form className="form-group2">
-			          <h4>
+			          {/* <h4>
                   Total Cost: $
                   {(matState.rodQty
                     ? matState.rodQty * props.pricing.data[0].price
@@ -141,7 +141,7 @@ console.log(props)
                     (matState.thinSet
                       ? matState.thinSet * props.pricing.data[11].price
                       : null)}
-                </h4> 
+                </h4>  */}
                    {["checkbox"].map((type) => (
                     <div key={`inline-${type}`} className="mb-3">
                       <Form.Check

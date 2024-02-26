@@ -38,6 +38,7 @@ passport.use(
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser((user, cb) => {
   cb(null, user);
+  
 });
 
 passport.deserializeUser((obj, cb) => {

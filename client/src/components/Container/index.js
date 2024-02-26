@@ -19,7 +19,7 @@ export function Container() {
 
 	return (
 		<div className="overall">
-			<video playsinline autoplay muted loop poster={placeholderwood} className="background-placeholder">
+			<video playsInline autoPlay muted loop poster={placeholderwood} className="background-placeholder">
 				<source src="/splittwo.mp4" type="video/mp4"/>
 			</video>
 			<h1 className="title">PREPAIR</h1>

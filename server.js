@@ -1,5 +1,5 @@
-import express  from 'express'
-import mongoose from 'mongoose'
+import express  from 'express';
+import mongoose from 'mongoose';
 import mongoOptions  from "./utils/config.js";
 // import  sessionOptions  from "./utils/config.js";
 import routes from "./routes/index.js";
@@ -9,6 +9,7 @@ import session  from 'express-session'
 import passport from "./utils/passport.js";
 import logger from "morgan";
 import seed from "./utils/seedBaseDB.js";
+ 
 
 const PORT = process.env.PORT || 3001;
 
@@ -23,9 +24,19 @@ app.use(express.json());
 app.use(express.static("client/build"));
 
 // We need to use sessions to keep track of our user's login status
-// // app.use(session(sessionOptions));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({
+  secret: "keyboard cat",
+  name: "stats",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: 1000 * 60 * 60 * 24,
+  },
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Add routes, both API and view
 app.use(routes);

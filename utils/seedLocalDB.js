@@ -12,7 +12,6 @@ mongoose.connect(
 		useNewUrlParser: true,
 	}
 );
-x
 seed.seed();
 
 setTimeout(function () {

@@ -52,7 +52,7 @@ function ProjectButton(props) {
 					
 			 
 		
-                <Popup project={props.project} show={show}  index={props.index} onHide={() => setShow(false)} />     
+                <Popup project={props.project} show={show}  index={props.index} key={props.index} onHide={() => setShow(false)} />     
           
 			
 		</Col>
