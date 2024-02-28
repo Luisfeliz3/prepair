@@ -8,6 +8,7 @@ const ProtectedRoute = ({isLoggedIn}) => {
   
    return <div>
                 {isLoggedIn ? <Outlet/> : <Navigate to="/login" />}
+              
           </div>
   }
 

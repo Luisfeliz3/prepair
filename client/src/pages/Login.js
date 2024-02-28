@@ -1,68 +1,65 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import userAPI from "../utils/userAPI";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import "./style.css";
 
-class Login extends Component {
-	state = {
+const Login = ({setUserState})=> {
+	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
-	};
+	  });
 
-	componentDidMount() {}
+ 
 
-	handleInputChange = (event) => {
+const	handleInputChange = (event) => {
 		const { name, value } = event.target;
-		this.setState({
-			[name]: value,
-		});
+		setFormData((prevState) => ({ ...prevState, [name]: value }));		
 	};
 
-	handleFormSubmit = (event) => {
+	const handleFormSubmit = (event) => {
 		event.preventDefault();
-		if (this.state.email && this.state.password) {
+	
+		if ( formData.email && formData.password) {
 			userAPI
 				.loginUser({
-					email: this.state.email,
-					password: this.state.password,
+					email:formData.email,
+					password: formData.password,
 				})
 				.then((res) => {
 					if (res.status === 200) {
-						this.props.setUserState(res.data);
+						setUserState(res.data);
 					}
 				})
 				.catch((err) => console.log(err));
 		}
 	};
 
-	render() {
 		return (
 			<Container fluid>
 				<Row>
 					<Col size="12">
-						<form className="main">
+						<form className="main" onSubmit={handleFormSubmit}>
 							Email
 							<Input
-								value={this.state.email}
-								onChange={this.handleInputChange}
+								value={formData.email}
+								onChange={handleInputChange}
 								name="email"
 								placeholder="Email (required)"
 								className="main-button"
 							/>
 							Password
 							<Input
-								value={this.state.password}
-								onChange={this.handleInputChange}
+								value={formData.password}
+								onChange={handleInputChange}
 								name="password"
 								placeholder="Password (required)"
 								type="password"
 								className="main-button"
 							/>
 							<FormBtn
-								disabled={!(this.state.email && this.state.password)}
-								onClick={this.handleFormSubmit}
+								disabled={!( formData.email && formData.password)}
 								className="main-button"
 							>
 								Log in
@@ -76,6 +73,5 @@ class Login extends Component {
 			</Container>
 		);
 	}
-}
 
 export default Login;

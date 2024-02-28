@@ -4,7 +4,7 @@ import ProjectButton from "../components/ProjectButton/index";
 import "./style.css";
 import API from "../utils/API";
 
-function NewProject() {
+const  NewProject = ()=> {
   const [project, setProject] = useState([]);
 
   useEffect(() => {

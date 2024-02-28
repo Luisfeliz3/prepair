@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Container from "./components/Container";
 import userAPI from "./utils/userAPI";
 import API from "./utils/API";
@@ -13,14 +13,14 @@ import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
 function App() {
-  const [userState, setUserState] = useState(false);
-
+  const [userState, setUserState] = useState();
+ 
   document.title = "Prepair";
 
   useEffect(() => {
     // auth user on first render
     authenticate();
-    // loadProjects();
+
   }, []);
 
   //user authentication
@@ -30,12 +30,13 @@ function App() {
       console.log("user:", data);
 
       setUserState(data);
+	 
       
     } catch (err) {
       return console.log("registered user:", err.response);
     }
   }
-
+ 
   return (
     // <BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
     <BrowserRouter>
@@ -71,21 +72,21 @@ function App() {
               exact
               path="/newproject"
               className="App-link"
-              element={<NewProject {...userState} />}
+              element={<NewProject/>}
             ></Route>
 
             <Route
               exact
               path="/myprojects"
               className="App-link"
-              element={<SavedProjects {...userState} />}
+              element={<SavedProjects />}
             ></Route>
-      			{userState.email ? <Navigate to="/newproject" /> : <></>}
 
           </Route>
 
           <Route component={NoMatch} />
         </Routes>
+		{/* {userState.email ? <Navigate to="/newproject" /> : <></>} */}
       </div>
     </BrowserRouter>
   );
