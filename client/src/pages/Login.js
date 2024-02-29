@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import userAPI from "../utils/userAPI";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import "./style.css";
@@ -11,7 +11,7 @@ const Login = ({setUserState, authenticate})=> {
 		password: "",
 	  });
 
- 
+const navigate = useNavigate();
 
 const	handleInputChange = (event) => {
 		const { name, value } = event.target;
@@ -34,7 +34,7 @@ const	handleInputChange = (event) => {
 				.then((res) => {
 					if (res.status === 200) {
 						setUserState(res.data);
-						 
+						navigate("/newproject");   // now navigate away
 					}
 				})
 				.catch((err) => console.log(err));

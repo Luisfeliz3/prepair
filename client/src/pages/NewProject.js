@@ -8,9 +8,11 @@ const  NewProject = ()=> {
   const [project, setProject] = useState([]);
 
   useEffect(() => {
+   
     API.getAllProjects()
       .then((res) => setProject(res))
       .catch((err) => console.log(err));
+
   }, []);
 
   
