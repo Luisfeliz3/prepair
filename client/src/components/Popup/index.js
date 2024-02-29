@@ -20,7 +20,7 @@ import hundred from "../../static/hundred.png";
 import expl from "../../static/construction-icons/chair-ex.svg";
 import ContextProvider from "../../utils/ContextProvider";
 import "./styles.css";
-import API from "../../utils/API";
+
 
 
 

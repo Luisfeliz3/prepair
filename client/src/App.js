@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Container from "./components/Container";
 import userAPI from "./utils/userAPI";
-import API from "./utils/API";
 import Nav from "./components/Nav";
 import Login from "./pages/Login";
+import LogsOut from "./pages/LogsOut";
 import Signup from "./pages/Signup";
 import NewProject from "./pages/NewProject";
 import SavedProjects from "./pages/SavedProjects";
@@ -12,9 +12,12 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NoMatch from "./pages/NoMatch";
 import "./App.css";
 
+
 function App() {
   const [userState, setUserState] = useState();
  
+
+
   document.title = "Prepair";
 
   useEffect(() => {
@@ -23,25 +26,27 @@ function App() {
 
   }, []);
 
-  //user authentication
-  async function authenticate() {
-    try {
-      const { data } = await userAPI.authenticateUser();
-      console.log("user:", data);
 
-      setUserState(data);
-	 
-      
-    } catch (err) {
-      return console.log("registered user:", err.response);
-    }
-  }
+
+
+  //user authentication
+
+	//user authentication
+	const authenticate = async () => {
+		try {
+			const { data } = await userAPI.authenticateUser();
+			console.log('user:', data);
+			setUserState(data);
+		} catch (err) {
+			return console.log('registered user:', err.response);
+		}
+	}
  
   return (
     // <BrowserRouter basename={process.env.PUBLIC_URL || "/prepair"}>
     <BrowserRouter>
       <div className="App">
-        <Nav />
+        <Nav  setUserState={setUserState}/>
 
         <Routes>
           <Route
@@ -56,7 +61,7 @@ function App() {
             path="/login"
             className="App-link"
             element={
-              <Login userState={userState} setUserState={setUserState} />
+              <Login setUserState={setUserState} authenticate={authenticate}/>
             }
           ></Route>
 
@@ -68,6 +73,8 @@ function App() {
           ></Route>
 
           <Route element={<ProtectedRoute isLoggedIn={userState} />}>
+
+            
             <Route
               exact
               path="/newproject"
@@ -84,7 +91,11 @@ function App() {
 
           </Route>
 
+        
+
           <Route component={NoMatch} />
+         
+       
         </Routes>
 		{/* {userState.email ? <Navigate to="/newproject" /> : <></>} */}
       </div>

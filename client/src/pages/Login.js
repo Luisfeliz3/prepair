@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import userAPI from "../utils/userAPI";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { Input, FormBtn } from "../components/Form";
 import "./style.css";
 
-const Login = ({setUserState})=> {
+const Login = ({setUserState, authenticate})=> {
 	const [formData, setFormData] = useState({
 		email: "",
 		password: "",
@@ -22,6 +22,10 @@ const	handleInputChange = (event) => {
 		event.preventDefault();
 	
 		if ( formData.email && formData.password) {
+			localStorage.setItem("token-info",
+			JSON.stringify(formData)
+			)
+
 			userAPI
 				.loginUser({
 					email:formData.email,
@@ -30,6 +34,7 @@ const	handleInputChange = (event) => {
 				.then((res) => {
 					if (res.status === 200) {
 						setUserState(res.data);
+						 
 					}
 				})
 				.catch((err) => console.log(err));

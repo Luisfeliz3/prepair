@@ -19,7 +19,13 @@ router.route("/signup").post(userController.signup);
 router
 	.route("/logout")
 	// Route for logging user out
-	.get(userController.logout);
+	.post((req, res) => {
+		res.sendStatus(200)
+	},userController.logout);
+
+
+
+
 
 // Matches with "/api/user/authenticate"
 router
